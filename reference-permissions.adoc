@@ -1,0 +1,71 @@
+---
+sidebar: sidebar 
+permalink: reference-permissions.html 
+keywords: permissions, actions 
+summary: Para poder utilizar las funciones y servicios de BlueXP, deberá proporcionar permisos para que BlueXP pueda realizar operaciones en su entorno de nube. Utilice los vínculos de esta página para acceder rápidamente a los permisos necesarios en BlueXP. 
+---
+= Resumen de permisos para BlueXP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Para poder utilizar las funciones y servicios de BlueXP, deberá proporcionar permisos para que BlueXP pueda realizar operaciones en su entorno de nube. Utilice los vínculos de esta página para acceder rápidamente a los permisos que necesita en función de su objetivo.
+
+
+
+== Permisos de AWS
+
+[cols="25,60,40"]
+|===
+| Específico | Descripción | Enlace 
+
+
+| Despliegue del conector | El usuario que crea un conector a partir de BlueXP necesita permisos específicos para implementar la instancia en AWS. | link:task-creating-connectors-aws.html["Cree un conector en AWS desde BlueXP"] 
+
+
+| Funcionamiento del conector | Cuando BlueXP inicia el conector, adjunta una directiva a la instancia que proporciona los permisos necesarios para administrar los recursos y procesos de su cuenta de AWS. Usted debe establecer la política usted mismo si usted link:task-launching-aws-mktp.html["Inicie un conector desde el mercado"] o si usted link:task-adding-aws-accounts.html#add-credentials-to-a-connector["Agregue más credenciales de AWS a un conector"]. También debe asegurarse de que la directiva esté actualizada a medida que se añadan nuevos permisos en versiones posteriores. | link:reference-permissions-aws.html["Permisos de AWS para Connector"] 
+
+
+| Funcionamiento de Cloud Volumes ONTAP | Se debe conectar un rol de IAM a cada nodo Cloud Volumes ONTAP en AWS. Lo mismo sucede con el mediador de alta disponibilidad. La opción predeterminada es dejar que BlueXP cree las funciones IAM para usted, pero puede utilizar las suyas propias. | https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-set-up-iam-roles.html["Aprenda a configurar las funciones del IAM usted mismo"^] 
+|===
+
+
+== Permisos de Azure
+
+[cols="25,60,40"]
+|===
+| Específico | Descripción | Enlace 
+
+
+| Despliegue del conector | Al implementar un conector desde BlueXP, necesita utilizar una cuenta de Azure o una entidad de servicio con permisos para implementar Connector VM en Azure. | link:task-creating-connectors-azure.html["Cree un conector en Azure desde BlueXP"] 
+
+
+| Funcionamiento del conector  a| 
+Cuando BlueXP implementa Connector VM en Azure, crea una función personalizada que proporciona los permisos necesarios para gestionar los recursos y procesos dentro de esa suscripción a Azure.
+
+Debe configurar la función personalizada si lo desea link:task-launching-azure-mktp.html["Inicie un conector desde el mercado"] o si usted link:task-adding-azure-accounts.html#adding-additional-azure-credentials-to-cloud-manager["Agregue más credenciales de Azure a un conector"].
+
+También debe asegurarse de que la directiva esté actualizada a medida que se añadan nuevos permisos en versiones posteriores.
+ a| 
+link:reference-permissions-azure.html["Permisos de Azure para Connector"]
+
+|===
+
+
+== Permisos de Google Cloud
+
+[cols="25,60,40"]
+|===
+| Específico | Descripción | Enlace 
+
+
+| Despliegue del conector | El usuario de Google Cloud que implementa un conector de BlueXP necesita permisos específicos para implementar el conector en Google Cloud. | link:task-creating-connectors-gcp.html#set-up-permissions-to-deploy-the-connector["Configure los permisos para desplegar el conector"] 
+
+
+| Funcionamiento del conector | La cuenta de servicio de la instancia de Connector VM debe tener permisos específicos para las operaciones del día a día. Debe asociar la cuenta de servicio al conector cuando la despliegue desde BlueXP. También debe asegurarse de que la directiva esté actualizada a medida que se añadan nuevos permisos en versiones posteriores. | link:task-creating-connectors-gcp.html#set-up-a-service-account-for-the-connector["Configure una cuenta de servicio para el conector"] 
+|===

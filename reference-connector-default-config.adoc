@@ -1,0 +1,141 @@
+---
+sidebar: sidebar 
+permalink: reference-connector-default-config.html 
+keywords: linux, user name, operating system, installation files, installation folder, folder, log, logs, service, mysql, packages, linux 
+summary: Es posible que desee obtener más información sobre el conector antes de implementarlo o si necesita solucionar cualquier problema. 
+---
+= Configuración predeterminada del conector
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Es posible que desee obtener más información sobre el conector antes de implementarlo o si necesita solucionar cualquier problema.
+
+
+
+== Configuración predeterminada con acceso a Internet
+
+Los siguientes detalles de configuración se aplican si ha implementado el conector desde BlueXP, desde el mercado del proveedor de la nube o si ha instalado manualmente el conector en un host Linux local que tenga acceso a Internet.
+
+
+
+=== Detalles de AWS
+
+Si implementó el conector desde BlueXP o desde el mercado del proveedor de la nube, tenga en cuenta lo siguiente:
+
+* El tipo de instancia de EC2 es t3.xlarge.
+* El sistema operativo de la imagen es Red Hat Enterprise Linux 7.6 (HVM).
++
+El sistema operativo no incluye una GUI. Debe utilizar un terminal para acceder al sistema.
+
+* El nombre de usuario de la instancia de EC2 Linux es ec2-user.
+* El disco del sistema predeterminado es un disco gp2 de 100 GIB.
+
+
+
+
+=== Detalles de Azure
+
+Si implementó el conector desde BlueXP o desde el mercado del proveedor de la nube, tenga en cuenta lo siguiente:
+
+* El tipo de máquina virtual es DS3 v2.
+* El sistema operativo de la imagen es CentOS 7.6.
++
+El sistema operativo no incluye una GUI. Debe utilizar un terminal para acceder al sistema.
+
+* El disco del sistema predeterminado es un disco SSD premium de 100 GIB.
+
+
+
+
+=== Detalles de Google Cloud
+
+Si implementó el conector desde BlueXP o desde el mercado del proveedor de la nube, tenga en cuenta lo siguiente:
+
+* La instancia del equipo virtual es n2-standard-4.
+* El sistema operativo de la imagen es Red Hat Enterprise Linux 8.6.
++
+El sistema operativo no incluye una GUI. Debe utilizar un terminal para acceder al sistema.
+
+* El disco del sistema predeterminado es un disco SSD persistente de 100 GIB.
+
+
+
+
+=== Carpeta de instalación
+
+La carpeta de instalación del conector se encuentra en la siguiente ubicación:
+
+/opt/aplicación/netapp/cloudmanager
+
+
+
+=== Archivos de registro
+
+Los archivos de registro se encuentran en las siguientes carpetas:
+
+* /opt/application/netapp/cloudmanager/log o.
+* /opt/application/netapp/service-manager-2/logs (a partir de las nuevas instalaciones de 3.9.23)
++
+Los registros de estas carpetas proporcionan detalles sobre las imágenes de conector y Docker.
+
+* /opt/aplicación/netapp/cloudmanager/docker_occm/data/log
++
+Los registros de esta carpeta proporcionan detalles sobre los servicios en la nube y el servicio BlueXP que se ejecuta en el conector.
+
+
+
+
+
+=== Servicio de conectores
+
+* El servicio BlueXP se llama occm.
+* El servicio occm depende del servicio MySQL.
++
+Si el servicio MySQL está inactivo, entonces el servicio occm también está inactivo.
+
+
+
+
+
+=== Puertos
+
+El conector utiliza los siguientes puertos en el host Linux:
+
+* 80 para acceso HTTP
+* 443 para acceso HTTPS
+
+
+
+
+== Configuración predeterminada sin acceso a Internet
+
+La siguiente configuración se aplica si instaló manualmente el conector en un host Linux local que no tiene acceso a Internet. link:task-install-connector-onprem-no-internet.html["Obtenga más información sobre esta opción de instalación"].
+
+* La carpeta de instalación del conector se encuentra en la siguiente ubicación:
++
+/opt/aplicación/netapp/ds
+
+* Los archivos de registro se encuentran en las siguientes carpetas:
++
+/var/lib/docker/volumes/ds_occmdata/_data/log
+
++
+Los registros de esta carpeta proporcionan detalles sobre las imágenes de conector y Docker.
+
+* Todos los servicios se ejecutan en contenedores Docker
++
+Los servicios dependen del servicio docker Runtime que se esté ejecutando
+
+* El conector utiliza los siguientes puertos en el host Linux:
++
+** 80 para acceso HTTP
+** 443 para acceso HTTPS
+
+
+

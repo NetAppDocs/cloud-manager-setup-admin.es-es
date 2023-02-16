@@ -1,0 +1,77 @@
+---
+sidebar: sidebar 
+permalink: task-configuring-proxy.html 
+keywords: proxy, proxy server, proxy, internet, HTTP, http, https 
+summary: Si las directivas de la empresa requieren que utilice un servidor proxy para todas las comunicaciones a Internet, deberá configurar los conectores para que utilicen ese servidor proxy. Si no configuró un conector para que utilice un servidor proxy durante la instalación, puede configurar el conector para que utilice ese servidor proxy en cualquier momento. 
+---
+= Configure un conector para que utilice un servidor proxy
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Si las directivas de la empresa requieren que utilice un servidor proxy para todas las comunicaciones a Internet, deberá configurar los conectores para que utilicen ese servidor proxy. Si no configuró un conector para que utilice un servidor proxy durante la instalación, puede configurar el conector para que utilice ese servidor proxy en cualquier momento.
+
+BlueXP admite HTTP y HTTPS. El servidor proxy puede estar en la nube o en la red.
+
+Configurar el conector para que utilice un servidor proxy proporciona acceso saliente a Internet si no hay disponible una dirección IP pública o una puerta de enlace NAT. Este servidor proxy sólo proporciona el conector con una conexión saliente. No ofrece conectividad para los sistemas Cloud Volumes ONTAP.
+
+Si los sistemas Cloud Volumes ONTAP no tienen una conexión a Internet de salida para enviar mensajes AutoSupport, BlueXP configura automáticamente esos sistemas Cloud Volumes ONTAP para que utilicen un servidor proxy incluido con el conector. El único requisito es asegurarse de que el grupo de seguridad del conector permite conexiones entrantes a través del puerto 3128. Tendrá que abrir este puerto después de desplegar el conector.
+
+
+
+== Activar un proxy en un conector
+
+Cuando configura un conector para utilizar un servidor proxy, ese conector y los sistemas Cloud Volumes ONTAP que administra (incluidos los mediadores ha), todos utilizan el servidor proxy.
+
+Tenga en cuenta que esta operación reinicia el conector. Asegúrese de que el conector no realiza ninguna operación antes de continuar.
+
+.Pasos
+. link:task-logging-in.html["Inicie sesión en la interfaz SaaS de BlueXP"^] Desde un equipo que tiene una conexión de red a la instancia de conector.
++
+Si el conector no tiene una dirección IP pública, necesitará una conexión VPN o deberá conectarse desde un host de salto que esté en la misma red que el conector.
+
+. Haga clic en el menú desplegable *conector* y, a continuación, haga clic en *Ir a la interfaz de usuario local* para ver un conector específico.
++
+image:screenshot_connector_local_ui.gif["Captura de pantalla que muestra el icono conector en el encabezado y la acción Ir a la interfaz de usuario local."]
+
++
+La interfaz BlueXP que se ejecuta en el conector se carga en una nueva pestaña del navegador.
+
+. En la parte superior derecha de la consola de BlueXP, haga clic en el icono Configuración y seleccione *Configuración del conector*.
++
+image:screenshot_settings_icon.gif["Captura de pantalla que muestra el icono Configuración en la parte superior derecha de la consola BlueXP."]
+
+. En *General*, haga clic en *Configuración de proxy HTTP*.
+. Configure el proxy:
++
+.. Haga clic en *Activar proxy*.
+.. Especifique el servidor con la sintaxis http://_address:port_[] o. https://_address:port_[]
+.. Especifique un nombre de usuario y una contraseña si se requiere autenticación básica para el servidor
+.. Haga clic en *Guardar*.
++
+
+NOTE: BlueXP no admite contraseñas que incluyan el carácter @.
+
+
+
+
+
+
+
+== Habilite el tráfico de API directo
+
+Si ha configurado un servidor proxy, puede enviar llamadas API directamente a BlueXP sin pasar por el proxy. Esta opción es compatible con conectores que se ejecutan en AWS, en Azure o en Google Cloud.
+
+.Pasos
+. En la parte superior derecha de la consola de BlueXP, haga clic en el icono Configuración y seleccione *Configuración del conector*.
++
+image:screenshot_settings_icon.gif["Captura de pantalla que muestra el icono Configuración en la parte superior derecha de la consola BlueXP."]
+
+. En *General*, haga clic en *Support Direct API Traffic*.
+. Haga clic en la casilla de verificación para activar la opción y, a continuación, haga clic en *Guardar*.
+

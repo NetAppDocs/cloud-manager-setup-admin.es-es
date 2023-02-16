@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: task-viewing-amazon-s3.html 
+keywords: s3 buckets, s3 storage, s3 working environment, amazon s3 buckets, amazon s3 working environment 
+summary: Después de instalar un conector en AWS, BlueXP puede descubrir automáticamente información sobre los cubos de Amazon S3 que residen en la cuenta de AWS donde está instalado el conector. Se añade un entorno de trabajo de Amazon S3 al lienzo para poder ver esta información. 
+---
+= Ver los bloques de Amazon S3
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Después de instalar un conector en AWS, BlueXP puede descubrir automáticamente información sobre los cubos de Amazon S3 que residen en la cuenta de AWS donde está instalado el conector. Se añade un entorno de trabajo de Amazon S3 al lienzo para poder ver esta información.
+
+Puede ver detalles sobre sus bloques de S3, incluida la región, la política de acceso, la cuenta, la capacidad total y utilizada, etc. Estos bloques se pueden usar como destinos para las operaciones Cloud Backup, Cloud Tiering o Cloud Sync. Además, puede usar Cloud Data Sense para analizar estos bloques.
+
+.Pasos
+. link:task-creating-connectors-aws.html["Instale un conector"] En la cuenta de AWS, donde desea ver sus bloques de Amazon S3.
+. En el menú de navegación, selecciona *almacenamiento > Canvas*.
++
+Verá automáticamente un entorno de trabajo de Amazon S3 poco después.
+
++
+image:screenshot_s3_we.gif["Captura de pantalla de un entorno de trabajo Amazon S3."]
+
+. Haga clic en el entorno de trabajo y seleccione una acción en el panel derecho.
++
+image:screenshot_s3_actions.gif["Captura de pantalla que muestra el panel acciones después de seleccionar un entorno de trabajo de Amazon S3. El panel muestra información sobre S3: El número de bloques y los servicios disponibles."]
+
+. Haga clic en *Sincronizar datos* para sincronizar datos con o desde bloques S3.
++
+Para obtener información detallada, consulte https://docs.netapp.com/us-en/cloud-manager-sync/concept-cloud-sync.html["La descripción del servicio Cloud Sync"^].
+
+. Haga clic en *Activar* si desea que Cloud Data Sense analice los cubos de S3 en busca de datos personales y confidenciales.
++
+Para obtener información detallada, consulte https://docs.netapp.com/us-en/cloud-manager-data-sense/task-scanning-s3.html["Introducción a Cloud Data Sense para Amazon S3"^].
+
+. Haga clic en *Entrar en entorno de trabajo* para ver detalles sobre los bloques S3 de su cuenta de AWS.
++
+image:screenshot_amazon_s3.gif["Una captura de pantalla que muestra los detalles de un entorno de trabajo de Amazon S3: El número total de bloques y el número total de regiones; a continuación, una tabla que muestra los detalles de cada bloque de S3."]
+
+

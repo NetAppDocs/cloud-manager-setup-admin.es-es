@@ -1,0 +1,187 @@
+---
+settings:
+  name: Set up and administration
+  platform: cloud
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  rss_page: whats-new.html
+  langs: es-es,us-en,ja-jp,ko-kr,zh-cn,zh-tw,de-de,fr-fr
+sidebar:
+  entries:
+  - title: Documentos de configuración y administración
+    url: "/index.html"
+  - title: Notas de la versión
+    entries:
+    - title: Novedades
+      url: "/whats-new.html"
+    - title: Limitaciones
+      url: "/reference-limitations.html"
+  - title: Manos a la obra
+    entries:
+    - title: Más información sobre BlueXP
+      url: "/concept-overview.html"
+    - title: Lista de comprobación de introducción
+      url: "/reference-checklist-cm.html"
+    - title: Regístrese en BlueXP
+      url: "/task-sign-up-saas.html"
+    - title: Inicie sesión en BlueXP
+      url: "/task-logging-in.html"
+    - title: Configure una cuenta de NetApp
+      entries:
+      - title: Obtenga más información acerca de las cuentas de NetApp
+        url: "/concept-netapp-accounts.html"
+      - title: Configure espacios de trabajo y usuarios
+        url: "/task-setting-up-netapp-accounts.html"
+    - title: Configure un conector
+      entries:
+      - title: Más información sobre conectores
+        url: "/concept-connectors.html"
+      - title: Cree un conector en AWS
+        url: "/task-creating-connectors-aws.html"
+      - title: Cree un conector en Azure
+        url: "/task-creating-connectors-azure.html"
+      - title: Cree un conector en Google Cloud
+        url: "/task-creating-connectors-gcp.html"
+      - title: Cree un conector en una región gubernamental
+        url: "/task-create-connectors-gov.html"
+    - title: A continuación, ¿dónde ir
+      url: "/reference-whats-next.html"
+  - title: Administrar BlueXP
+    entries:
+    - title: Cuentas de NetApp
+      entries:
+      - title: Gestione su cuenta
+        url: "/task-managing-netapp-accounts.html"
+      - title: Supervisar las operaciones en su cuenta
+        url: "/task-monitor-cm-operations.html"
+      - title: Roles de usuario
+        url: "/reference-user-roles.html"
+    - title: Conectores
+      entries:
+      - title: Puesta en marcha avanzada
+        entries:
+        - title: Cree desde el AWS Marketplace
+          url: "/task-launching-aws-mktp.html"
+        - title: Cree desde Azure Marketplace
+          url: "/task-launching-azure-mktp.html"
+        - title: Instale en su propio host con Internet
+          url: "/task-installing-linux.html"
+        - title: Instale en el entorno local sin Internet
+          url: "/task-install-connector-onprem-no-internet.html"
+      - title: Busque el ID del sistema de un conector
+        url: "/task-finding-system-id.html"
+      - title: Administrar conectores existentes
+        url: "/task-managing-connectors.html"
+      - title: Instale un certificado HTTPS
+        url: "/task-installing-https-cert.html"
+      - title: Configure los ajustes de proxy
+        url: "/task-configuring-proxy.html"
+      - title: Configuración predeterminada
+        url: "/reference-connector-default-config.html"
+    - title: Suscripciones
+      url: "/task-manage-subscriptions.html"
+    - title: Almacenamiento en cloud detectado
+      entries:
+      - title: Consulte sus bloques de Amazon S3
+        url: "/task-viewing-amazon-s3.html"
+      - title: Consulte sus cuentas de Azure Blob
+        url: "/task-viewing-azure-blob.html"
+      - title: Consulte sus cubos de Google Cloud Storage
+        url: "/task-viewing-gcp-storage.html"
+    - title: Credenciales de AWS
+      entries:
+      - title: Descripción general
+        url: "/concept-accounts-aws.html"
+      - title: Administrar credenciales y suscripciones
+        url: "/task-adding-aws-accounts.html"
+    - title: Credenciales de Azure
+      entries:
+      - title: Descripción general
+        url: "/concept-accounts-azure.html"
+      - title: Administrar credenciales y suscripciones
+        url: "/task-adding-azure-accounts.html"
+    - title: Credenciales de Google Cloud
+      entries:
+      - title: Descripción general
+        url: "/concept-accounts-gcp.html"
+      - title: Administrar credenciales y suscripciones
+        url: "/task-adding-gcp-accounts.html"
+    - title: Cuentas del sitio de soporte de NetApp
+      url: "/task-adding-nss-accounts.html"
+    - title: Descubrimiento mediante Mis oportunidades
+      url: "/concept-my-opportunities.html"
+  - title: Referencia
+    entries:
+    - title: Permisos
+      entries:
+      - title: Resumen de permisos
+        url: "/reference-permissions.html"
+      - title: Permisos de AWS para Connector
+        url: "/reference-permissions-aws.html"
+      - title: Permisos de Azure para Connector
+        url: "/reference-permissions-azure.html"
+      - title: Permisos de Google Cloud para Connector
+        url: "/reference-permissions-gcp.html"
+    - title: Puertos
+      entries:
+      - title: Reglas del grupo de seguridad en AWS
+        url: "/reference-ports-aws.html"
+      - title: Reglas de grupos de seguridad en Azure
+        url: "/reference-ports-azure.html"
+      - title: Reglas de firewall en Google Cloud
+        url: "/reference-ports-gcp.html"
+      - title: Puertos para el conector en las instalaciones
+        url: "/reference-ports-on-prem.html"
+  - title: Conocimiento y apoyo
+    entries:
+    - title: Regístrese para recibir soporte
+      url: "/task-support-registration.html"
+    - title: Obtenga ayuda
+      url: "/task-get-help.html"
+  - title: Avisos legales
+    url: "/legal-notices.html"
+homepage:
+  tiles:
+  - title: Manos a la obra
+    links:
+    - title: Más información sobre BlueXP
+      url: concept-overview.html
+    - title: Lista de comprobación de introducción
+      url: reference-checklist-cm.html
+  - title: Conectores
+    links:
+    - title: Más información sobre conectores
+      url: concept-connectors.html
+    - title: Gestionar conectores
+      url: task-managing-connectors.html
+  - title: Cuentas de NetApp
+    links:
+    - title: Obtenga más información acerca de las cuentas de NetApp
+      url: concept-netapp-accounts.html
+    - title: Configure espacios de trabajo y usuarios
+      url: task-setting-up-netapp-accounts.html
+    - title: Gestione su cuenta de NetApp
+      url: task-managing-netapp-accounts.html
+  - title: Cuentas de proveedores de cloud
+    links:
+    - title: Gestione las credenciales de AWS
+      url: task-adding-aws-accounts.html
+    - title: Gestione las credenciales de Azure
+      url: task-adding-azure-accounts.html
+    - title: Gestione las credenciales de Google Cloud
+      url: task-adding-gcp-accounts.html
+  - title: Blogs y comunidad
+    links:
+    - title: Comunidad de NetApp
+      url: https://community.netapp.com/t5/Cloud-Data-Services/ct-p/CDS
+    - title: Blog de BlueXP
+      url: https://cloud.netapp.com/blog/topic/cloud-manager
+    - title: Seminarios web sobre el cloud
+      url: https://cloud.netapp.com/events
+product-family:
+  name: BlueXP
+  repo: cloud-manager-family
+  sidebar_label: Toda la documentación de BlueXP

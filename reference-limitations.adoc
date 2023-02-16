@@ -1,0 +1,77 @@
+---
+sidebar: sidebar 
+permalink: reference-limitations.html 
+keywords: limitations, active directory, ad, iscsi, key managers, ip address, govcloud, BlueXP, Cloud Volumes ONTAP, days, running, Connectors should remain running 
+summary: Las limitaciones conocidas identifican plataformas, dispositivos o funciones que no son compatibles con esta versión del producto o cuya interoperabilidad con esta no es óptima. Revise estas limitaciones detenidamente. 
+---
+= Limitaciones conocidas
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Las limitaciones conocidas identifican plataformas, dispositivos o funciones que no son compatibles con esta versión del producto o cuya interoperabilidad con esta no es óptima. Revise estas limitaciones detenidamente.
+
+Estas limitaciones son específicas para la configuración y administración de BlueXP: El conector, la plataforma SaaS, y más.
+
+
+
+== Limitaciones del conector
+
+
+
+=== Posible conflicto con las direcciones IP en el rango 172
+
+BlueXP despliega el conector con dos interfaces que tienen direcciones IP en las gamas 172.17.0.0/16 y 172.18.0.0/16.
+
+Si la red tiene una subred configurada con cualquiera de estos rangos, puede que experimente errores de conectividad de BlueXP. Por ejemplo, la detección de clústeres de ONTAP en las instalaciones en BlueXP podría fallar.
+
+Consulte el artículo de Knowledge base link:https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Manager/Cloud_Manager_shows_inactive_as_Connector_IP_range_in_172.x.x.x_conflict_with_docker_network["BlueXP Connector IP entra en conflicto con la red existente"] Para obtener instrucciones sobre cómo cambiar la dirección IP de las interfaces del conector.
+
+
+
+=== El descifrado SSL no es compatible
+
+BlueXP no admite configuraciones de firewall que tengan activado el descifrado SSL. Si está activado el descifrado SSL, aparecerán mensajes de error en BlueXP y la instancia del conector aparecerá como inactiva.
+
+Para mejorar la seguridad, tiene la opción de link:task-installing-https-cert.html["Instalar un certificado HTTPS firmado por una entidad de certificación (CA)"].
+
+
+
+=== Página en blanco al cargar la interfaz de usuario local
+
+Si carga la interfaz de usuario local para un conector, es posible que la interfaz de usuario no se muestre a veces y solo se obtiene una página en blanco.
+
+Este problema está relacionado con un problema del almacenamiento en caché. La solución alternativa es usar una sesión de navegador web privada o de incógnito.
+
+
+
+=== No se admiten los hosts Linux compartidos
+
+El conector no es compatible con una máquina virtual compartida con otras aplicaciones. La máquina virtual debe estar dedicada al software del conector.
+
+
+
+=== agentes y extensiones de terceros
+
+No se admiten agentes de terceros ni extensiones de VM en el conector VM.
+
+
+
+== Limitaciones de SaaS
+
+
+
+=== La plataforma SaaS está deshabilitada para las regiones gubernamentales
+
+Si implementa un conector en una región de AWS GovCloud, una región de Azure Gov o una región de Azure DoD, el acceso a BlueXP solo está disponible a través de la dirección IP de host de un conector. El acceso a la plataforma SaaS está desactivado para toda la cuenta.
+
+Esto significa que solo los usuarios con privilegios que pueden acceder al VPC/vnet interno del usuario final pueden usar la interfaz de usuario o la API de BlueXP.
+
+Tenga en cuenta que los únicos servicios que se admiten en estas regiones son Cloud Volumes ONTAP, Cloud Backup, Cloud Data Sense y Replication. No se ofrece soporte a otros servicios de NetApp en regiones gubernamentales.
+
+link:task-managing-connectors.html#access-the-local-ui["Aprenda a acceder a la interfaz de usuario local en el conector"].

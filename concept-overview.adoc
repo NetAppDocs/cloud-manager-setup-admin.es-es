@@ -1,0 +1,110 @@
+---
+sidebar: sidebar 
+permalink: concept-overview.html 
+keywords: overview, concepts, features, use case, cloud manager 
+summary: BlueXP permite que los expertos EN TECNOLOGÍA y los arquitectos de la nube gestionen de manera centralizada sus infraestructuras multicloud híbridas mediante las soluciones cloud de NetApp. 
+---
+= Más información sobre BlueXP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+BlueXP (anteriormente Cloud Manager) permite que los expertos en TECNOLOGÍA y los arquitectos de cloud gestionen de forma centralizada su infraestructura multicloud híbrida con las soluciones cloud de NetApp.
+
+
+
+== Funciones
+
+BlueXP es una plataforma de gestión basada en SaaS de nivel empresarial que le permite controlar sus datos sin importar dónde se encuentren.
+
+* Configuración y uso https://cloud.netapp.com/ontap-cloud["Cloud Volumes ONTAP"^] para lograr una gestión de datos eficiente con varios protocolos en todos los clouds.
+* Configure y utilice los servicios cloud de almacenamiento de archivos:
++
+** https://bluexp.netapp.com/azure-netapp-files["Azure NetApp Files"^]
+** https://bluexp.netapp.com/fsx-for-ontap["Amazon FSX para ONTAP"^]
+** https://bluexp.netapp.com/cloud-volumes-service-for-gcp["Cloud Volumes Service para Google Cloud"^]
+
+
+* Detectar y gestionar https://bluexp.netapp.com/netapp-on-premises["almacenamiento en las instalaciones"^]
++
+** Sistemas E-Series
+** Clústeres ONTAP
+** Sistemas StorageGRID
+
+
+* Utilice los servicios de BlueXP para la movilidad, la protección y el análisis y el control de los datos:
++
+** https://bluexp.netapp.com/cloud-backup["Backup en el cloud"^]
+** https://bluexp.netapp.com/netapp-cloud-data-sense["Cloud Data SENSE"^]
+** https://bluexp.netapp.com/cloud-sync-service["Cloud Sync"^]
+** https://bluexp.netapp.com/cloud-tiering["Organización en niveles del cloud"^]
+** https://bluexp.netapp.com/digital-advisor["Asesor digital"^]
+** https://bluexp.netapp.com/global-file-cache["Caché de archivos global"^]
+** https://bluexp.netapp.com/k8s["Kubernetes"^]
+** https://bluexp.netapp.com/ransomware-protection["Protección contra ransomware"^]
+** https://bluexp.netapp.com/replication["Replicación"^]
+
+
+
+
+https://cloud.netapp.com/cloud-manager["Más información sobre BlueXP"^]
+
+
+
+== Proveedores de cloud compatibles
+
+BlueXP le permite gestionar el almacenamiento en cloud y utilizar servicios cloud en Amazon Web Services, Microsoft Azure y Google Cloud.
+
+
+
+== Coste
+
+El precio de BlueXP depende de los servicios que usted planea utilizar. https://bluexp.netapp.com/pricing["Más información sobre los precios de BlueXP"^].
+
+
+
+== Cómo funciona BlueXP
+
+BlueXP incluye una interfaz basada en SaaS que está integrada con el sitio web de BlueXP y conectores que gestionan Cloud Volumes ONTAP y otros servicios en la nube.
+
+
+
+=== Software como servicio
+
+BlueXP es accesible a través de un https://console.bluexp.netapp.com["Interfaz de usuario basada en SaaS"^] Y API. Esta experiencia de SaaS le permite acceder automáticamente a las últimas funciones de su lanzamiento y cambiar fácilmente entre sus cuentas y conectores de NetApp.
+
+
+TIP: Si trabaja en un entorno en el que no hay acceso saliente a Internet, puede instalar el software Connector en ese entorno y acceder a la interfaz de usuario local que está disponible en el conector. link:concept-connectors.html["Más información sobre conectores"].
+
+
+
+=== Página web de BlueXP
+
+https://cloud.netapp.com["El sitio web de BlueXP"^] proporciona una ubicación centralizada para acceder y gestionar https://www.netapp.com/us/products/cloud-services/use-cases-for-netapp-cloud-services.aspx["Servicios en nube de NetApp"^]. Con la autenticación de usuario centralizada, puede utilizar el mismo conjunto de credenciales para acceder a BlueXP y otros servicios en la nube como Cloud Insights.
+
+
+
+=== Cuenta de NetApp
+
+Cuando inicie sesión en BlueXP por primera vez, se le solicitará que cree una cuenta _NetApp_. Esta cuenta proporciona multi-tenancy y le permite organizar usuarios y recursos en espacios de trabajo aislados.
+
+
+
+=== Conectores
+
+En la mayoría de los casos, un administrador de cuentas de BlueXP necesitará poner en marcha un _Connector_ en su red local o en la nube. Connector permite que BlueXP gestione recursos y procesos dentro de su entorno de cloud público.
+
+link:concept-connectors.html["Obtenga más información sobre cuándo se necesitan los conectores y cómo trabajo"].
+
+
+
+== Certificación SOC 2 de tipo 2
+
+Una empresa independiente certificada de contables y un auditor de servicios examinaron BlueXP, Cloud Sync, Cloud Tiering, Cloud Data Sense y Cloud Backup (plataforma BlueXP) y afirmaron que han obtenido los informes de SOC 2 tipo 2 basados en los criterios aplicables de los servicios de confianza.
+
+https://www.netapp.com/company/trust-center/compliance/soc-2/["Consulte los informes de SOC 2 de NetApp"^]

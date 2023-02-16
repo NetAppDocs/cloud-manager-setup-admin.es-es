@@ -1,0 +1,112 @@
+---
+sidebar: sidebar 
+permalink: task-adding-gcp-accounts.html 
+keywords: permissions, gcp, marketplace, gcp subscription, subscription, gcp marketplace, subscribe, data tiering, tiering, setup, requirements, account for data tiering, account for tiering, interoperable, interoperability, interoperable storage access keys, access keys 
+summary: Puede gestionar las credenciales asociadas a la instancia de Connector VM. 
+---
+= Gestión de credenciales y suscripciones de Google Cloud para BlueXP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Puede gestionar las credenciales asociadas a la instancia de Connector VM.
+
+
+
+== Asociación de una suscripción a Marketplace con credenciales de Google Cloud
+
+Al implementar un conector en Google Cloud, BlueXP crea un conjunto predeterminado de credenciales asociadas a la instancia de Connector VM. Estas son las credenciales que BlueXP utiliza para implementar Cloud Volumes ONTAP.
+
+En cualquier momento, puede cambiar la suscripción de Marketplace asociada a estas credenciales. La suscripción le permite crear un sistema de pago por uso Cloud Volumes ONTAP y usar otros servicios cloud de NetApp.
+
+.Pasos
+. En la parte superior derecha de la consola de BlueXP, haga clic en el icono Configuración y seleccione *credenciales*.
+. Haga clic en el menú de acción para obtener un conjunto de credenciales y, a continuación, seleccione *Suscripción asociada*.
++
+image:screenshot_gcp_add_subscription.png["Captura de pantalla del menú de acción para un conjunto de credenciales existentes."]
+
+. Para asociar las credenciales a una suscripción existente, seleccione un proyecto de Google Cloud y una suscripción en la lista desplegable y, a continuación, haga clic en *asociado*.
++
+image:screenshot_gcp_associate.gif["Captura de pantalla de un proyecto y suscripción de Google Cloud seleccionados para las credenciales de Google Cloud."]
+
+. Si aún no tiene una suscripción, haga clic en *Agregar suscripción > continuar* y siga los pasos de Google Cloud Marketplace.
++
+
+NOTE: Antes de completar los siguientes pasos, asegúrese de que tiene privilegios de administrador de facturación en su cuenta de Google Cloud así como un inicio de sesión de BlueXP.
+
++
+.. Cuando se le haya redirigido a. https://console.cloud.google.com/marketplace/product/netapp-cloudmanager/cloud-manager["Página de BlueXP de NetApp en Google Cloud Marketplace"^], asegúrese de seleccionar el proyecto correcto en el menú de navegación superior.
++
+image:screenshot_gcp_cvo_marketplace.png["Captura de pantalla de la página de mercado de GCP CVO."]
+
+.. Haga clic en *Suscribirse*.
+.. Seleccione la cuenta de facturación adecuada y acepte los términos y condiciones.
+.. Haga clic en *Suscribirse*.
++
+Este paso envía la solicitud de transferencia a NetApp.
+
+.. En el cuadro de diálogo emergente, haga clic en *Registrar con NetApp, Inc.*
++
+Este paso debe completarse para vincular la suscripción a Google Cloud a su cuenta de NetApp. El proceso de vinculación de una suscripción no está completo hasta que se le redirigirá de esta página y, a continuación, inicie sesión en BlueXP.
+
++
+image:screenshot_gcp_marketplace_register.png["Captura de pantalla de una ventana emergente de registro."]
+
+.. Siga los pasos de la página *asignación de suscripción*:
++
+
+NOTE: Si alguien de su organización ya se ha suscrito a la suscripción de NetApp BlueXP desde su cuenta de facturación, se le redirigirá a https://bluexp.netapp.com/ontap-cloud?x-gcp-marketplace-token=["La página Cloud Volumes ONTAP en el sitio Web de BlueXP"^] en su lugar. Si esto no se realiza de forma inesperada, póngase en contacto con el equipo de ventas de NetApp. Google sólo activa una suscripción por cuenta de facturación de Google.
+
++
+*** Seleccione las cuentas de NetApp a las que desea asociar esta suscripción.
+*** En el campo *sustituir suscripción existente*, elija si desea sustituir automáticamente la suscripción existente para una cuenta con esta nueva suscripción.
++
+BlueXP reemplaza la suscripción existente para todas las credenciales de la cuenta con esta nueva suscripción. Si alguna vez no se ha asociado un conjunto de credenciales a una suscripción, esta nueva suscripción no se asociará a dichas credenciales.
+
++
+Para el resto de cuentas, deberá asociar manualmente la suscripción repitiendo estos pasos.
+
+*** Haga clic en *Guardar*.
++
+En el siguiente vídeo se muestran los pasos para suscribirse desde Google Cloud Marketplace:
+
++
+video::video-subscribing-google-cloud.mp4[width=848,height=480]
+
+
+.. Una vez completado este proceso, vuelva a la página credenciales de BlueXP y seleccione esta nueva suscripción.
++
+image:screenshot_gcp_associate.gif["Captura de pantalla de la página de asignación de suscripción."]
+
+
+
+
+
+
+
+== Solución de problemas del proceso de suscripción de Marketplace
+
+A veces, suscribirse a Cloud Volumes ONTAP a través de Google Cloud Marketplace se puede fragmentar debido a permisos incorrectos o no haber seguido accidentalmente la redirección al sitio web de BlueXP. Si esto sucede, siga estos pasos para completar el proceso de suscripción.
+
+.Pasos
+. Desplácese hasta la https://console.cloud.google.com/marketplace/product/netapp-cloudmanager/cloud-manager["Página de BlueXP de NetApp en Google Cloud Marketplace"^] para comprobar el estado del pedido. Si la página indica *Administrar en Proveedor*, desplácese hacia abajo y haga clic en *gestionar pedidos*.
++
+image:screenshot_gcp_manage_orders.png["Una captura de pantalla de la página de la plataforma tras la suscripción."]
+
++
+** Si el pedido muestra una Marca de verificación verde y esto es inesperado, puede que ya se suscriban otras personas de la organización que utilicen la misma cuenta de facturación. Si esto no se realiza lo esperado o necesita los detalles de esta suscripción, póngase en contacto con su equipo de ventas de NetApp.
++
+image:screenshot_gcp_green_marketplace.png["Captura de pantalla de un derecho aceptado."]
+
+** Si el pedido muestra un reloj y el estado *pendiente*, vuelva a la página de mercado y seleccione *Administrar en proveedor* para completar el proceso como se ha documentado anteriormente.
++
+image:screenshot_gcp_pending_marketplace.png["Captura de pantalla de un derecho de mercado pendiente."]
+
+
+
+

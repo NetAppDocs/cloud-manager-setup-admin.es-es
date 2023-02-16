@@ -1,0 +1,169 @@
+---
+sidebar: sidebar 
+permalink: task-launching-aws-mktp.html 
+keywords: install connector, create connector, deploy connector, installation, installing, marketplace, aws, launch, launching, ec2 console, iam role, govcloud, government, aws government, aws govcloud, gov marketplace 
+summary: Para una región comercial de AWS, lo mejor es crear un conector directamente desde BlueXP, pero puede ejecutar un conector desde AWS Marketplace, si lo prefiere. Para regiones gubernamentales de AWS, no es posible poner en marcha el conector en una región gubernamental desde el sitio web BlueXP SaaS, por lo que la mejor opción es hacerlo desde AWS Marketplace. 
+---
+= Cree un conector desde AWS Marketplace
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Para una región comercial de AWS, lo mejor es crear un conector directamente desde BlueXP, pero puede ejecutar un conector desde AWS Marketplace, si lo prefiere. Para regiones gubernamentales de AWS, no es posible poner en marcha el conector en una región gubernamental desde el sitio web BlueXP SaaS, por lo que la mejor opción es hacerlo desde AWS Marketplace.
+
+
+TIP: También puede descargar e instalar el software Connector en un host Linux existente en su red o en la nube. link:task-installing-linux.html["Aprenda a instalar el conector en un host Linux existente"].
+
+
+
+== Cree el conector en una región comercial de AWS
+
+Puede iniciar la instancia de Connector en una región comercial de AWS directamente desde la oferta de AWS Marketplace para BlueXP.
+
+.Antes de empezar
+El usuario de IAM que crea el conector debe tener permisos de AWS Marketplace para suscribirse y cancelar su suscripción.
+
+.Pasos
+. Configure permisos en AWS:
++
+.. Desde la consola IAM, cree las directivas necesarias copiando y pegando el contenido de link:reference-permissions-aws.html["Políticas de IAM para el conector"].
+.. Cree un rol IAM con el tipo de rol Amazon EC2 y adjunte las políticas que creó en el paso anterior al rol.
+
+
+. Vaya a la https://aws.amazon.com/marketplace/pp/B018REK8QG["Página de BlueXP en AWS Marketplace"^] Para desplegar el conector desde un AMI:
+. En la página Marketplace, haga clic en *continuar a Suscribirse* y luego haga clic en *continuar a Configuración*.
++
+image:screenshot-subscribe-aws.png["Una captura de pantalla que muestra los botones continuar Suscribirse y continuar con Configuración en AWS Marketplace."]
+
+. Cambie cualquiera de las opciones predeterminadas y haga clic en *continuar a Iniciar*.
+. En *elegir acción*, seleccione *Iniciar a través de EC2* y, a continuación, haga clic en *Iniciar*.
++
+Estos pasos describen cómo iniciar la instancia desde la consola EC2 porque la consola permite asociar una función IAM a la instancia del conector. Esto no es posible usando la acción *Iniciar desde el sitio web*.
+
+. Siga las instrucciones para configurar y desplegar la instancia:
++
+** *Nombre y etiquetas*: Introduzca un nombre y etiquetas para la instancia.
+** *Aplicación y OS Image*: Omitir esta sección. El conector AMI ya está seleccionado.
+** *Tipo de instancia*: En función de la disponibilidad de la región, elija uno de los tipos de instancia admitidos (se recomienda t3.xlarge).
++
+link:task-installing-linux.html["Revise los requisitos de la instancia"].
+
+** *Par de claves (login)*: Seleccione el par de claves que desea utilizar para conectarse de forma segura a la instancia.
+** *Ajustes de red*: Edite los ajustes de red según sea necesario:
++
+*** Elija el VPC y la subred que desee.
+*** Especifique si la instancia debe tener una dirección IP pública.
+*** Especifique la configuración del firewall que habilite los métodos de conexión necesarios para la instancia del conector: SSH, HTTP y HTTPS.
+
+
+** *Configurar almacenamiento*: Mantenga las opciones de almacenamiento predeterminadas.
+** *Detalles avanzados*: En *perfil de instancia de IAM*, elija la función de IAM que creó en el paso 1.
+** *Resumen*: Revise el resumen y haga clic en *Iniciar instancia*.
++
+AWS inicia el software con la configuración especificada. La instancia y el software del conector deben estar funcionando en aproximadamente cinco minutos.
+
+
+
+. Abra un explorador Web desde un host que tenga una conexión con la instancia de Connector e introduzca la siguiente URL:
++
+https://_ipaddress_[]
+
+. Después de iniciar sesión, configure el conector:
++
+.. Especifique la cuenta de NetApp que desea asociar al conector.
++
+link:concept-netapp-accounts.html["Obtenga más información acerca de las cuentas de NetApp"].
+
+.. Escriba un nombre para el sistema.
+
+
+. Abra un explorador web y vaya a. https://console.bluexp.netapp.com[] Para empezar a utilizar el conector con BlueXP.
+
+
+.Resultado
+El conector ahora está instalado y configurado con su cuenta de NetApp. BlueXP utilizará este conector automáticamente cuando cree nuevos entornos de trabajo. Pero si tiene más de un conector, necesitará link:task-managing-connectors.html["alterne entre ellos"].
+
+Si tiene cubos Amazon S3 en la misma cuenta AWS en la que creó el conector, verá que aparecerá un entorno de trabajo Amazon S3 en el lienzo automáticamente. link:task-viewing-amazon-s3.html["Obtenga más información sobre lo que puede hacer con este entorno de trabajo"].
+
+
+
+== Cree el conector en una región gubernamental de AWS
+
+Para poner en marcha Connector en una región AWS Government, debe ir al servicio EC2 y seleccionar la oferta BlueXP en AWS Marketplace.
+
+.Pasos
+. Configure permisos en AWS:
++
+.. Desde la consola IAM, cree su propia directiva copiando y pegando el contenido de link:reference-permissions-aws.html["Política de IAM para el conector"].
+.. Cree un rol IAM con el tipo de rol Amazon EC2 y asocie la política que ha creado en el paso anterior al rol.
+
+
+. Vaya a la oferta de BlueXP en AWS Marketplace.
++
+El usuario de IAM debe disponer de permisos de AWS Marketplace para suscribirse y cancelar la suscripción.
+
++
+.. Abra el servicio EC2 y seleccione *Iniciar instancia*.
+.. Seleccione *AWS Marketplace*.
+.. Busque BlueXP y seleccione la oferta.
++
+image:screenshot-gov-cloud-mktp.png["Una captura de pantalla que muestra la oferta BlueXP tras buscarla en AWS Marketplace"]
+
+.. Haga clic en *continuar*.
+
+
+. Siga las instrucciones para configurar y desplegar la instancia:
++
+** *Elija un tipo de instancia*: En función de la disponibilidad de la región, elija uno de los tipos de instancia admitidos (se recomienda t3.xlarge).
++
+link:task-installing-linux.html["Revise los requisitos de la instancia"].
+
+** *Configurar detalles de instancia*: Seleccione un VPC y una subred, elija la función de IAM que creó en el paso 1, habilite la protección de terminación (recomendado) y elija cualquier otra opción de configuración que cumpla sus requisitos.
++
+image:screenshot_aws_iam_role.gif["Captura de pantalla que muestra los campos de la página Configure Instance de AWS. Se selecciona el rol IAM que debería haber creado en el paso 1."]
+
+** *almacenamiento*: Mantenga las opciones de almacenamiento predeterminadas.
+** *Agregar etiquetas*: Introduzca etiquetas para la instancia, si lo desea.
+** *Configurar grupo de seguridad*: Especifique los métodos de conexión necesarios para la instancia de conector: SSH, HTTP y HTTPS.
+** *Revisión*: Revise sus selecciones y haga clic en *Iniciar*.
+
+
++
+AWS inicia el software con la configuración especificada. La instancia y el software del conector deben estar funcionando en aproximadamente cinco minutos.
+
+. Abra un explorador Web desde un host que tenga una conexión con la instancia de Connector e introduzca la siguiente URL:
++
+https://_ipaddress_[]
+
+. Después de iniciar sesión, configure el conector:
++
+.. Especifique la cuenta de NetApp que desea asociar al conector.
++
+link:concept-netapp-accounts.html["Obtenga más información acerca de las cuentas de NetApp"].
+
+.. Escriba un nombre para el sistema.
+
+
+
+
+.Resultado
+El conector ahora está instalado y configurado con su cuenta de NetApp.
+
+Siempre que desee utilizar BlueXP, abra el explorador Web y conéctese a la dirección IP de la instancia de Connector: https://_ipaddress_[]
+
+Dado que el conector se desplegó en una región gubernamental, no se puede acceder a él desde https://console.bluexp.netapp.com[].
+
+
+
+== Abra el puerto 3128 para los mensajes de AutoSupport
+
+Si tiene previsto implementar sistemas Cloud Volumes ONTAP en una subred en la que no esté disponible una conexión a Internet saliente, BlueXP configura automáticamente Cloud Volumes ONTAP para que utilice el conector como servidor proxy.
+
+El único requisito es asegurarse de que el grupo de seguridad del conector permita conexiones _entrante_ a través del puerto 3128. Tendrá que abrir este puerto después de desplegar el conector.
+
+Si utiliza el grupo de seguridad predeterminado para Cloud Volumes ONTAP, no es necesario realizar cambios en su grupo de seguridad. Pero si tiene pensado definir reglas de salida estrictas para Cloud Volumes ONTAP, también tendrá que asegurarse de que el grupo de seguridad Cloud Volumes ONTAP permita conexiones _saliente_ a través del puerto 3128.

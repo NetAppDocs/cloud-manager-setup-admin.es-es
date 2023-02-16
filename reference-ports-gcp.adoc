@@ -1,0 +1,79 @@
+---
+sidebar: sidebar 
+permalink: reference-ports-gcp.html 
+keywords: ports, firewall rules, http, https, inbound, outbound 
+summary: Las reglas de firewall de Google Cloud para el conector requieren reglas tanto entrantes como salientes. 
+---
+= Reglas de firewall en Google Cloud
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Las reglas de firewall de Google Cloud para el conector requieren reglas tanto entrantes como salientes.
+
+
+
+== Reglas de entrada
+
+[cols="10,10,80"]
+|===
+| Protocolo | Puerto | Específico 
+
+
+| SSH | 22 | Proporciona acceso SSH al host de Connector 
+
+
+| HTTP | 80 | Proporciona acceso HTTP desde navegadores web de cliente al local interfaz de usuario 
+
+
+| HTTPS | 443 | Proporciona acceso HTTPS desde exploradores web de cliente al local interfaz de usuario 
+
+
+| TCP | 3128 | Proporciona a Cloud Volumes ONTAP acceso a Internet para enviar mensajes de AutoSupport al soporte de NetApp. Debe abrir manualmente este puerto después de la implementación. <<Proxy server for AutoSupport messages,Obtenga más información sobre el servidor proxy del conector>>. 
+|===
+
+
+== Reglas de salida
+
+Las reglas de firewall predefinidas para el conector abren todo el tráfico saliente. Si eso es aceptable, siga las reglas básicas de la salida. Si necesita más reglas rígidas, utilice las reglas avanzadas de salida.
+
+
+
+=== Reglas de salida básicas
+
+Las reglas de firewall predefinidas para el conector incluyen las siguientes reglas de salida.
+
+[cols="20,20,60"]
+|===
+| Protocolo | Puerto | Específico 
+
+
+| Todos los TCP | Todo | Todo el tráfico saliente 
+
+
+| Todas las UDP | Todo | Todo el tráfico saliente 
+|===
+
+
+=== Reglas salientes avanzadas
+
+Si necesita reglas rígidas para el tráfico saliente, puede utilizar la siguiente información para abrir sólo los puertos necesarios para la comunicación saliente por parte del conector.
+
+
+NOTE: La dirección IP de origen es el host del conector.
+
+[cols="5*"]
+|===
+| Servicio | Protocolo | Puerto | Destino | Específico 
+
+
+| Llamadas API y AutoSupport | HTTPS | 443 | LIF de gestión de clústeres de ONTAP y Internet saliente | API llama a GCP y ONTAP, al Cloud Data Sense, al servicio de ransomware y a envío de mensajes de AutoSupport a NetApp 
+
+
+| DNS | UDP | 53 | DNS | Utilizado para resolver DNS por BlueXP 
+|===

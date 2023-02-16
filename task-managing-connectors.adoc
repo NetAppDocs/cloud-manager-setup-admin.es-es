@@ -1,0 +1,278 @@
+---
+sidebar: sidebar 
+permalink: task-managing-connectors.html 
+keywords: managing connectors, uninstall connector, switch connectors, switch between connectors, go to local UI, local interface, local connector, local cloud manager 
+summary: Después de crear uno o más conectores, puede gestionarlos cambiando entre conectores, conectándose a la interfaz de usuario local que se ejecuta en un conector, entre otros. 
+---
+= Gestión de conectores existentes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Después de crear uno o más conectores, puede gestionarlos cambiando entre conectores, conectándose a la interfaz de usuario local que se ejecuta en un conector, entre otros.
+
+
+
+== Cambiar entre conectores
+
+Si tiene varios conectores, puede alternar entre ellos para ver los entornos de trabajo asociados a un conector específico.
+
+Por ejemplo, digamos que trabaja en un entorno multicloud. Es posible que tenga un conector en AWS y otro en Google Cloud. Tendría que cambiar entre estos conectores para gestionar los sistemas Cloud Volumes ONTAP que se ejecutan en esas nubes.
+
+.Paso
+. Haga clic en el menú desplegable *conector*, seleccione otro conector y, a continuación, haga clic en *conmutador*.
++
+image:screenshot_connector_switch.gif["Captura de pantalla que muestra el icono conector en el cabezal y la acción Switch."]
+
++
+BlueXP actualiza y muestra los entornos de trabajo asociados al conector seleccionado.
+
+
+
+
+
+== Acceda a la interfaz de usuario local
+
+Aunque debe realizar casi todas las tareas desde la interfaz de usuario de SaaS, todavía hay disponible una interfaz de usuario local en el conector. Si accede a BlueXP desde una región gubernamental o un sitio que no tiene acceso saliente a Internet, deberá utilizar la interfaz de usuario local que se ejecuta en el conector.
+
+.Pasos
+. Abra un explorador web e introduzca la siguiente URL:
++
+https://_ipaddress_[]
+
++
+_ipaddress_ puede ser localhost, una dirección IP privada o una dirección IP pública, dependiendo de la configuración del host. Por ejemplo, si el conector está en la nube pública sin una dirección IP pública, debe introducir una dirección IP privada desde un host que tenga una conexión con el host del conector.
+
+. Introduzca su nombre de usuario y contraseña para iniciar sesión.
+
+
+
+
+== Descargar o enviar un mensaje de AutoSupport
+
+Si tiene problemas, es posible que el personal de NetApp le solicite enviar un mensaje de AutoSupport al soporte de NetApp para la solución de problemas.
+
+.Pasos
+. Conéctese a la interfaz de usuario local de Connector, como se describe en la sección anterior.
+. En la parte superior derecha de la consola de BlueXP, haga clic en el icono Ayuda y seleccione *Soporte*.
++
+image:screenshot-help-support.png["Una captura de pantalla del menú Ayuda en el que Soporte es la primera opción de la lista"]
+
+. Haga clic en *conector*.
+. En función de cómo necesite enviar la información al soporte de NetApp, seleccione una de las siguientes opciones:
++
+.. Seleccione la opción para descargar el mensaje de AutoSupport en el equipo local. Luego, puede enviarlo al soporte de NetApp mediante un método preferido.
+.. Haga clic en *Enviar AutoSupport* para enviar directamente el mensaje al soporte de NetApp.
+
+
++
+image:screenshot-connector-autosupport.png["Una captura de pantalla del Panel de soporte que muestra dónde pueden hacer clic los usuarios para descargar y enviar mensajes de AutoSupport."]
+
+
+
+
+
+== Conéctese a la máquina virtual de Linux
+
+Si necesita conectarse a la VM de Linux en la que se ejecuta el conector, puede hacerlo utilizando las opciones de conectividad disponibles de su proveedor de cloud.
+
+
+
+=== AWS
+
+Al crear la instancia de Connector en AWS, proporcionó una clave de acceso y una clave secreta de AWS. Es posible usar este par de claves para SSH a la instancia.
+
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html["AWS Docs: Conéctese a su instancia de Linux"^]
+
+
+
+=== Azure
+
+Cuando creó el conector VM en Azure, eligió autenticarse con una contraseña o una clave pública SSH. Utilice el método de autenticación que ha elegido para conectarse a la máquina virtual.
+
+https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys#ssh-into-your-vm["Azure Docs: SSH en su máquina virtual"^]
+
+
+
+=== Google Cloud
+
+No puede especificar un método de autenticación al crear un conector en Google Cloud. Sin embargo, puede conectarse a la instancia de VM de Linux mediante Google Cloud Console o Google Cloud CLI (gcloud).
+
+https://cloud.google.com/compute/docs/instances/connecting-to-instance["Google Cloud Docs: Conexión a equipos virtuales Linux"^]
+
+
+
+== Aplicar actualizaciones de seguridad
+
+Actualice el sistema operativo en el conector para asegurarse de que se ha aplicado la revisión con las actualizaciones de seguridad más recientes.
+
+.Pasos
+. Acceda al shell de la CLI en el host del conector.
+. Ejecute los siguientes comandos con privilegios elevados:
++
+[source, cli]
+----
+sudo -s
+service netapp-service-manager stop
+yum -y update –-security
+service netapp-service-manager start
+----
+
+
+
+
+== Cambiar la dirección IP de un conector
+
+Si es necesario para su empresa, puede cambiar la dirección IP interna y la dirección IP pública de la instancia de conector que asigna automáticamente su proveedor de cloud.
+
+.Pasos
+. Siga las instrucciones del proveedor de cloud para cambiar la dirección IP local o la dirección IP pública (o ambas) de la instancia de Connector.
+. Si ha cambiado la dirección IP pública y necesita conectarse a la interfaz de usuario local que se ejecuta en el conector, reinicie la instancia del conector para registrar la nueva dirección IP con BlueXP.
+. Si cambió la dirección IP privada, actualice la ubicación de copia de seguridad de los archivos de configuración de Cloud Volumes ONTAP para que las copias de seguridad se envíen a la nueva dirección IP privada del conector.
++
+.. Ejecute el siguiente comando desde la interfaz de línea de comandos de Cloud Volumes ONTAP para quitar el destino de backup actual:
++
+[source, cli]
+----
+system configuration backup settings modify -destination ""
+----
+.. Vaya a BlueXP y abra el entorno de trabajo.
+.. Haga clic en el menú y seleccione *Avanzado > copias de seguridad de configuración*.
+.. Haga clic en *establecer destino de copia de seguridad*.
+
+
+
+
+
+
+== Editar los URI de un conector
+
+Agregar y quitar los URI de un conector.
+
+.Pasos
+. Haga clic en el menú desplegable *conector* del encabezado BlueXP.
+. Haga clic en *Administrar conectores*.
+. Haga clic en el menú de acción de un conector y haga clic en *Editar URI*.
+. Agregue y elimine URIs y, a continuación, haga clic en *aplicar*.
+
+
+
+
+== Solucione los fallos de descarga al utilizar una puerta de enlace NAT de Google Cloud
+
+El conector descarga automáticamente las actualizaciones de software de Cloud Volumes ONTAP. La descarga puede fallar si la configuración utiliza una puerta de enlace de NAT de Google Cloud. Puede corregir este problema limitando el número de partes en las que se divide la imagen de software. Este paso se debe completar mediante la API de BlueXP.
+
+.Paso
+. Envíe una solicitud PUT a /occm/config con el siguiente JSON como cuerpo:
+
+
+[source]
+----
+{
+  "maxDownloadSessions": 32
+}
+----
+El valor para _maxDownloadSessions_ puede ser 1 o cualquier entero mayor que 1. Si el valor es 1, la imagen descargada no se dividirá.
+
+Tenga en cuenta que 32 es un valor de ejemplo. El valor que debe utilizar depende de la configuración de NAT y del número de sesiones que puede tener simultáneamente.
+
+https://docs.netapp.com/us-en/cloud-manager-automation/cm/api_ref_resources.html#occmconfig["Obtenga más información acerca de la llamada a la API /occm/config"^].
+
+
+
+== Actualice el conector en el entorno local sin acceso a Internet
+
+Si usted link:task-install-connector-onprem-no-internet.html["Se instaló el conector en un host local que no tiene acceso a Internet"], Puede actualizar el conector cuando haya una versión más reciente disponible en el sitio de soporte de NetApp.
+
+El conector debe reiniciarse durante el proceso de actualización para que la interfaz de usuario no esté disponible durante la actualización.
+
+.Pasos
+. Descargue el software del conector de https://mysupport.netapp.com/site/products/all/details/cloud-manager/downloads-tab["Sitio de soporte de NetApp"^].
+. Copie el instalador en el host Linux.
+. Asigne permisos para ejecutar el script.
++
+[source, cli]
+----
+chmod +x /path/cloud-manager-connector-offline-v3.9.14
+----
+. Ejecute el script de instalación:
++
+[source, cli]
+----
+sudo /path/cloud-manager-connector-offline-v3.9.14
+----
+. Una vez finalizada la actualización, puede verificar la versión del conector en *Ayuda > Soporte > conector*.
+
+
+.¿Qué pasa con las actualizaciones de software en los hosts que tienen acceso a Internet?
+****
+El conector actualiza automáticamente su software a la última versión, siempre que tenga acceso saliente a Internet para obtener la actualización de software.
+
+****
+
+
+== Quitar conectores de BlueXP
+
+Si un conector está inactivo, puede eliminarlo de la lista de conectores de BlueXP. Puede hacerlo si ha eliminado la máquina virtual conector o si ha desinstalado el software conector.
+
+Tenga en cuenta lo siguiente sobre la extracción de un conector:
+
+* Esta acción no elimina la máquina virtual.
+* Esta acción no se puede revertir--una vez que se quita un conector de BlueXP, no se puede volver a agregar
+
+
+.Pasos
+. Haga clic en el menú desplegable *conector* del encabezado BlueXP.
+. Haga clic en *Administrar conectores*.
+. Haga clic en el menú de acción de un conector inactivo y haga clic en *Quitar conector*.
++
+image:screenshot_connector_remove.gif["Captura de pantalla del widget conector en la que puede eliminar un conector inactivo."]
+
+. Introduzca el nombre del conector que desea confirmar y, a continuación, haga clic en Quitar.
+
+
+.Resultado
+BlueXP quita el conector de sus registros.
+
+
+
+== Desinstale el software del conector
+
+Desinstale el software del conector para solucionar problemas o para quitar el software del host de forma permanente. Los pasos que debe seguir dependen de si ha instalado el conector en un host que tenga acceso a Internet o un host en una red restringida que no tenga acceso a Internet.
+
+
+
+=== Desinstale desde un host con acceso a Internet
+
+El conector en línea incluye una secuencia de comandos de desinstalación que puede utilizar para desinstalar el software.
+
+.Paso
+. Desde el host Linux, ejecute el script de desinstalación:
++
+*/opt/application/netapp/service-manager-2/uninstall.sh [silent]*
+
++
+_silent_ ejecuta la secuencia de comandos sin que se le solicite confirmación.
+
+
+
+
+
+=== Desinstale desde un host sin acceso a Internet
+
+Use estos comandos si descargó el software del conector del sitio de soporte de NetApp y lo instaló en una red restringida que no tiene acceso a Internet.
+
+.Paso
+. Desde el host Linux, ejecute los siguientes comandos:
++
+[source, cli]
+----
+docker-compose -f /opt/application/netapp/ds/docker-compose.yml down -v
+rm -rf /opt/application/netapp/ds
+----
+

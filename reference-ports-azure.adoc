@@ -1,0 +1,82 @@
+---
+sidebar: sidebar 
+permalink: reference-ports-azure.html 
+keywords: ports, security group, http, https, inbound, outbound 
+summary: El grupo de seguridad de Azure para Connector requiere reglas tanto entrantes como salientes. 
+---
+= Reglas de grupos de seguridad en Azure
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+El grupo de seguridad de Azure para Connector requiere reglas tanto entrantes como salientes.
+
+
+
+== Reglas de entrada
+
+[cols="3*"]
+|===
+| Protocolo | Puerto | Específico 
+
+
+| SSH | 22 | Proporciona acceso SSH al host de Connector 
+
+
+| HTTP | 80 | Proporciona acceso HTTP desde navegadores web de cliente al local interfaz de usuario 
+
+
+| HTTPS | 443 | Proporciona acceso HTTPS desde exploradores web de cliente a la interfaz de usuario local y conexiones desde la instancia de Cloud Data Sense 
+
+
+| TCP | 3128 | Proporciona a Cloud Volumes ONTAP acceso a Internet para enviar mensajes de AutoSupport al soporte de NetApp. Debe abrir manualmente este puerto después de la implementación. <<Proxy server for AutoSupport messages,Obtenga más información sobre el servidor proxy del conector>>. 
+
+
+| TCP | 9060, 9061 | Ofrece la capacidad de habilitar y utilizar Cloud Data Sense y Cloud Backup en puestas en marcha de cloud gubernamentales. Estos puertos también son necesarios para Cloud Backup si deshabilita la interfaz SaaS en su cuenta de BlueXP. 
+|===
+
+
+== Reglas de salida
+
+El grupo de seguridad predefinido para el conector abre todo el tráfico saliente. Si eso es aceptable, siga las reglas básicas de la salida. Si necesita más reglas rígidas, utilice las reglas avanzadas de salida.
+
+
+
+=== Reglas de salida básicas
+
+El grupo de seguridad predefinido para el conector incluye las siguientes reglas de salida.
+
+[cols="3*"]
+|===
+| Protocolo | Puerto | Específico 
+
+
+| Todos los TCP | Todo | Todo el tráfico saliente 
+
+
+| Todas las UDP | Todo | Todo el tráfico saliente 
+|===
+
+
+=== Reglas salientes avanzadas
+
+Si necesita reglas rígidas para el tráfico saliente, puede utilizar la siguiente información para abrir sólo los puertos necesarios para la comunicación saliente por parte del conector.
+
+
+NOTE: La dirección IP de origen es el host del conector.
+
+[cols="5*"]
+|===
+| Servicio | Protocolo | Puerto | Destino | Específico 
+
+
+| Llamadas API y AutoSupport | HTTPS | 443 | LIF de gestión de clústeres de ONTAP y Internet saliente | API llama a Azure y ONTAP, a Cloud Data Sense, a servicio de ransomware y a envío de mensajes de AutoSupport a NetApp 
+
+
+| DNS | UDP | 53 | DNS | Utilizado para resolver DNS por BlueXP 
+|===

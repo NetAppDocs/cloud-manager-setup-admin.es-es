@@ -1,0 +1,79 @@
+---
+sidebar: sidebar 
+permalink: reference-user-roles.html 
+keywords: user, users, roles, role, task, permission, permissions, tasks, admin, Account Admin, Workspace Admin, Cloud Compliance Viewer, Cloud Data Sense, SnapCenter Admin 
+summary: Las funciones Administrador de cuentas, Administrador de área de trabajo, Visor de cumplimiento y Administrador de SnapCenter proporcionan permisos específicos a los usuarios. 
+---
+= Funciones
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Las funciones Administrador de cuentas, Administrador de área de trabajo, Visor de cumplimiento y Administrador de SnapCenter proporcionan permisos específicos a los usuarios.
+
+El rol Compliance Viewer es para acceso de sólo lectura a Cloud Data Sense.
+
+[cols="24,19,19,19,19"]
+|===
+| Tarea | Administrador de cuentas | Administrador de área de trabajo | Visor de cumplimiento de normativas | Administrador de SnapCenter 
+
+
+| Gestionar entornos de trabajo | Sí | Sí | No | No 
+
+
+| Activar servicios en entornos de trabajo | Sí | Sí | No | No 
+
+
+| Ver el estado de replicación de datos | Sí | Sí | No | No 
+
+
+| Visualice la línea de tiempo | Sí | Sí | No | No 
+
+
+| Cambiar entre espacios de trabajo | Sí | Sí | Sí | No 
+
+
+| Ver resultados de análisis de detección de datos | Sí | Sí | Sí | No 
+
+
+| Eliminar entornos de trabajo | Sí | No | No | No 
+
+
+| Conecte los clústeres de Kubernetes a entornos de trabajo | Sí | No | No | No 
+
+
+| Reciba el informe de Cloud Volumes ONTAP | Sí | No | No | No 
+
+
+| Crear conectores | Sí | No | No | No 
+
+
+| Gestione cuentas de NetApp | Sí | No | No | No 
+
+
+| Gestionar credenciales | Sí | No | No | No 
+
+
+| Modificar la configuración de BlueXP | Sí | No | No | No 
+
+
+| Consulte y gestione la consola de soporte | Sí | No | No | No 
+
+
+| Eliminar entornos de trabajo de BlueXP | Sí | No | No | No 
+
+
+| Instale un certificado HTTPS | Sí | No | No | No 
+
+
+| Utilice el servicio SnapCenter | Sí | Sí | No | Sí 
+|===
+.Enlaces relacionados
+* link:task-setting-up-netapp-accounts.html["Configuración de espacios de trabajo y usuarios en la cuenta de NetApp"]
+* link:task-managing-netapp-accounts.html["Gestión de espacios de trabajo y usuarios en la cuenta de NetApp"]
+

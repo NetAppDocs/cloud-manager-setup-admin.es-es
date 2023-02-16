@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: reference-whats-next.html 
+keywords: get started, create working environments, manage settings 
+summary: Ahora que ha iniciado sesión y configurado BlueXP, los usuarios pueden comenzar a crear y descubrir entornos de trabajo. 
+---
+= A continuación, ¿dónde ir
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Ahora que ha iniciado sesión y configurado BlueXP, los usuarios pueden comenzar a crear y descubrir entornos de trabajo.
+
+* https://docs.netapp.com/us-en/cloud-manager-azure-netapp-files/task-quick-start.html["Azure NetApp Files"^]
+* https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/start/task-getting-started-fsx.html["Amazon FSX para ONTAP"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-aws.html["Cloud Volumes ONTAP para AWS"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-azure.html["Cloud Volumes ONTAP para Azure"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-gcp.html["Cloud Volumes ONTAP para Google Cloud"^]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-service-gcp/task-set-up-google-cloud.html["Cloud Volumes Service para Google Cloud"^]
+* https://docs.netapp.com/us-en/cloud-manager-e-series/task-discover-e-series.html["Sistemas E-Series"^]
+* https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-k8s-quick-start.html["Clústeres de Kubernetes"^]
+* https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["Clústeres de ONTAP en las instalaciones"^]
+* https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html["Sistemas StorageGRID"^]
+

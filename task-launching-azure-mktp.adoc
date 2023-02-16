@@ -1,0 +1,168 @@
+---
+sidebar: sidebar 
+permalink: task-launching-azure-mktp.html 
+keywords: install, installation, installing, marketplace, azure, deploy, virtual machine, permissions, deploy connector in azure, install connector in azure 
+summary: Para una región comercial de Azure, lo mejor es crear un conector directamente desde BlueXP, pero puede ejecutar un conector desde Azure Marketplace, si lo prefiere. Para regiones gubernamentales de Azure, no es posible poner en marcha Connector en una región gubernamental desde el sitio web BlueXP SaaS, por lo que la mejor opción es hacerlo desde Azure Marketplace. 
+---
+= Cree un conector desde Azure Marketplace
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Para una región comercial de Azure, lo mejor es crear un conector directamente desde BlueXP, pero puede ejecutar un conector desde Azure Marketplace, si lo prefiere. Para regiones gubernamentales de Azure, no es posible poner en marcha Connector en una región gubernamental desde el sitio web BlueXP SaaS, por lo que la mejor opción es hacerlo desde Azure Marketplace.
+
+
+TIP: También puede descargar e instalar el software Connector en un host Linux existente en su red o en la nube. link:task-installing-linux.html["Aprenda a instalar el conector en un host Linux existente"].
+
+
+
+== Creación de un conector en Azure
+
+Implemente el conector en Azure con la imagen en Azure Marketplace y después inicie sesión en el conector para especificar su cuenta de NetApp.
+
+.Pasos
+. Vaya a la página NetApp Connector VM del Azure Marketplace.
++
+** https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.netapp-oncommand-cloud-manager["Página de Azure Marketplace para regiones comerciales"^]
+** https://portal.azure.us/#create/netapp.netapp-oncommand-cloud-manageroccm-byol["Página de Azure Marketplace para regiones gubernamentales de Azure"^]
+
+
+. Haga clic en *Get Now* y, a continuación, haga clic en *Continue*.
+. En el portal de Azure, haga clic en *Crear* y siga los pasos para configurar la máquina virtual.
++
+Tenga en cuenta lo siguiente al configurar la máquina virtual:
+
++
+** El conector puede tener un rendimiento óptimo tanto con discos HDD como SSD.
+** Elija un tamaño de máquina virtual que cumpla los requisitos de CPU y RAM. Recomendamos DS3 v2.
++
+link:task-installing-linux.html["Revise los requisitos de las máquinas virtuales"].
+
+** Para el grupo de seguridad de red, el conector requiere conexiones entrantes mediante SSH, HTTP y HTTPS.
++
+link:reference-ports-azure.html["Obtenga más información sobre las reglas de grupo de seguridad para el conector"].
+
+** En *Gestión*, active *identidad administrada asignada por el sistema* para el conector seleccionando *On*.
++
+Esta configuración es importante porque una identidad administrada permite que la máquina virtual Connector se identifique a sí misma en Azure Active Directory sin proporcionar credenciales. https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview["Obtenga más información sobre las identidades gestionadas para recursos de Azure"^].
+
+
+
+. En la página *revisar + crear*, revise las selecciones y haga clic en *Crear* para iniciar la implementación.
++
+Azure implementa la máquina virtual con los ajustes especificados. El software de la máquina virtual y el conector debe estar funcionando en aproximadamente cinco minutos.
+
+. Abra un explorador Web desde un host que tenga una conexión con la máquina virtual Connector e introduzca la siguiente URL:
++
+https://_ipaddress_[]
+
+. Después de iniciar sesión, configure el conector:
++
+.. Especifique la cuenta de NetApp que desea asociar al conector.
++
+link:concept-netapp-accounts.html["Obtenga más información acerca de las cuentas de NetApp"].
+
+.. Escriba un nombre para el sistema.
+
+
+
+
+.Resultado
+El conector ahora está instalado y configurado con su cuenta de NetApp.
+
+Si el conector está en una región comercial de Azure, abra un explorador web y vaya a. https://console.bluexp.netapp.com[] Para empezar a utilizar el conector con BlueXP.
+
+Si Connector se encuentra en una región gubernamental de Azure, puede utilizar BlueXP abriendo su navegador web y conectándose a la dirección IP de la instancia de Connector: https://_ipaddress_[]
+
+Dado que el conector se desplegó en una región gubernamental, no se puede acceder a él desde https://console.bluexp.netapp.com[].
+
+
+
+== Concesión de permisos de Azure
+
+Cuando implementó Connector en Azure, debería haber habilitado un https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview["identidad administrada asignada por el sistema"^]. Ahora debe conceder los permisos de Azure necesarios creando una función personalizada y, a continuación, asignando la función a la máquina virtual Connector para una o más suscripciones.
+
+.Pasos
+. Crear un rol personalizado:
++
+.. Copie el contenido de link:reference-permissions-azure.html["Permisos de función personalizada para el conector"] Y guárdelos en un archivo JSON.
+.. Modifique el archivo JSON agregando ID de suscripción de Azure al ámbito asignable.
++
+Debe añadir el ID para cada suscripción de Azure desde la cual los usuarios crearán sistemas Cloud Volumes ONTAP.
+
++
+*ejemplo*
+
++
+[source, json]
+----
+"AssignableScopes": [
+"/subscriptions/d333af45-0d07-4154-943d-c25fbzzzzzzz",
+"/subscriptions/54b91999-b3e6-4599-908e-416e0zzzzzzz",
+"/subscriptions/398e471c-3b42-4ae7-9b59-ce5bbzzzzzzz"
+----
+.. Use el archivo JSON para crear una función personalizada en Azure.
++
+En los pasos siguientes se describe cómo crear la función mediante Bash en Azure Cloud Shell.
+
++
+*** Comenzar https://docs.microsoft.com/en-us/azure/cloud-shell/overview["Shell de cloud de Azure"^] Y seleccione el entorno Bash.
+*** Cargue el archivo JSON.
++
+image:screenshot_azure_shell_upload.png["Una captura de pantalla de Azure Cloud Shell donde puede elegir la opción para cargar un archivo."]
+
+*** Use la interfaz de línea de comandos de Azure para crear el rol personalizado:
++
+[source, azurecli]
+----
+az role definition create --role-definition Connector_Policy.json
+----
++
+Ahora debe tener una función personalizada denominada operador BlueXP que puede asignar a la máquina virtual Connector.
+
+
+
+
+
+. Asigne el rol a la máquina virtual conector para una o más suscripciones:
++
+.. Abra el servicio *Suscripciones* y seleccione la suscripción en la que desea implementar sistemas Cloud Volumes ONTAP.
+.. Haga clic en *Control de acceso (IAM)* > *Agregar* > *Agregar asignación de funciones*.
+.. En la ficha *rol*, seleccione el rol *operador BlueXP* y haga clic en *Siguiente*.
++
+
+NOTE: BlueXP Operator es el nombre predeterminado que se proporciona en la directiva de BlueXP. Si seleccionó otro nombre para el rol, seleccione ese nombre.
+
+.. En la ficha *Miembros*, realice los siguientes pasos:
++
+*** Asignar acceso a una *identidad administrada*.
+*** Haga clic en *Seleccionar miembros*, seleccione la suscripción en la que se creó la máquina virtual Connector, elija *máquina virtual* y, a continuación, seleccione la máquina virtual Connector.
+*** Haga clic en *Seleccionar*.
+*** Haga clic en *Siguiente*.
+
+
+.. Haga clic en *revisar + asignar*.
+.. Si desea implementar Cloud Volumes ONTAP desde suscripciones adicionales, cambie a esa suscripción y repita estos pasos.
+
+
+
+
+.Resultado
+Connector ahora tiene los permisos que necesita para gestionar recursos y procesos en su entorno de cloud público. BlueXP utilizará este conector automáticamente cuando cree nuevos entornos de trabajo. Pero si tiene más de un conector, necesitará link:task-managing-connectors.html["alterne entre ellos"].
+
+Si dispone de almacenamiento de Azure Blob en la misma cuenta de Azure en la que creó el conector, verá que aparece un entorno de trabajo de Azure Blob en el lienzo automáticamente. link:task-viewing-azure-blob.html["Obtenga más información sobre lo que puede hacer con este entorno de trabajo"].
+
+
+
+== Abra el puerto 3128 para los mensajes de AutoSupport
+
+Si tiene previsto implementar sistemas Cloud Volumes ONTAP en una subred en la que no esté disponible una conexión a Internet saliente, BlueXP configura automáticamente Cloud Volumes ONTAP para que utilice el conector como servidor proxy.
+
+El único requisito es asegurarse de que el grupo de seguridad del conector permita conexiones _entrante_ a través del puerto 3128. Tendrá que abrir este puerto después de desplegar el conector.
+
+Si utiliza el grupo de seguridad predeterminado para Cloud Volumes ONTAP, no es necesario realizar cambios en su grupo de seguridad. Pero si tiene pensado definir reglas de salida estrictas para Cloud Volumes ONTAP, también tendrá que asegurarse de que el grupo de seguridad Cloud Volumes ONTAP permita conexiones _saliente_ a través del puerto 3128.

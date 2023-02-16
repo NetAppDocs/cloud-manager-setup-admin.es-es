@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: concept-my-opportunities.html 
+keywords: discover, discovering fsx, discover fsx, discovering, my opportunities, opportunities 
+summary: En el lienzo, la ficha Mis oportunidades proporciona una ubicación centralizada para descubrir los recursos existentes que puede añadir a BlueXP para ofrecer servicios de datos y operaciones coherentes en su multicloud híbrido. 
+---
+= Mis oportunidades
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+En el lienzo, la ficha *Mis oportunidades* proporciona una ubicación centralizada para descubrir los recursos existentes que puede añadir a BlueXP para ofrecer servicios de datos y operaciones coherentes a través de su multicloud híbrido.
+
+Actualmente, Mis oportunidades le permiten descubrir los sistemas de archivos FSX para ONTAP existentes en su cuenta de AWS.
+
+https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/use/task-creating-fsx-working-environment.html#discover-using-my-opportunities["Aprenda a descubrir FSX para ONTAP con mis oportunidades"^]

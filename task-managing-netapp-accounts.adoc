@@ -1,0 +1,303 @@
+---
+sidebar: sidebar 
+permalink: task-managing-netapp-accounts.html 
+keywords: account settings, workspaces, Connector, account admin, workspace admin, users, associate, disassociate, add user, add users, user management, administer, user, management, member, remove user, remove users, remove, delete, account, user account, user accounts, add workspace, setup workspace, workspace, Connector, manage Connector, manage workspace, associate Connector, service account 
+summary: Después de realizar la configuración inicial, puede administrar la configuración de su cuenta más tarde mediante la administración de usuarios, cuentas de servicio, áreas de trabajo y conectores. 
+---
+= Gestione su cuenta de NetApp
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+link:task-setting-up-netapp-accounts.html["Después de realizar la configuración inicial"], Puede administrar la configuración de su cuenta posteriormente mediante la administración de usuarios, cuentas de servicio, áreas de trabajo y conectores.
+
+link:concept-netapp-accounts.html["Obtenga más información sobre el funcionamiento de las cuentas de NetApp"].
+
+
+
+== Gestiona tu cuenta con la API de tenancy
+
+Si desea administrar la configuración de su cuenta enviando solicitudes de API, deberá utilizar la API _Tenancy_. Esta API es diferente de la API de BlueXP, que se utiliza para crear y gestionar entornos de trabajo de Cloud Volumes ONTAP.
+
+https://docs.netapp.com/us-en/cloud-manager-automation/tenancy/overview.html["Vea los extremos de la API de tenancy"^]
+
+
+
+== Crear y administrar usuarios
+
+Los usuarios de su cuenta pueden acceder a la gestión de los recursos en los espacios de trabajo de su cuenta.
+
+
+
+=== Adición de usuarios
+
+Asocie los usuarios con su cuenta de NetApp para que esos usuarios puedan crear y gestionar entornos de trabajo en BlueXP.
+
+.Pasos
+. Si el usuario aún no lo ha hecho, pida al usuario que vaya a. https://cloud.netapp.com["Sitio web de NetApp BlueXP"^] y regístrese.
+. En la parte superior de BlueXP, haga clic en el menú desplegable *cuenta*.
++
+image:screenshot-account-settings-menu.png["Captura de pantalla que muestra la opción Configuración de la cuenta en el banner superior de BlueXP."]
+
+. Haga clic en *Administrar cuenta* junto a la cuenta seleccionada actualmente.
++
+image:screenshot-manage-account-settings.png["Captura de pantalla que muestra la opción gestionar configuración de cuenta disponible en el menú desplegable cuenta."]
+
+. En la ficha Miembros, haga clic en *Usuario asociado*.
+. Introduzca la dirección de correo electrónico del usuario y seleccione un rol para el usuario:
++
+** *Administración de cuentas*: Puede realizar cualquier acción en BlueXP.
+** *Administración de área de trabajo*: Puede crear y administrar recursos en áreas de trabajo asignadas.
+** *Visor de cumplimiento*: Sólo puede ver la información de cumplimiento de Cloud Data Sense y generar informes para áreas de trabajo a las que tienen permiso de acceso.
+** *SnapCenter Admin*: Puede utilizar el servicio SnapCenter para crear copias de seguridad coherentes con la aplicación y restaurar datos utilizando dichas copias de seguridad. _Este servicio está actualmente en Beta._
+
+
+. Si ha seleccionado Administrador de área de trabajo o Visor de cumplimiento, seleccione uno o varios espacios de trabajo para asociarlos con ese usuario.
++
+image:screenshot_associate_user.gif["Captura de pantalla que muestra cómo asociar un usuario seleccionando una función y los espacios de trabajo asociados."]
+
+. Haga clic en *asociar*.
+
+
+.Resultado
+El usuario debe recibir un correo electrónico de NetApp BlueXP titulado "Account Association". El correo electrónico incluye la información necesaria para acceder a BlueXP.
+
+
+
+=== Quitar usuarios
+
+Desasociar un usuario hace que pueda dejar de acceder a los recursos de una cuenta de NetApp.
+
+.Pasos
+. En la parte superior de BlueXP, haga clic en el menú desplegable *cuenta* y haga clic en *Administrar cuenta*.
++
+image:screenshot-manage-account-settings.png["Captura de pantalla que muestra la opción gestionar configuración de cuenta disponible en el menú desplegable cuenta."]
+
+. En la ficha Miembros , haga clic en el menú Acción de la fila correspondiente al usuario.
++
+image:screenshot_associate_user_workspace.png["Captura de pantalla que muestra el menú de acciones disponible al pasar el nombre de un usuario en la tabla usuarios."]
+
+. Haga clic en *desasociar usuario* y haga clic en *desasociar* para confirmar.
+
+
+.Resultado
+El usuario ya no puede acceder a los recursos de esta cuenta de NetApp.
+
+
+
+=== Gestión de los espacios de trabajo de un administrador de área de trabajo
+
+Puede asociar y desasociar administradores de área de trabajo con áreas de trabajo en cualquier momento. La asociación del usuario les permite crear y ver los entornos de trabajo en ese espacio de trabajo.
+
+.Pasos
+. En la parte superior de BlueXP, haga clic en el menú desplegable *cuenta* y haga clic en *Administrar cuenta*.
++
+image:screenshot-manage-account-settings.png["Captura de pantalla que muestra la opción gestionar configuración de cuenta disponible en el menú desplegable cuenta."]
+
+. En la ficha Miembros , haga clic en el menú Acción de la fila correspondiente al usuario.
++
+image:screenshot_associate_user_workspace.png["Captura de pantalla que muestra el menú de acciones disponible al pasar el nombre de un usuario en la tabla usuarios."]
+
+. Haga clic en *Administrar espacios de trabajo*.
+. Seleccione los espacios de trabajo que desea asociar con el usuario y haga clic en *aplicar*.
+
+
+.Resultado
+Ahora el usuario puede acceder a esas áreas de trabajo desde BlueXP, siempre y cuando el conector también esté asociado a las áreas de trabajo.
+
+
+
+== Crear y administrar cuentas de servicio
+
+Una cuenta de servicio actúa como un "usuario" que puede realizar llamadas API autorizadas a BlueXP con fines de automatización. Esto facilita la gestión de la automatización, ya que no necesita crear scripts de automatización basados en la cuenta de usuario de una persona real que pueda salir de la empresa en cualquier momento. Y si utiliza federation, puede crear un token sin que genere un token de actualización desde el cloud.
+
+Usted otorga permisos a una cuenta de servicio asignándole una función, al igual que cualquier otro usuario de BlueXP. También puede asociar la cuenta de servicio a espacios de trabajo específicos para controlar los entornos de trabajo (recursos) a los que puede acceder el servicio.
+
+Al crear la cuenta de servicio, BlueXP permite copiar o descargar un ID de cliente y un secreto de cliente para la cuenta de servicio. Este par de claves se utiliza para la autenticación con BlueXP.
+
+
+
+=== Crear una cuenta de servicio
+
+Cree tantas cuentas de servicio como necesite para gestionar los recursos en sus entornos de trabajo.
+
+.Pasos
+. En la parte superior de BlueXP, haga clic en el menú desplegable *cuenta*.
++
+image:screenshot-account-settings-menu.png["Captura de pantalla que muestra la opción Configuración de la cuenta en el banner superior de BlueXP."]
+
+. Haga clic en *Administrar cuenta* junto a la cuenta seleccionada actualmente.
++
+image:screenshot-manage-account-settings.png["Captura de pantalla que muestra la opción gestionar configuración de cuenta disponible en el menú desplegable cuenta."]
+
+. En la ficha Miembros, haga clic en *Crear cuenta de servicio*.
+. Introduzca un nombre y seleccione un rol. Si ha elegido una función que no sea Administrador de cuentas, elija el área de trabajo para asociarla con esta cuenta de servicio.
+. Haga clic en *Crear*.
+. Copie o descargue el ID del cliente y el secreto del cliente.
++
+El secreto de cliente sólo es visible una vez y BlueXP no lo almacena en ninguna parte. Copie o descargue el secreto y guárdelo de forma segura.
+
+. Haga clic en *Cerrar*.
+
+
+
+
+=== Obtención de un token de portador para una cuenta de servicio
+
+Para realizar llamadas API al https://docs.netapp.com/us-en/cloud-manager-automation/tenancy/overview.html["API de tenancy"^], necesitará obtener un token del portador para una cuenta de servicio.
+
+https://docs.netapp.com/us-en/cloud-manager-automation/platform/create_service_token.html["Aprenda a crear un token de cuenta de servicio"^]
+
+
+
+=== Copiando el ID de cliente
+
+Puede copiar el ID de cliente de una cuenta de servicio en cualquier momento.
+
+.Pasos
+. En la ficha Miembros , haga clic en el menú de acciones de la fila correspondiente a la cuenta de servicio.
++
+image:screenshot_service_account_actions.gif["Captura de pantalla que muestra el menú de acciones disponible al pasar el nombre de un usuario en la tabla usuarios."]
+
+. Haga clic en *ID de cliente*.
+. El ID se copia en el portapapeles.
+
+
+
+
+=== Recrear claves
+
+Al volver a crear la clave se eliminará la clave existente para esta cuenta de servicio y, a continuación, se creará una clave nueva. No podrá utilizar la clave anterior.
+
+.Pasos
+. En la ficha Miembros , haga clic en el menú de acciones de la fila correspondiente a la cuenta de servicio.
++
+image:screenshot_service_account_actions.gif["Captura de pantalla que muestra el menú de acciones disponible al pasar el nombre de un usuario en la tabla usuarios."]
+
+. Haga clic en *Volver a crear clave*.
+. Haga clic en *Volver a crear* para confirmar.
+. Copie o descargue el ID del cliente y el secreto del cliente.
++
+El secreto de cliente sólo es visible una vez y BlueXP no lo almacena en ninguna parte. Copie o descargue el secreto y guárdelo de forma segura.
+
+. Haga clic en *Cerrar*.
+
+
+
+
+=== Eliminación de una cuenta de servicio
+
+Elimine una cuenta de servicio si ya no necesita utilizarla.
+
+.Pasos
+. En la ficha Miembros , haga clic en el menú de acciones de la fila correspondiente a la cuenta de servicio.
++
+image:screenshot_service_account_actions.gif["Captura de pantalla que muestra el menú de acciones disponible al pasar el nombre de un usuario en la tabla usuarios."]
+
+. Haga clic en *Eliminar*.
+. Vuelva a hacer clic en *Eliminar* para confirmar.
+
+
+
+
+== Gestión de espacios de trabajo
+
+Gestione sus espacios de trabajo creando, cambiando el nombre y borrándolos. Tenga en cuenta que no puede eliminar un área de trabajo si contiene recursos. Debe estar vacío.
+
+.Pasos
+. En la parte superior de BlueXP, haga clic en el menú desplegable *cuenta* y haga clic en *Administrar cuenta*.
+. Haga clic en *espacios de trabajo*.
+. Seleccione una de las siguientes opciones:
++
+** Haga clic en *Agregar nuevo espacio de trabajo* para crear un nuevo espacio de trabajo.
+** Haga clic en *Cambiar nombre* para cambiar el nombre del espacio de trabajo.
+** Haga clic en *Eliminar* para eliminar el área de trabajo.
+
+
+
+
+
+
+== Gestión de los espacios de trabajo de un conector
+
+Debe asociar el conector con áreas de trabajo para que los administradores de área de trabajo puedan acceder a esas áreas de trabajo desde BlueXP.
+
+Si sólo tiene Administradores de cuentas, no es necesario asociar el conector a áreas de trabajo. Los administradores de cuentas tienen la posibilidad de acceder a todas las áreas de trabajo de BlueXP de forma predeterminada.
+
+link:concept-netapp-accounts.html#users-workspaces-and-service-connectors["Obtenga más información sobre usuarios, áreas de trabajo y conectores"].
+
+.Pasos
+. En la parte superior de BlueXP, haga clic en el menú desplegable *cuenta* y haga clic en *Administrar cuenta*.
+. Haga clic en *conector*.
+. Haga clic en *Administrar áreas de trabajo* para el conector que desea asociar.
+. Seleccione las áreas de trabajo que desea asociar con el conector y haga clic en *aplicar*.
+
+
+
+
+== Cambio del nombre de cuenta
+
+Cambie el nombre de su cuenta en cualquier momento para cambiarlo a algo significativo para usted.
+
+.Pasos
+. En la parte superior de BlueXP, haga clic en el menú desplegable *cuenta* y haga clic en *Administrar cuenta*.
+. En la ficha *Descripción general*, haga clic en el icono de edición situado junto al nombre de la cuenta.
+. Escriba un nuevo nombre de cuenta y haga clic en *Guardar*.
+
+
+
+
+== Permitir vistas previas privadas
+
+Permita una vista previa privada de su cuenta para obtener acceso a los nuevos servicios cloud de NetApp que están disponibles como vista previa en BlueXP.
+
+No se garantiza que los servicios de la vista previa privada se comporten como se espera y podrían soportar interrupciones de servicio y que falten funciones.
+
+.Pasos
+. En la parte superior de BlueXP, haga clic en el menú desplegable *cuenta* y haga clic en *Administrar cuenta*.
+. En la ficha *Descripción general*, active la opción *permitir vista previa privada*.
+
+
+
+
+== Permitir servicios de terceros
+
+Permita que los servicios de terceros de su cuenta tengan acceso a servicios de terceros disponibles en BlueXP. Los servicios de terceros son servicios de cloud similares a los que ofrece NetApp, pero son gestionados y respaldados por empresas terceros.
+
+.Pasos
+. En la parte superior de BlueXP, haga clic en el menú desplegable *cuenta* y haga clic en *Administrar cuenta*.
+. En la ficha *Descripción general*, active la opción *permitir servicios de terceros*.
+
+
+
+
+== Desactivación de la plataforma SaaS
+
+No recomendamos desactivar la plataforma SaaS a menos que necesite para cumplir con las políticas de seguridad de su empresa. Al deshabilitar la plataforma SaaS, se limita su capacidad para usar los servicios de cloud integrados de NetApp.
+
+Los siguientes servicios no están disponibles en BlueXP si deshabilita la plataforma SaaS:
+
+* Backup en el cloud
++
+Cloud Backup es compatible en regiones gubernamentales cuando la plataforma SaaS está deshabilitada, pero no en regiones comerciales cuando la plataforma SaaS está deshabilitada
+
+* Cloud Data SENSE
+* Kubernetes
+* Organización en niveles del cloud
+* Caché de archivos global
+
+
+Si deshabilita la plataforma SaaS, deberá realizar todas las tareas desde link:task-managing-connectors.html#access-the-local-ui["La interfaz de usuario local que está disponible en un conector"].
+
+
+CAUTION: Esta es una acción irreversible que le impedirá utilizar la plataforma SaaS BlueXP. Deberá realizar acciones desde el conector local. No tendrá la capacidad de usar muchos de los servicios de cloud integrados de NetApp; para volver a habilitar la plataforma SaaS será necesario contar con la ayuda de soporte de NetApp.
+
+.Pasos
+. En la parte superior de BlueXP, haga clic en el menú desplegable *cuenta* y haga clic en *Administrar cuenta*.
+. En la ficha Descripción general, active la opción para desactivar el uso de la plataforma SaaS.
+

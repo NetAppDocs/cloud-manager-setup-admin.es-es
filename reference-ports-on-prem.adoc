@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: reference-ports-on-prem.html 
+keywords: networking, network, requirements, ports, on-prem, linux, http, https 
+summary: El conector utiliza los siguientes puertos de entrada cuando se instala manualmente en un host Linux local. 
+---
+= Puertos para el conector en las instalaciones
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+El conector utiliza los siguientes puertos _inbound_ cuando se instalan manualmente en un host Linux local.
+
+Estas reglas de entrada se aplican a ambos modelos de implementación para el conector en las instalaciones: Instalado con acceso a Internet o sin acceso a Internet.
+
+[cols="10,10,80"]
+|===
+| Protocolo | Puerto | Específico 
+
+
+| HTTP | 80 | Proporciona acceso HTTP desde navegadores web de cliente al local interfaz de usuario 
+
+
+| HTTPS | 443 | Proporciona acceso HTTPS desde exploradores web de cliente al local interfaz de usuario 
+|===

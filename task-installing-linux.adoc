@@ -1,0 +1,211 @@
+---
+sidebar: sidebar 
+permalink: task-installing-linux.html 
+keywords: install connector, manually install connector, install connector software, installation, installing, linux, installer, software, on prem, on-prem, silent, configurations, ec2, vm, ports, ram, operating system, os, host, requirement, requirements, hypervisor, disk, space, mysql, centos, rhel, red hat, cpu, disk space 
+summary: La forma más común de crear un conector es directamente desde BlueXP o desde el mercado de un proveedor de la nube. Pero tiene la opción de descargar e instalar el software Connector en un host Linux existente en su red o en la nube. Estos pasos son específicos de los hosts que tienen acceso a Internet. 
+---
+= Instale el conector en un host Linux existente que tenga acceso a Internet
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+La forma más común de crear un conector es directamente desde BlueXP o desde el mercado de un proveedor de la nube. Pero tiene la opción de descargar e instalar el software Connector en un host Linux existente en su red o en la nube. Estos pasos son específicos de los hosts que tienen acceso a Internet.
+
+link:concept-connectors.html["Obtenga información sobre otras formas de desplegar un conector"].
+
+
+NOTE: Si desea crear un sistema Cloud Volumes ONTAP en Google Cloud, debe tener un conector que también funcione en Google Cloud. No puede utilizar un conector que se ejecute en AWS, Azure o en las instalaciones.
+
+
+
+== Verifique los requisitos del host
+
+El software del conector debe ejecutarse en un host que cumpla con requisitos específicos del sistema operativo, requisitos de RAM, requisitos de puerto, etc.
+
+Se requiere un host dedicado:: El conector no es compatible con un host compartido con otras aplicaciones. El host debe ser un host dedicado.
+CPU:: 4 núcleos o 4 vCPU
+RAM:: 14 GB
+Tipo de instancia de AWS EC2:: Tipo de instancia que cumple los requisitos anteriores de CPU y RAM. Recomendamos t3.xlarge.
+Tamaño de la máquina virtual de Azure:: Tipo de instancia que cumple los requisitos anteriores de CPU y RAM. Recomendamos DS3 v2.
+Tipo de máquina GCP:: Tipo de instancia que cumple los requisitos anteriores de CPU y RAM. Recomendamos n2-standard-4.
++
+--
+El conector es compatible con Google Cloud en una instancia de máquina virtual con un sistema operativo compatible https://cloud.google.com/compute/shielded-vm/docs/shielded-vm["Características de VM blindadas"^]
+
+--
+Sistemas operativos compatibles::
++
+--
+* CentOS 7.6
+* CentOS 7.7
+* CentOS 7.8
+* CentOS 7.9
+* Red Hat Enterprise Linux 7.6
+* Red Hat Enterprise Linux 7.7
+* Red Hat Enterprise Linux 7.8
+* Red Hat Enterprise Linux 7.9
+* Red Hat Enterprise Linux 8.6
++
+El sistema Red Hat Enterprise Linux debe estar registrado con Red Hat Subscription Management. Si no está registrado, el sistema no puede acceder a los repositorios para actualizar el software necesario de terceros durante la instalación del conector.
+
++
+El conector es compatible con las versiones en inglés de estos sistemas operativos.
+
+
+
+--
+Hipervisor:: Un hipervisor de configuración básica o alojado certificado Ejecute CentOS o Red Hat Enterprise Linuxhttps://access.redhat.com/certified-hypervisors["Red Hat Solution: ¿Qué hipervisores están certificados para ejecutar Red Hat Enterprise Linux?"^]
+Espacio en disco en /opt:: Debe haber 100 GIB de espacio disponibles
+Espacio en disco en /var:: Debe haber 20 GIB de espacio disponibles
+Motor Docker:: Se requiere Docker Engine versión 19.3.1 o posterior en el host antes de instalar el conector. https://docs.docker.com/engine/install/["Ver las instrucciones de instalación"^]
+Acceso a Internet de salida:: El instalador del conector debe acceder a las siguientes direcciones URL durante el proceso de instalación:
++
+--
+* \https://support.netapp.com
+* \https://mysupport.netapp.com
+* \https://cloudmanager.cloud.netapp.com/tenancy
+* \https://stream.cloudmanager.cloud.netapp.com
+* \https://cloudmanagerinfraprod.azurecr.io
+* \https://production-artifacts.cloudmanager.cloud.netapp.com
+* \https://*.blob.core.windows.net
+
+
+Es posible que el host intente actualizar paquetes de sistema operativo durante la instalación. El host puede ponerse en contacto con diferentes sitios de duplicación para estos paquetes de SO.
+
+--
+
+
+
+
+== Instale el conector
+
+Después de verificar que tiene un host Linux compatible, puede obtener el software Connector y luego instalarlo.
+
+.Lo que necesitará
+* Privilegios de root para instalar el conector.
+* Detalles sobre un servidor proxy, si se necesita un proxy para el acceso a Internet desde el conector. Son compatibles con HTTP y HTTPS.
++
+Tiene la opción de configurar un servidor proxy después de la instalación, pero para hacerlo es necesario reiniciar el conector.
+
+* Un certificado firmado por CA, si el servidor proxy utiliza HTTPS.
+
+
+.Acerca de esta tarea
+* La instalación instala las herramientas de línea de comandos de AWS (awscli) para habilitar los procedimientos de recuperación del soporte de NetApp.
++
+Si recibe un mensaje que ha fallado al instalar el awscli, puede ignorar el mensaje de forma segura. El conector puede funcionar correctamente sin las herramientas.
+
+* El instalador disponible en el sitio de soporte de NetApp puede ser una versión anterior. Después de la instalación, el conector se actualiza automáticamente si hay una nueva versión disponible.
+
+
+.Pasos
+. Compruebe que docker está activado y en ejecución.
++
+[source, cli]
+----
+sudo systemctl enable docker && sudo systemctl start docker
+----
+. Si las variables del sistema _http_proxy_ o _https_proxy_ están establecidas en el host, elimínelas:
++
+[source, cli]
+----
+unset http_proxy
+unset https_proxy
+----
++
+Si no elimina estas variables del sistema, la instalación fallará.
+
+. Descargue el software del conector de https://mysupport.netapp.com/site/products/all/details/cloud-manager/downloads-tab["Sitio de soporte de NetApp"^]Y, a continuación, cópielo en el host Linux.
++
+Debe descargar el instalador de Connector que se ha diseñado para su uso en la red o en la nube.
+
+. Asigne permisos para ejecutar el script.
++
+[source, cli]
+----
+chmod +x OnCommandCloudManager-V3.9.23
+----
+. Ejecute el script de instalación.
++
+[source, cli]
+----
+ ./OnCommandCloudManager-V3.9.23 --proxy <HTTP or HTTPS proxy server> --cacert <path and file name of a CA-signed certificate>
+----
++
+Los parámetros --proxy y --cacert son opcionales. Si tiene un servidor proxy, deberá introducir los parámetros como se muestra. El instalador no le solicita que proporcione información sobre un proxy.
+
++
+A continuación encontrará un ejemplo del comando utilizando los dos parámetros opcionales:
+
++
+[source, cli]
+----
+ ./OnCommandCloudManager-V3.9.23 --proxy https://user:password@10.0.0.30:8080/ --cacert /tmp/cacert/certificate.cer
+----
++
+--proxy configura el conector para que utilice un servidor proxy HTTP o HTTPS con uno de los siguientes formatos:
+
++
+** \http://address:port
+** \http://username:password@address:port
+** \https://address:port
+** \https://username:password@address:port
+
+
++
+--cacert especifica un certificado firmado por CA que se utilizará para el acceso HTTPS entre el conector y el servidor proxy. Este parámetro solo es obligatorio si se especifica un servidor proxy HTTPS.
+
+
+
+.Resultado
+El conector ya está instalado. Al final de la instalación, el servicio Connector (occm) se reinicia dos veces si ha especificado un servidor proxy.
+
+
+
+== Configure el conector
+
+Regístrese o inicie sesión y, a continuación, configure el conector para que funcione con su cuenta.
+
+.Pasos
+. Abra un explorador web e introduzca la siguiente URL:
++
+https://_ipaddress_[]
+
++
+_ipaddress_ puede ser localhost, una dirección IP privada o una dirección IP pública, dependiendo de la configuración del host. Por ejemplo, si el conector está en la nube pública sin una dirección IP pública, debe introducir una dirección IP privada desde un host que tenga una conexión con el host del conector.
+
+. Regístrese o inicie sesión.
+. Si ha instalado Connector en Google Cloud, configure una cuenta de servicio que tenga los permisos que BlueXP necesita para crear y gestionar sistemas Cloud Volumes ONTAP en proyectos.
++
+.. https://cloud.google.com/iam/docs/creating-custom-roles#iam-custom-roles-create-gcloud["Crear un rol en GCP"^] esto incluye los permisos definidos en la link:reference-permissions-gcp.html["Política de conectores para GCP"].
+.. https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating_a_service_account["Cree una cuenta de servicio de GCP y aplique el rol personalizado que acaba de crear"^].
+.. https://cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances#changeserviceaccountandscopes["Asocie esta cuenta de servicio a la máquina virtual del conector"^].
+.. Si desea poner en marcha Cloud Volumes ONTAP en otros proyectos, https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console["Conceda acceso agregando la cuenta de servicio con la función BlueXP a ese proyecto"^]. Deberá repetir este paso con cada proyecto.
+
+
+. Después de iniciar sesión, configure BlueXP:
++
+.. Especifique la cuenta de NetApp que desea asociar al conector.
++
+link:concept-netapp-accounts.html["Obtenga más información acerca de las cuentas de NetApp"].
+
+.. Escriba un nombre para el sistema.
+
+
+
+
+.Resultado
+El conector ahora está instalado y configurado con su cuenta de NetApp. BlueXP utilizará este conector automáticamente cuando cree nuevos entornos de trabajo.
+
+.Después de terminar
+Configure permisos para que BlueXP pueda gestionar recursos y procesos en su entorno de cloud público:
+
+* AWS: link:task-adding-aws-accounts.html["Configure una cuenta de AWS y, a continuación, agréguela a BlueXP"]
+* Azure: link:task-adding-azure-accounts.html["Configure una cuenta de Azure y añádala a BlueXP"]
+* Google Cloud: Consulte el paso 3 anterior
+

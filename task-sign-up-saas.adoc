@@ -1,0 +1,67 @@
+---
+sidebar: sidebar 
+permalink: task-sign-up-saas.html 
+keywords: sign up, signing up, sign in, signing in, login with netapp, log in with netapp, create account, account 
+summary: Cuando comience con BlueXP, su primer paso es registrarse. Se le dará la opción de crear una cuenta, pero puede omitir ese paso si está siendo invitado a una cuenta existente. 
+---
+= Regístrese en BlueXP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cuando comience con BlueXP, su primer paso es registrarse. Se le dará la opción de crear una cuenta, pero puede omitir ese paso si está siendo invitado a una cuenta existente.
+
+.Una nota sobre las regiones gubernamentales
+Si necesita acceder a BlueXP desde una región gubernamental o un sitio que no tenga acceso saliente a Internet, debe crear un conector e iniciar sesión en la interfaz de usuario de BlueXP que se ejecuta localmente en el conector. link:task-managing-connectors.html#access-the-local-ui["Aprenda a acceder a la interfaz de usuario local en el conector"].
+
+.Opciones de registro
+BlueXP es accesible desde su navegador web a través de una interfaz de usuario basada en SaaS.
+
+Puede suscribirse a BlueXP mediante una de las siguientes opciones:
+
+* Sus credenciales existentes del sitio de soporte de NetApp (NSS)
+* Inicio de sesión en el cloud de NetApp especificando su dirección de correo electrónico y una contraseña
+
+
+Ambas opciones admiten una conexión federada, que habilita el inicio de sesión único mediante credenciales del directorio corporativo (identidad federada). Después de registrarse, puede configurar una conexión federada desde https://cloud.netapp.com/help-center["Centro de ayuda de BlueXP"^] Seleccionando *Opciones de inicio de sesión de Cloud Central*.
+
+.Pasos
+. Abra un explorador web y vaya al https://console.bluexp.netapp.com["Consola BlueXP"^]
+. En la página *Iniciar sesión*, seleccione *Registrarse*.
++
+
+TIP: Si tiene pensado utilizar sus credenciales de NSS existentes, puede omitir la página de registro e introducir su dirección de correo electrónico directamente en la página de inicio de sesión. BlueXP te inscribirá como parte de este inicio de sesión inicial.
+
+. En la página *Registrarse*, seleccione una de las opciones de inicio de sesión:
++
+** Si tiene una cuenta existente del sitio de soporte de NetApp (NSS), seleccione *Regístrese con sus credenciales del sitio de soporte de NetApp*.
++
+Cuando usa esta opción, sus credenciales del sitio de soporte de NetApp (NSS) no se añaden a BlueXP en la consola de soporte. link:task-adding-nss-accounts.html["Aprenda a añadir sus credenciales de NSS a la consola de soporte para habilitar los flujos de trabajo clave"].
+
+** Si no tiene una cuenta de NSS y no ha creado las credenciales de cloud de NetApp, introduzca la información requerida para crear un inicio de sesión en cloud de NetApp.
++
+Tenga en cuenta que sólo se permiten caracteres ingleses en el formulario de registro.
+
+
+
+. Cuando se le solicite, revise el Contrato de licencia para el usuario final y acepte los términos.
+. En la página *bienvenida*, escriba un nombre para su cuenta.
++
+Si su empresa ya tiene una cuenta y desea unirse a ella, debe omitir este paso y pedir al propietario que lo asocie a la cuenta. Una vez que el propietario le agregue, puede iniciar sesión y tendrá acceso a la cuenta. link:task-managing-netapp-accounts.html#adding-users["Aprenda a agregar miembros a una cuenta existente"].
+
++
+Una cuenta es el elemento de nivel superior de la plataforma de identidades de NetApp. Permite añadir y gestionar usuarios, roles, permisos y entornos de trabajo.
+
++
+image:screenshot-account-selection.png["Captura de pantalla de la página de bienvenida que aparece cuando inicia sesión con una cuenta nueva que no pertenece a una cuenta."]
+
+. Seleccione *Crear cuenta*.
+
+
+.Resultado
+Ahora tienes una cuenta y un inicio de sesión de BlueXP. En la mayoría de los casos, el siguiente paso es crear un conector que conecte los servicios de BlueXP a su entorno de nube híbrida.

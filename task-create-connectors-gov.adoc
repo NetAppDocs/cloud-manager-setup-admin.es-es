@@ -1,0 +1,32 @@
+---
+sidebar: sidebar 
+permalink: task-create-connectors-gov.html 
+keywords: government region, gov, govcloud, connector 
+summary: Si opera en una región gubernamental, necesita poner en marcha un conector desde el mercado de su proveedor cloud o mediante el método de instalación manual. No puede desplegar el conector en una región gubernamental desde el sitio web de BlueXP SaaS. 
+---
+= Cree un conector en una región gubernamental
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Si trabaja en una región gubernamental, necesita implementar un conector desde el mercado de su proveedor de cloud o instalar manualmente el software del conector en un host Linux existente. No puede desplegar el conector en una región gubernamental desde el sitio web de BlueXP SaaS.
+
+Utilice uno de los siguientes vínculos para ver las instrucciones para crear un conector:
+
+* link:task-launching-aws-mktp.html#create-the-connector-in-an-aws-government-region["Cree un conector desde AWS Marketplace"]
+* https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-aws-c2s.html["Cree un conector y un Cloud Volumes ONTAP en el entorno AWS C2S"^]
+* link:task-launching-azure-mktp.html["Cree un conector desde Azure Marketplace"]
+* link:task-installing-linux.html["Instale un conector en su propio host Linux"]
++
+Para las instalaciones manuales en su propio host Linux, debe utilizar el instalador "online" para instalar el conector en un host que tenga acceso a Internet. Hay disponible un instalador independiente "offline" para el conector, pero sólo es compatible con sitios locales que no tienen acceso a Internet. No cuenta con soporte para regiones gubernamentales.
+
+
+
+Después de desplegar el conector, puede acceder a BlueXP abriendo el explorador Web y conectándose a la dirección IP de la instancia de conector: https://_ipaddress_[]
+
+Dado que el conector se desplegó en una región gubernamental, no se puede acceder a él desde https://console.bluexp.netapp.com[].

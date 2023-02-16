@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: task-manage-subscriptions.html 
+keywords: digital wallet, subscriptions, paygo subscriptions, contracts, annual contracts 
+summary: Al suscribirse a BlueXP desde el mercado de un proveedor de la nube, se le redirigirá al sitio web de BlueXP donde necesita guardar su suscripción y asociarla a cuentas específicas. Una vez que se haya suscrito, cada suscripción estará disponible para administrar desde Digital Wallet. 
+---
+= Gestionar suscripciones y contratos de PAYGO
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Al suscribirse a BlueXP desde el mercado de un proveedor de la nube, se le redirigirá al sitio web de BlueXP donde necesita guardar su suscripción y asociarla a cuentas específicas. Una vez que se haya suscrito, cada suscripción estará disponible para administrar desde Digital Wallet.
+
+
+
+== Ver sus suscripciones
+
+La cartera digital proporciona detalles sobre cada suscripción a PAYGO y el contrato anual asociado con su cuenta BlueXP y con Astra (Astra utiliza el servicio de carga de BlueXP).
+
+.Pasos
+. En el menú de navegación de BlueXP, seleccione *Gobierno > cartera digital*.
+. Seleccione *Suscripciones*.
++
+Solo verá las suscripciones asociadas a la cuenta que está viendo actualmente.
+
+. Cuando vea la información sobre sus suscripciones, puede interactuar con los detalles de la tabla de la siguiente manera:
++
+** Expanda una fila para ver más detalles.
++
+image:screenshot-subscriptions-expand.png["Una captura de pantalla de la ficha Suscripciones en la cartera digital, donde puede seleccionar la flecha al final de una fila para ampliarla."]
+
+** Haga clic en image:icon-column-selector.png["el icono de más al final del encabezado de la tabla"] para elegir las columnas que aparecen en la tabla.
++
+Tenga en cuenta que las columnas término y renovación automática no aparecen de forma predeterminada. La columna renovación automática muestra información de renovación únicamente para los contratos de Azure.
+
+
+
++
+Tenga en cuenta lo siguiente acerca de lo que puede ver en la tabla:
+
++
+Fecha de inicio:: La fecha de inicio es cuando ha asociado correctamente la suscripción a su cuenta y se ha iniciado la carga.
+N.A.:: Si observa N/A en la tabla, la información no está disponible en la API del proveedor de cloud en este momento.
+Contratos::
++
+--
+** Si expande los detalles de un contrato, el monedero digital muestra lo que está disponible para su plan actual: Las opciones de contrato y las unidades (capacidad o número de nodos).
+** El monedero digital identificará la fecha de finalización y si el contrato se renovará pronto, finalizará pronto o si ya ha finalizado.
+** Si tiene un contrato de AWS y ha cambiado alguna de las opciones del contrato tras la fecha de inicio, asegúrese de validar las opciones de contrato desde AWS.
+
+
+--
+
+
+
+
+
+
+== Gestione sus suscripciones
+
+Puede gestionar sus suscripciones desde Digital Wallet cambiando el nombre de una suscripción y eligiendo las cuentas asociadas a la suscripción.
+
+Por ejemplo, digamos que tiene dos cuentas y cada una se factura mediante suscripciones independientes. Puede desasociar una suscripción de una de las cuentas para que los usuarios de esa cuenta no elijan accidentalmente la suscripción incorrecta al crear un entorno de trabajo de Cloud Volume ONTAP.
+
+.Pasos
+. En el menú de navegación de BlueXP, seleccione *Gobierno > cartera digital*.
+. Seleccione *Suscripciones*.
+. Haga clic en el menú de acciones de la fila correspondiente a la suscripción que desea administrar.
++
+image:screenshot-subscription-menu.png["Una captura de pantalla del menú de acciones para una suscripción."]
+
+. Elija cambiar el nombre de la suscripción o gestionar las cuentas de NetApp asociadas a la suscripción.
+

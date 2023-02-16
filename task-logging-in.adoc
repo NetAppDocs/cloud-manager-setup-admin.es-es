@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: task-logging-in.html 
+keywords: logging in, log in, sign in, signing in, cloud central, netapp cloud central, user account, federated, federation, federated login, federation login, login with netapp, log in with netapp, sign up, create account 
+summary: Después de registrarse en BlueXP, puede iniciar sesión desde su navegador web a través de la interfaz de usuario basada en SaaS. 
+---
+= Inicie sesión en BlueXP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Después de registrarse en BlueXP, puede iniciar sesión desde su navegador web a través de la interfaz de usuario basada en SaaS.
+
+link:task-sign-up-saas.html["Aprenda cómo registrarse en BlueXP y crear una organización"].
+
+Si accede a BlueXP desde una región gubernamental o un sitio que no tiene acceso saliente a Internet, deberá iniciar sesión en la interfaz de usuario de BlueXP que se ejecuta localmente en el conector. link:task-managing-connectors.html#access-the-local-ui["Aprenda a acceder a la interfaz de usuario local en el conector"].
+
+.Opciones de inicio de sesión
+Puede iniciar sesión en BlueXP con una de las siguientes opciones:
+
+* Sus credenciales existentes del sitio de soporte de NetApp (NSS)
+* Un inicio de sesión en el cloud de NetApp con su dirección de correo electrónico y una contraseña
+* Una conexión federada
++
+Puede utilizar el inicio de sesión único para iniciar sesión con credenciales del directorio corporativo (identidad federada). Para obtener más información, visite la https://cloud.netapp.com/help-center["Centro de ayuda de BlueXP"^] y, a continuación, haga clic en *opciones de inicio de sesión*.
+
+
+
+.Pasos
+. Abra un explorador web y vaya al https://console.bluexp.netapp.com["Consola BlueXP"^]
+. En la página *Iniciar sesión*, introduzca la dirección de correo electrónico asociada a su inicio de sesión.
+. En función del método de autenticación asociado a su inicio de sesión, se le pedirá que introduzca sus credenciales:
++
+** Credenciales de cloud de NetApp: Introduzca su contraseña
+** Federated user: Introduzca las credenciales de identidad federadas
+** Cuenta del sitio de soporte de NetApp: Introduzca sus credenciales del sitio de soporte de NetApp
+
+
+
+
+.Resultado
+Ya ha iniciado sesión y puede empezar a utilizar BlueXP para gestionar su infraestructura multicloud híbrida.
