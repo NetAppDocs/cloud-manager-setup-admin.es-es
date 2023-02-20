@@ -1,0 +1,2040 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head class="at-element-marker">
+  <title>Gestione las credenciales y suscripciones de AWS para BlueXP | NetApp Documentation</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Gestione las credenciales y suscripciones de AWS para BlueXP | NetApp Documentation" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/es-es/cloud-manager-setup-admin/task-adding-aws-accounts.html" />
+	<meta property="og:description" content="Añada y gestione credenciales de AWS para que BlueXP tenga los permisos que necesita para implementar y gestionar recursos cloud en sus cuentas de AWS. Si ad..." />
+  <meta property="og:image" content="https://docs.netapp.com/es-es/cloud-manager-setup-admin/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Añada y gestione credenciales de AWS para que BlueXP tenga los permisos que necesita para implementar y gestionar recursos cloud en sus cuentas de AWS. Si ad...">
+  <meta name="keywords" content=" permissions, aws, policy, iam, iam role, role, granting, policy, iam policy, iam user, access keys, arn, cloud provider accounts, aws, cloud provider profile, json, iam, credentials, adding credentials, add credentials"><!-- Icons -->
+  <link rel="icon" href="/es-es/cloud-manager-setup-admin/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/es-es/cloud-manager-setup-admin/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/es-es/cloud-manager-setup-admin/css/netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/es-es/cloud-manager-setup-admin/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/es-es/cloud-manager-setup-admin/css/tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel='stylesheet' href='/es-es/cloud-manager-setup-admin/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
+    function addAdobeLaunch(adobeId) {
+      var head = document.getElementsByTagName('head')[0];
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/"+adobeId+".min.js";
+      head.appendChild(adobe);
+    }
+
+    function addGoogleAnalytics(gtagId) {
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id="+gtagId;
+      var head = document.getElementsByTagName('head')[0];
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gtagId);
+    }
+
+    function addConsent(consentId) {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/"+consentId+"/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = consentId;
+      head.appendChild(onetrustScript);
+    }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
+    addAdobeLaunch("launch-e9ff3acac59f");
+    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/es-es/cloud-manager-setup-admin/js/na-search.js'></script><script src='/es-es/cloud-manager-setup-admin/js/na-pagenav.js'></script><script src='/es-es/cloud-manager-setup-admin/js/na-utility.js'></script>
+  <script src='/es-es/cloud-manager-setup-admin/js/clouddocs.js'></script>
+  <script src='/es-es/cloud-manager-setup-admin/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/es-es/cloud-manager-setup-admin/js/toc.js'></script>
+  <script src='/es-es/cloud-manager-setup-admin/js/customscripts.js'></script><script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+          $(".sidebar-nav-container").on("scroll", function() {
+            $.cookie("sidebarScroll", $(".sidebar-nav-container").scrollTop(), {
+              path    : "/es-es/cloud-manager-setup-admin"  
+            });
+          });
+          $(function() {
+            if ($.cookie("sidebarScroll")) {
+              $(".sidebar-nav-container").scrollTop($.cookie("sidebarScroll"));
+            }
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+  <script src='/es-es/cloud-manager-setup-admin/js/custom-dropdown.js'></script>
+  <script src='/es-es/cloud-manager-setup-admin/js/FileSaver.min.js'></script>
+  <script src='/es-es/cloud-manager-setup-admin/js/jszip-utils.min.js'></script>
+  <script src='/es-es/cloud-manager-setup-admin/js/jszip.min.js'></script>
+  <script src='/es-es/cloud-manager-setup-admin/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document" data-flavor="">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-setup-admin/issues/new?body=Page%3A%20[Gestione las credenciales y suscripciones de AWS para BlueXP](https://docs.netapp.com/es-es/cloud-manager-setup-admin/task-adding-aws-accounts.html)&template=public-issue-template.md" class="page-nav-contribute-link" role="button"><img src="/es-es/cloud-manager-setup-admin/images/discuss-sm.svg" alt="" class="github-icon" />Solicitar cambios en el documento</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-setup-admin/blob/main/task-adding-aws-accounts.adoc" class="page-nav-contribute-link" role="button"><img src="/es-es/cloud-manager-setup-admin/images/edit-sm.svg" alt="" class="github-icon" />Editar en GitHub</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/es-es/cloud-manager-setup-admin/images/article-sm.svg" alt="" class="github-icon" />Guía del colaborador</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">EN ESTA PÁGINA</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">Producto y soluciones</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">Asistencia y capacitación</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">Comunidad</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">Blog</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">Historias de clientes</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/company/contact-us/" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/es-es/cloud-manager-setup-admin/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/es-es/cloud-manager-setup-admin/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/es-es/cloud-manager-setup-admin/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/es-es/cloud-manager-setup-admin/search.html"
+          data-type="widget" 
+          data-placeholder="Buscar documentación"
+          data-no-results-found="No se encontraron resultados para {query}"
+          data-did-you-mean="Buscar {suggestion}."
+          data-no-results-found-did-you-mean="No se encontraron resultados para {query}. ¿Quiso decir {suggestion}?"
+          data-results-found="{hitCount} resultados encontrados"
+          data-error-message="We're sorry, an issue occurred when fetching your results. Please try again."
+          data-error-reset="Reset Search"
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/cloud-manager-setup-admin/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">Español</span>
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/cloud-manager-setup-admin/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/es-es/cloud-manager-setup-admin/task-adding-aws-accounts.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-adding-aws-accounts.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/cloud-manager-setup-admin/task-adding-aws-accounts.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/cloud-manager-setup-admin/task-adding-aws-accounts.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/cloud-manager-setup-admin/task-adding-aws-accounts.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/cloud-manager-setup-admin/task-adding-aws-accounts.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/de-de/cloud-manager-setup-admin/task-adding-aws-accounts.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/fr-fr/cloud-manager-setup-admin/task-adding-aws-accounts.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+        </li></ul>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <button id="btn-sidebar-collapse" onclick="hideSidebar()"><img src="/es-es/cloud-manager-setup-admin/images/collapse.png" alt="Contraer panel de navegación"></button>
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/es-es/cloud-manager-setup-admin/images/pdf.png" alt="" width="16" height="16"/>PDFs disponibles<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
+        <a target="_blank" href="/es-es/cloud-manager-setup-admin/pdfs/fullsite-sidebar/Configurar_y_administrar_BlueXP.pdf" >
+          <img src="/es-es/cloud-manager-setup-admin/images/pdf.png" alt="" width="16" height="16"/>PDF de este sitio de documentos</a>
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-setup-admin/pdfs/sidebar/Notas_de_la_versión.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-setup-admin/images/pdf.png" alt="" width="16" height="16"/>
+            Notas de la versión
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-setup-admin/pdfs/sidebar/Manos_a_la_obra.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-setup-admin/images/pdf.png" alt="" width="16" height="16"/>
+            Manos a la obra
+          </a>
+          
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-setup-admin/pdfs/sidebar/Configure_una_cuenta_de_NetApp.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-setup-admin/images/pdf.png" alt="" width="16" height="16"/>
+            Configure una cuenta de NetApp
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-setup-admin/pdfs/sidebar/Configure_un_conector.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-setup-admin/images/pdf.png" alt="" width="16" height="16"/>
+            Configure un conector
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-setup-admin/pdfs/sidebar/Administrar_BlueXP.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-setup-admin/images/pdf.png" alt="" width="16" height="16"/>
+            Administrar BlueXP
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-setup-admin/pdfs/sidebar/Cuentas_de_NetApp.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-setup-admin/images/pdf.png" alt="" width="16" height="16"/>
+            Cuentas de NetApp
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-setup-admin/pdfs/sidebar/Conectores.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-setup-admin/images/pdf.png" alt="" width="16" height="16"/>
+            Conectores
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-setup-admin/pdfs/sidebar/Puesta_en_marcha_avanzada.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-setup-admin/images/pdf.png" alt="" width="16" height="16"/>
+            Puesta en marcha avanzada
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-setup-admin/pdfs/sidebar/Almacenamiento_en_cloud_detectado.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-setup-admin/images/pdf.png" alt="" width="16" height="16"/>
+            Almacenamiento en cloud detectado
+          </a>
+          
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-setup-admin/pdfs/sidebar/Credenciales_de_AWS.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-setup-admin/images/pdf.png" alt="" width="16" height="16"/>
+            Credenciales de AWS
+          </a>
+          
+
+
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-setup-admin/pdfs/sidebar/Credenciales_de_Azure.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-setup-admin/images/pdf.png" alt="" width="16" height="16"/>
+            Credenciales de Azure
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-setup-admin/pdfs/sidebar/Credenciales_de_Google_Cloud.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-setup-admin/images/pdf.png" alt="" width="16" height="16"/>
+            Credenciales de Google Cloud
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-setup-admin/pdfs/sidebar/Referencia.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-setup-admin/images/pdf.png" alt="" width="16" height="16"/>
+            Referencia
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-setup-admin/pdfs/sidebar/Permisos.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-setup-admin/images/pdf.png" alt="" width="16" height="16"/>
+            Permisos
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-setup-admin/pdfs/sidebar/Puertos.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-setup-admin/images/pdf.png" alt="" width="16" height="16"/>
+            Puertos
+          </a>
+          
+
+
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-setup-admin/pdfs/sidebar/Conocimiento_y_apoyo.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-setup-admin/images/pdf.png" alt="" width="16" height="16"/>
+            Conocimiento y apoyo
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/es-es/cloud-manager-setup-admin/images/pdf-zip.png" alt="" width="16" height="16"/>
+      <pre>Colección de documentos PDF separados<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="prod-nav" id="product-nav">
+  <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/es-es/cloud-manager-family/"><img src="/es-es/cloud-manager-setup-admin/images/left_arrow.png" alt=""><pre>Toda la documentación de BlueXP</pre></a>
+</div><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentos de configuración y administración"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/index.html">
+        Documentos de configuración y administración
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Notas de la versión"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Notas de la versión</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Novedades"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/whats-new.html">
+        Novedades
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Limitaciones"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/reference-limitations.html">
+        Limitaciones
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Manos a la obra"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Manos a la obra</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Más información sobre BlueXP"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/concept-overview.html">
+        Más información sobre BlueXP
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Lista de comprobación de introducción"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/reference-checklist-cm.html">
+        Lista de comprobación de introducción
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Regístrese en BlueXP"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-sign-up-saas.html">
+        Regístrese en BlueXP
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Inicie sesión en BlueXP"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-logging-in.html">
+        Inicie sesión en BlueXP
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configure una cuenta de NetApp"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Configure una cuenta de NetApp</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Obtenga más información acerca de las cuentas de NetApp"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/concept-netapp-accounts.html">
+        Obtenga más información acerca de las cuentas de NetApp
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configure espacios de trabajo y usuarios"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-setting-up-netapp-accounts.html">
+        Configure espacios de trabajo y usuarios
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configure un conector"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Configure un conector</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Más información sobre conectores"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/concept-connectors.html">
+        Más información sobre conectores
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cree un conector en AWS"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-creating-connectors-aws.html">
+        Cree un conector en AWS
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cree un conector en Azure"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-creating-connectors-azure.html">
+        Cree un conector en Azure
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cree un conector en Google Cloud"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-creating-connectors-gcp.html">
+        Cree un conector en Google Cloud
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cree un conector en una región gubernamental"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-create-connectors-gov.html">
+        Cree un conector en una región gubernamental
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="A continuación, ¿dónde ir"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/reference-whats-next.html">
+        A continuación, ¿dónde ir
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Administrar BlueXP"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Administrar BlueXP</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cuentas de NetApp"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Cuentas de NetApp</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Gestione su cuenta"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-managing-netapp-accounts.html">
+        Gestione su cuenta
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Supervisar las operaciones en su cuenta"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-monitor-cm-operations.html">
+        Supervisar las operaciones en su cuenta
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Roles de usuario"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/reference-user-roles.html">
+        Roles de usuario
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Conectores"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Conectores</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Puesta en marcha avanzada"
+      data-li-level="3" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Puesta en marcha avanzada</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cree desde el AWS Marketplace"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-launching-aws-mktp.html">
+        Cree desde el AWS Marketplace
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cree desde Azure Marketplace"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-launching-azure-mktp.html">
+        Cree desde Azure Marketplace
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale en su propio host con Internet"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-installing-linux.html">
+        Instale en su propio host con Internet
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale en el entorno local sin Internet"
+      data-li-level="4#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html">
+        Instale en el entorno local sin Internet
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Busque el ID del sistema de un conector"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-finding-system-id.html">
+        Busque el ID del sistema de un conector
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Administrar conectores existentes"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-managing-connectors.html">
+        Administrar conectores existentes
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Instale un certificado HTTPS"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-installing-https-cert.html">
+        Instale un certificado HTTPS
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configure los ajustes de proxy"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-configuring-proxy.html">
+        Configure los ajustes de proxy
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Configuración predeterminada"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/reference-connector-default-config.html">
+        Configuración predeterminada
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Suscripciones"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-manage-subscriptions.html">
+        Suscripciones
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Almacenamiento en cloud detectado"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Almacenamiento en cloud detectado</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Consulte sus bloques de Amazon S3"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-viewing-amazon-s3.html">
+        Consulte sus bloques de Amazon S3
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Consulte sus cuentas de Azure Blob"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-viewing-azure-blob.html">
+        Consulte sus cuentas de Azure Blob
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Consulte sus cubos de Google Cloud Storage"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-viewing-gcp-storage.html">
+        Consulte sus cubos de Google Cloud Storage
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Credenciales de AWS"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Credenciales de AWS</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descripción general"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/concept-accounts-aws.html">
+        Descripción general
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Administrar credenciales y suscripciones"
+      data-li-level="3#" 
+      class="  active "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-adding-aws-accounts.html">
+        Administrar credenciales y suscripciones
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Credenciales de Azure"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Credenciales de Azure</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descripción general"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/concept-accounts-azure.html">
+        Descripción general
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Administrar credenciales y suscripciones"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-adding-azure-accounts.html">
+        Administrar credenciales y suscripciones
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Credenciales de Google Cloud"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Credenciales de Google Cloud</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descripción general"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/concept-accounts-gcp.html">
+        Descripción general
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Administrar credenciales y suscripciones"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-adding-gcp-accounts.html">
+        Administrar credenciales y suscripciones
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Cuentas del sitio de soporte de NetApp"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-adding-nss-accounts.html">
+        Cuentas del sitio de soporte de NetApp
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Descubrimiento mediante Mis oportunidades"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/concept-my-opportunities.html">
+        Descubrimiento mediante Mis oportunidades
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Referencia"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Referencia</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Permisos"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Permisos</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Resumen de permisos"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/reference-permissions.html">
+        Resumen de permisos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Permisos de AWS para Connector"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/reference-permissions-aws.html">
+        Permisos de AWS para Connector
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Permisos de Azure para Connector"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/reference-permissions-azure.html">
+        Permisos de Azure para Connector
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Permisos de Google Cloud para Connector"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/reference-permissions-gcp.html">
+        Permisos de Google Cloud para Connector
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Puertos"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Puertos</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Reglas del grupo de seguridad en AWS"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/reference-ports-aws.html">
+        Reglas del grupo de seguridad en AWS
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Reglas de grupos de seguridad en Azure"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/reference-ports-azure.html">
+        Reglas de grupos de seguridad en Azure
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Reglas de firewall en Google Cloud"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/reference-ports-gcp.html">
+        Reglas de firewall en Google Cloud
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Puertos para el conector en las instalaciones"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/reference-ports-on-prem.html">
+        Puertos para el conector en las instalaciones
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Conocimiento y apoyo"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Conocimiento y apoyo</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Regístrese para recibir soporte"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-support-registration.html">
+        Regístrese para recibir soporte
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Obtenga ayuda"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-get-help.html">
+        Obtenga ayuda
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Avisos legales"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/legal-notices.html">
+        Avisos legales
+      </a></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+<script>$("#mysidebar li.active").parents('ul').css("display","block");</script>
+
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <div class="ie-utility">
+  <button id="btn-sidebar-expand" onclick="showSidebar()"><img src="/es-es/cloud-manager-setup-admin/images/expand.png" alt="Expandir panel de navegación"></button>
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
+        </li>
+        
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com/us-en/cloud/">Cloud Docs</a>
+        </li>
+        
+
+        
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com/es-es/cloud-manager-family/">BlueXP</a>
+        </li>
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/es-es/cloud-manager-setup-admin/">Set&nbsp;up&nbsp;and&nbsp;administration</a>
+        </li>
+
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/es-es/cloud-manager-setup-admin/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> Se proporciona el idioma español mediante traducción automática para su comodidad. En caso de alguna inconsistencia, el inglés precede al español. </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Gestione las credenciales y suscripciones de AWS para BlueXP</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2023-02-20 16:42:56 +0000">02/20/2023</time>
+    
+  
+
+<span>Colaboradores
+</span>
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>Añada y gestione credenciales de AWS para que BlueXP tenga los permisos que necesita para implementar y gestionar recursos cloud en sus cuentas de AWS. Si administra varias suscripciones de AWS, puede asignar cada una de ellas a diferentes credenciales de AWS desde la página Credentials.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="descripción-general">Descripción general</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Puede añadir credenciales de AWS a un conector existente o directamente a BlueXP:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Agregue credenciales de AWS adicionales a un conector existente</p>
+<div class="paragraph">
+<p>Añadir credenciales de AWS a un conector existente proporciona los permisos necesarios para gestionar recursos y procesos dentro de su entorno de cloud público. <a href="#agregar-credenciales-a-un-conector">Aprenda a añadir credenciales de AWS a un conector</a>.</p>
+</div>
+</li>
+<li>
+<p>Añada las credenciales de AWS a BlueXP para crear un conector</p>
+<div class="paragraph">
+<p>La adición de nuevas credenciales de AWS a BlueXP proporciona a BlueXP los permisos necesarios para crear un conector. <a href="#agregar-credenciales-a-bluexp-para-crear-un-conector">Aprenda a añadir credenciales de AWS a BlueXP</a>.</p>
+</div>
+</li>
+<li>
+<p>Añada credenciales de AWS a BlueXP para FSX para ONTAP</p>
+<div class="paragraph">
+<p>La adición de nuevas credenciales de AWS a BlueXP proporciona a BlueXP los permisos necesarios para crear y gestionar FSX para ONTAP. <a href="https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/requirements/task-setting-up-permissions-fsx.html" target="_blank" rel="noopener">"Aprenda a configurar permisos para FSX para ONTAP"</a></p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cómo-rotar-credenciales">Cómo rotar credenciales</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>BlueXP le permite proporcionar credenciales de AWS de varias maneras: Una función IAM asociada a la instancia de Connector, asumiendo un rol IAM en una cuenta de confianza o proporcionando claves de acceso de AWS. <a href="concept-accounts-aws.html">"Obtenga más información acerca de las credenciales y permisos de AWS"</a>.</p>
+</div>
+<div class="paragraph">
+<p>Con las dos primeras opciones, BlueXP utiliza el Servicio de token de seguridad de AWS para obtener credenciales temporales que giran constantemente. Este proceso es la mejor práctica porque es automático y seguro.</p>
+</div>
+<div class="paragraph">
+<p>Si proporciona a BlueXP claves de acceso de AWS, debe rotar las claves actualizándolas en BlueXP a intervalos regulares. Este es un proceso completamente manual.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="agregar-credenciales-a-un-conector">Agregar credenciales a un conector</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Añada las credenciales de AWS a un conector para que tenga los permisos necesarios para gestionar los recursos y procesos en su entorno de cloud público. Puede proporcionar el ARN de un rol IAM en otra cuenta o proporcionar claves de acceso de AWS.</p>
+</div>
+<div class="sect2">
+<h3 id="conceder-permisos">Conceder permisos</h3>
+<div class="paragraph">
+<p>Antes de agregar credenciales de AWS a un conector, debe proporcionar los permisos necesarios. Los permisos permiten a BlueXP administrar recursos y procesos dentro de esa cuenta de AWS. La forma en que proporcione los permisos depende de si desea proporcionar BlueXP con el ARN de una función en una cuenta de confianza o claves de AWS.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-setup-admin/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Si implementó un conector desde BlueXP, BlueXP agregó automáticamente credenciales de AWS para la cuenta en la que implementó el conector. Esta cuenta inicial no se agrega si implementó el conector desde AWS Marketplace o si instaló manualmente el software Connector en un sistema existente. <a href="concept-accounts-aws.html">"Obtenga más información acerca de los permisos y credenciales de AWS"</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>opciones</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#conceda-permisos-asumiendo-una-función-iam-en-otra-cuenta">Conceda permisos asumiendo una función IAM en otra cuenta</a></p>
+</li>
+<li>
+<p><a href="#conceda-permisos-proporcionando-claves-aws">Conceda permisos proporcionando claves AWS</a></p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="conceda-permisos-asumiendo-una-función-iam-en-otra-cuenta">Conceda permisos asumiendo una función IAM en otra cuenta</h4>
+<div class="paragraph">
+<p>Puede configurar una relación de confianza entre la cuenta AWS de origen en la que ha implementado la instancia de Connector y otras cuentas de AWS mediante los roles IAM. A continuación, debe proporcionar a BlueXP el ARN de las funciones de IAM de las cuentas de confianza.</p>
+</div>
+<div class="paragraph">
+<p>Si el conector está instalado en las instalaciones, no puede utilizar este método de autenticación. Debe usar claves AWS.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>Vaya a la consola IAM de la cuenta de destino en la que desea proporcionar permisos al conector.</p>
+</li>
+<li>
+<p>En Access Management, haga clic en <strong>roles &gt; Crear función</strong> y siga los pasos para crear la función.</p>
+<div class="paragraph">
+<p>No olvide hacer lo siguiente:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>En <strong>Tipo de entidad de confianza</strong>, seleccione <strong>cuenta de AWS</strong>.</p>
+</li>
+<li>
+<p>Seleccione <strong>otra cuenta de AWS</strong> e introduzca el ID de la cuenta en la que reside la instancia de Connector.</p>
+</li>
+<li>
+<p>Cree las directivas necesarias copiando y pegando el contenido de <a href="reference-permissions-aws.html">"Políticas de IAM para el conector"</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Copie el rol ARN del rol IAM para que pueda pegarlo en BlueXP más adelante.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Resultado</div>
+<p>La cuenta ahora tiene los permisos necesarios. <a href="#add-the-credentials">Ahora puede agregar las credenciales a un conector</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="conceda-permisos-proporcionando-claves-aws">Conceda permisos proporcionando claves AWS</h4>
+<div class="paragraph">
+<p>Si desea proporcionar BlueXP con claves AWS para un usuario de IAM, debe conceder los permisos necesarios a ese usuario. La política IAM de BlueXP define las acciones y los recursos de AWS que BlueXP puede utilizar.</p>
+</div>
+<div class="paragraph">
+<p>Debe utilizar este método de autenticación si el conector está instalado en las instalaciones. No se puede utilizar la función IAM.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>Desde la consola IAM, cree directivas copiando y pegando el contenido de <a href="reference-permissions-aws.html">"Políticas de IAM para el conector"</a>.</p>
+<div class="paragraph">
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html" target="_blank" rel="noopener">"Documentación de AWS: Crear políticas de IAM"</a></p>
+</div>
+</li>
+<li>
+<p>Asocie las políticas a un rol de IAM o a un usuario de IAM.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html" target="_blank" rel="noopener">"Documentación de AWS: Crear roles de IAM"</a></p>
+</li>
+<li>
+<p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html" target="_blank" rel="noopener">"Documentación de AWS: Adición y eliminación de políticas de IAM"</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Resultado</div>
+<p>La cuenta ahora tiene los permisos necesarios. <a href="#add-the-credentials">Ahora puede agregar las credenciales a un conector</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="añada-las-credenciales">Añada las credenciales</h3>
+<div class="paragraph">
+<p>Después de proporcionar una cuenta de AWS con los permisos necesarios, puede agregar las credenciales de esa cuenta a un conector existente. Esto permite iniciar sistemas Cloud Volumes ONTAP en esa cuenta con el mismo conector.</p>
+</div>
+<div class="paragraph">
+<div class="title">Antes de empezar</div>
+<p>Si acaba de crear estas credenciales en su proveedor de cloud, es posible que transcurran unos minutos hasta que estén disponibles para su uso. Espere unos minutos antes de agregar las credenciales a BlueXP.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>Asegúrese de que el conector correcto está seleccionado actualmente en BlueXP.</p>
+</li>
+<li>
+<p>En la parte superior derecha de la consola de BlueXP, haga clic en el icono Configuración y seleccione <strong>credenciales</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_settings_icon.gif" alt="Captura de pantalla que muestra el icono Configuración en la parte superior derecha de la consola BlueXP."></span></p>
+</div>
+</li>
+<li>
+<p>Haga clic en <strong>Agregar credenciales</strong> y siga los pasos del asistente.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Ubicación de credenciales</strong>: Seleccione <strong>Servicios Web de Amazon &gt; conector</strong>.</p>
+</li>
+<li>
+<p><strong>Definir credenciales</strong>: Proporcione el ARN (nombre de recurso de Amazon) de una función de IAM de confianza, o introduzca una clave de acceso de AWS y una clave secreta.</p>
+</li>
+<li>
+<p><strong>Suscripción al mercado</strong>: Asocie una suscripción al mercado con estas credenciales suscribiendo ahora o seleccionando una suscripción existente.</p>
+<div class="paragraph">
+<p>Para pagar por Cloud Volumes ONTAP a una tarifa por hora (PAYGO) o con un contrato anual, las credenciales de AWS deben estar asociadas con una suscripción a Cloud Volumes ONTAP desde AWS Marketplace.</p>
+</div>
+</li>
+<li>
+<p><strong>Revisión</strong>: Confirme los detalles acerca de las nuevas credenciales y haga clic en <strong>Agregar</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Resultado</div>
+<p>Ahora puede cambiar a un conjunto de credenciales diferente de la página Details y Credentials al crear un nuevo entorno de trabajo:</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_accounts_switch_aws.png" alt="Captura de pantalla que muestra cómo seleccionar entre cuentas de proveedores de cloud tras hacer clic en Switch Account en la página Details  Credentials."></span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="agregar-credenciales-a-bluexp-para-crear-un-conector">Agregar credenciales a BlueXP para crear un conector</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Agregue las credenciales de AWS a BlueXP proporcionando el ARN de una función IAM que proporciona a BlueXP los permisos necesarios para crear un conector. Puede elegir estas credenciales al crear un conector nuevo.</p>
+</div>
+<div class="sect2">
+<h3 id="configure-el-rol-iam">Configure el rol IAM</h3>
+<div class="paragraph">
+<p>Configure una función de IAM que permita al SaaS BlueXP asumir la función.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>Vaya a la consola IAM de la cuenta de destino.</p>
+</li>
+<li>
+<p>En Access Management, haga clic en <strong>roles &gt; Crear función</strong> y siga los pasos para crear la función.</p>
+<div class="paragraph">
+<p>No olvide hacer lo siguiente:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>En <strong>Tipo de entidad de confianza</strong>, seleccione <strong>cuenta de AWS</strong>.</p>
+</li>
+<li>
+<p>Seleccione <strong>otra cuenta de AWS</strong> e introduzca el ID del SaaS BlueXP: 952013314444</p>
+</li>
+<li>
+<p>Cree una directiva que incluya los permisos necesarios para crear un conector.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/requirements/task-setting-up-permissions-fsx.html" target="_blank" rel="noopener">"Consulte los permisos necesarios para FSX para ONTAP"</a></p>
+</li>
+<li>
+<p><a href="task-creating-connectors-aws.html#create-an-iam-policy">"Ver la directiva de despliegue del conector"</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Copie el rol ARN de la función IAM para que pueda pegarlo en BlueXP en el siguiente paso.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Resultado</div>
+<p>El rol IAM ahora tiene los permisos necesarios. <a href="#add-the-credentials-2">Ahora puede agregarla a BlueXP</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="añada-las-credenciales-2">Añada las credenciales</h3>
+<div class="paragraph">
+<p>Después de proporcionar la función IAM con los permisos necesarios, agregue el rol ARN a BlueXP.</p>
+</div>
+<div class="paragraph">
+<div class="title">Antes de empezar</div>
+<p>Si acaba de crear la función IAM, puede tardar unos minutos en estar disponible. Espere unos minutos antes de agregar las credenciales a BlueXP.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>En la parte superior derecha de la consola de BlueXP, haga clic en el icono Configuración y seleccione <strong>credenciales</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_settings_icon.gif" alt="Captura de pantalla que muestra el icono Configuración en la parte superior derecha de la consola BlueXP."></span></p>
+</div>
+</li>
+<li>
+<p>Haga clic en <strong>Agregar credenciales</strong> y siga los pasos del asistente.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>Ubicación de credenciales</strong>: Seleccione <strong>Servicios Web de Amazon &gt; BlueXP</strong>.</p>
+</li>
+<li>
+<p><strong>Definir credenciales</strong>: Proporcionar el ARN (nombre de recurso de Amazon) de la función IAM.</p>
+</li>
+<li>
+<p><strong>Revisión</strong>: Confirme los detalles acerca de las nuevas credenciales y haga clic en <strong>Agregar</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Resultado</div>
+<p>Ahora puede utilizar las credenciales al crear un conector nuevo.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="asocie-una-suscripción-a-aws">Asocie una suscripción a AWS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Después de añadir sus credenciales de AWS a BlueXP, puede asociar una suscripción a AWS Marketplace con estas credenciales. La suscripción le permite pagar por Cloud Volumes ONTAP a una tarifa por hora (PAYGO) o utilizar un contrato anual, y utilizar otros servicios cloud de NetApp.</p>
+</div>
+<div class="paragraph">
+<p>Hay dos escenarios en los que puede asociar una suscripción a AWS Marketplace después de haber añadido las credenciales a BlueXP:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>No asoció una suscripción cuando agregó inicialmente las credenciales a BlueXP.</p>
+</li>
+<li>
+<p>Desea sustituir una suscripción existente de AWS Marketplace por una nueva suscripción.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<div class="title">Lo que necesitará</div>
+<p>Debe crear un conector para poder cambiar la configuración de BlueXP. <a href="concept-connectors.html#how-to-create-a-connector">"Aprenda a crear un conector"</a>.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>En la parte superior derecha de la consola de BlueXP, haga clic en el icono Configuración y seleccione <strong>credenciales</strong>.</p>
+</li>
+<li>
+<p>Haga clic en el menú de acción para obtener un conjunto de credenciales y, a continuación, seleccione <strong>Suscripción asociada</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_associate_subscription.png" alt="Captura de pantalla del menú de acción para un conjunto de credenciales existentes."></span></p>
+</div>
+</li>
+<li>
+<p>Para asociar las credenciales a una suscripción existente, seleccione la suscripción en la lista desplegable y haga clic en <strong>asociado</strong>.</p>
+</li>
+<li>
+<p>Para asociar las credenciales con una nueva suscripción, haga clic en <strong>Agregar suscripción &gt; continuar</strong> y siga los pasos del AWS Marketplace:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Haga clic en <strong>Ver opciones de compra</strong>.</p>
+</li>
+<li>
+<p>Haga clic en <strong>Suscribirse</strong>.</p>
+</li>
+<li>
+<p>Haga clic en <strong>Configurar su cuenta</strong>.</p>
+<div class="paragraph">
+<p>Se le redirigirá al sitio web de BlueXP.</p>
+</div>
+</li>
+<li>
+<p>Desde la página <strong>asignación de suscripción</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Seleccione las cuentas de NetApp a las que desea asociar esta suscripción.</p>
+</li>
+<li>
+<p>En el campo <strong>sustituir suscripción existente</strong>, elija si desea sustituir automáticamente la suscripción existente para una cuenta con esta nueva suscripción.</p>
+<div class="paragraph">
+<p>BlueXP reemplaza la suscripción existente para todas las credenciales de la cuenta con esta nueva suscripción. Si alguna vez no se ha asociado un conjunto de credenciales a una suscripción, esta nueva suscripción no se asociará a dichas credenciales.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Para el resto de cuentas, deberá asociar manualmente la suscripción repitiendo estos pasos.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Haga clic en <strong>Guardar</strong>.</p>
+<div class="paragraph">
+<p>En el siguiente vídeo se muestran los pasos para suscribirse desde Google Cloud Marketplace:</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="videoblock">
+<div class="content">
+<video src="./media/video_subscribing_aws.mp4" width="848" height="480" controls>
+Your browser does not support the video tag.
+</video>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="editar-credenciales">Editar credenciales</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Edite sus credenciales de AWS en BlueXP cambiando el tipo de cuenta (las claves de AWS o asumen la función), editando el nombre o actualizando las credenciales (las claves o el rol ARN).</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-setup-admin/images/tip.svg" alt="Sugerencia">
+</td>
+<td class="content">
+No se pueden editar las credenciales de un perfil de instancia asociado a una instancia de conector.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>En la parte superior derecha de la consola de BlueXP, haga clic en el icono Configuración y seleccione <strong>credenciales</strong>.</p>
+</li>
+<li>
+<p>Haga clic en el menú de acción para obtener un conjunto de credenciales y, a continuación, seleccione <strong>Editar credenciales</strong>.</p>
+</li>
+<li>
+<p>Realice los cambios necesarios y, a continuación, haga clic en <strong>aplicar</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="eliminación-de-credenciales">Eliminación de credenciales</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Si ya no necesita un conjunto de credenciales, puede eliminarlas de BlueXP. Sólo puede eliminar credenciales que no estén asociadas a un entorno de trabajo.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-setup-admin/images/tip.svg" alt="Sugerencia">
+</td>
+<td class="content">
+No se pueden eliminar las credenciales de un perfil de instancia asociado a una instancia de conector.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>En la parte superior derecha de la consola de BlueXP, haga clic en el icono Configuración y seleccione <strong>credenciales</strong>.</p>
+</li>
+<li>
+<p>Haga clic en el menú de acción para obtener un conjunto de credenciales y, a continuación, seleccione <strong>Eliminar credenciales</strong>.</p>
+</li>
+<li>
+<p>Haga clic en <strong>Eliminar</strong> para confirmar.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/copyright/">© 2023 NetApp, Inc.</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">Términos y condiciones</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Política de privacidad</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Política de Cookies</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Configuración de cookies</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a target="_self" href="javascript:netapp_mailto()">Enviar comentarios sobre esta página</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-setup-admin/common/svg/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-setup-admin/common/svg/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-setup-admin/common/svg/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-setup-admin/common/svg/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-setup-admin/common/svg/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-setup-admin/common/svg/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-setup-admin/common/svg/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/es-es/cloud-manager-setup-admin/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/es-es/cloud-manager-setup-admin/js/prism.js'></script>
+      <script type="text/javascript" src='/es-es/cloud-manager-setup-admin/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/es-es/cloud-manager-setup-admin/js/www-ntap.js'></script>
+    <script src='/es-es/cloud-manager-setup-admin/js/tabbed-blocks.js'></script>
+    <script src='/es-es/cloud-manager-setup-admin/js/sidebar.js'></script>
+  </body></html>
