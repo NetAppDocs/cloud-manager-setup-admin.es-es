@@ -78,5 +78,8 @@ NOTE: La dirección IP de origen es el host del conector.
 | Llamadas API y AutoSupport | HTTPS | 443 | LIF de gestión de clústeres de ONTAP y Internet saliente | API llama a Azure y ONTAP, a Cloud Data Sense, a servicio de ransomware y a envío de mensajes de AutoSupport a NetApp 
 
 
+| Llamadas API | TCP | 8080 | Sentido de los datos | Sondee la instancia de detección de datos durante la implementación 
+
+
 | DNS | UDP | 53 | DNS | Utilizado para resolver DNS por BlueXP 
 |===

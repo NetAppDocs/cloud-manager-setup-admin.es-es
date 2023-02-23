@@ -78,7 +78,10 @@ NOTE: La dirección IP de origen es el host del conector.
 | Llamadas API y AutoSupport | HTTPS | 443 | LIF de gestión de clústeres de ONTAP y Internet saliente | API llama a AWS y ONTAP, a Cloud Data Sense, a Ransomware servicio y a enviar mensajes de AutoSupport a NetApp 
 
 
-.2+| Llamadas API | TCP | 3000 | Mediador de alta disponibilidad de ONTAP | Comunicación con el mediador de alta disponibilidad de ONTAP 
+.3+| Llamadas API | TCP | 3000 | Mediador de alta disponibilidad de ONTAP | Comunicación con el mediador de alta disponibilidad de ONTAP 
+
+
+| TCP | 8080 | Sentido de los datos | Sondee la instancia de detección de datos durante la implementación 
 
 
 | TCP | 8088 | Backup en S3 | Llamadas API a Backup en S3 
