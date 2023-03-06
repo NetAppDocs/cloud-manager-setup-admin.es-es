@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
   <head class="at-element-marker">
-  <title>Instale el conector en el entorno local sin acceso a Internet | NetApp Documentation</title>
+  <title>Instale el conector en una ubicación sin acceso a Internet | NetApp Documentation</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Instale el conector en el entorno local sin acceso a Internet | NetApp Documentation" />
+  <meta property="og:title" content="Instale el conector en una ubicación sin acceso a Internet | NetApp Documentation" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/es-es/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html" />
-	<meta property="og:description" content="Puede instalar el conector en un host Linux local que no tenga acceso a Internet. A continuación, puede detectar clústeres de ONTAP en las instalaciones, rep..." />
+	<meta property="og:description" content="Puede instalar el conector en una ubicación que tenga un aislamiento completo de Internet, ya sea en las instalaciones o en una región de la nube. A continua..." />
   <meta property="og:image" content="https://docs.netapp.com/es-es/cloud-manager-setup-admin/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Puede instalar el conector en un host Linux local que no tenga acceso a Internet. A continuación, puede detectar clústeres de ONTAP en las instalaciones, rep...">
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Puede instalar el conector en una ubicación que tenga un aislamiento completo de Internet, ya sea en las instalaciones o en una región de la nube. A continua...">
   <meta name="keywords" content=" connector, dark site, install dark site, install connector no internet, install connector on prem"><!-- Icons -->
   <link rel="icon" href="/es-es/cloud-manager-setup-admin/images/favicon.ico" type="image/x-icon">
 
@@ -166,7 +166,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-setup-admin/issues/new?body=Page%3A%20[Instale el conector en el entorno local sin acceso a Internet](https://docs.netapp.com/es-es/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html)&template=public-issue-template.md" class="page-nav-contribute-link" role="button"><img src="/es-es/cloud-manager-setup-admin/images/discuss-sm.svg" alt="" class="github-icon" />Solicitar cambios en el documento</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-setup-admin/blob/main/task-install-connector-onprem-no-internet.adoc" class="page-nav-contribute-link" role="button"><img src="/es-es/cloud-manager-setup-admin/images/edit-sm.svg" alt="" class="github-icon" />Editar en GitHub</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/es-es/cloud-manager-setup-admin/images/article-sm.svg" alt="" class="github-icon" />Guía del colaborador</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-setup-admin/issues/new?body=Page%3A%20[Instale el conector en una ubicación sin acceso a Internet](https://docs.netapp.com/es-es/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html)&template=public-issue-template.md" class="page-nav-contribute-link" role="button"><img src="/es-es/cloud-manager-setup-admin/images/discuss-sm.svg" alt="" class="github-icon" />Solicitar cambios en el documento</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-setup-admin/blob/main/task-install-connector-onprem-no-internet.adoc" class="page-nav-contribute-link" role="button"><img src="/es-es/cloud-manager-setup-admin/images/edit-sm.svg" alt="" class="github-icon" />Editar en GitHub</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/es-es/cloud-manager-setup-admin/images/article-sm.svg" alt="" class="github-icon" />Guía del colaborador</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">EN ESTA PÁGINA</div>
@@ -1059,11 +1059,11 @@
         Instale en su propio host con Internet
       </a></li><li 
       data-pdf-exists="true" 
-      data-pdf-filename="Instale en el entorno local sin Internet"
+      data-pdf-filename="Instale en su propio host sin Internet"
       data-li-level="4#" 
       class="  active "
     ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html">
-        Instale en el entorno local sin Internet
+        Instale en su propio host sin Internet
       </a></li></ul></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Busque el ID del sistema de un conector"
@@ -1396,14 +1396,14 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Instale el conector en el entorno local sin acceso a Internet</h1>
+  <h1 class="n-doc__component-detail-heading">Instale el conector en una ubicación sin acceso a Internet</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2023-02-20 16:42:56 +0000">02/20/2023</time>
+    <time datetime="2023-03-06 17:19:24 +0000">03/06/2023</time>
     
   
 
@@ -1416,7 +1416,26 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Puede instalar el conector en un host Linux local que no tenga acceso a Internet. A continuación, puede detectar clústeres de ONTAP en las instalaciones, replicar datos entre ellos, realizar backups de volúmenes mediante Cloud Backup y analizarlos con Cloud Data Sense.</p>
+<p>Puede instalar el conector en una ubicación que tenga un aislamiento completo de Internet, ya sea en las instalaciones o en una región de la nube. A continuación, puede utilizar los servicios BlueXP que son compatibles con ese entorno.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="información-general-en-las-instalaciones">Información general en las instalaciones</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>En un entorno local sin Internet, puede utilizar BlueXP para detectar clústeres de ONTAP en las instalaciones, replicar datos entre ellos, realizar backups de volúmenes con Cloud Backup y analizarlos con Cloud Data Sense. Ningún otro servicio BlueXP es compatible con este tipo de despliegue, excepto con la cartera digital.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="información-general-sobre-el-cloud">Información general sobre el cloud</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>En una región de cloud sin Internet, puede usar BlueXP para poner en marcha sistemas Cloud Volumes ONTAP y detectar clústeres de ONTAP en las instalaciones (si hay una conexión de su entorno cloud a su entorno local). Ningún otro servicio BlueXP es compatible con este tipo de despliegue, excepto con la cartera digital.</p>
+</div>
+<div class="paragraph">
+<p>La región del cloud puede ser una región en la que haya agencias estadounidenses seguras como AWS C2S/SC2S, Azure IL6 o cualquier región comercial.</p>
 </div>
 <div class="paragraph">
 <p>Estas instrucciones de instalación son específicas para el caso de uso descrito anteriormente. <a href="concept-connectors.html#how-to-create-a-connector">"Obtenga información sobre otras formas de desplegar un conector"</a>.</p>
@@ -1450,31 +1469,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>CentOS 7.6</p>
+<p>CentOS 7.6, 7.7, 7.8 y 7.9</p>
 </li>
 <li>
-<p>CentOS 7.7</p>
-</li>
-<li>
-<p>CentOS 7.8</p>
-</li>
-<li>
-<p>CentOS 7.9</p>
-</li>
-<li>
-<p>Red Hat Enterprise Linux 7.6</p>
-</li>
-<li>
-<p>Red Hat Enterprise Linux 7.7</p>
-</li>
-<li>
-<p>Red Hat Enterprise Linux 7.8</p>
-</li>
-<li>
-<p>Red Hat Enterprise Linux 7.9</p>
-</li>
-<li>
-<p>Red Hat Enterprise Linux 8.6</p>
+<p>Red Hat Enterprise Linux 7.6, 7.7, 7.8, 7.9, 8.6 y 8.7</p>
 <div class="paragraph">
 <p>El sistema Red Hat Enterprise Linux debe estar registrado con Red Hat Subscription Management. Si no está registrado, el sistema no puede acceder a los repositorios para actualizar el software necesario de terceros durante la instalación del conector.</p>
 </div>
@@ -1533,7 +1531,7 @@
 </div>
 </li>
 <li>
-<p>Descargue el software del conector de <a href="https://mysupport.netapp.com/site/products/all/details/cloud-manager/downloads-tab" target="_blank" rel="noopener">"Sitio de soporte de NetApp"</a></p>
+<p>Descargue el instalador del conector para redes restringidas sin acceso a Internet desde el <a href="https://mysupport.netapp.com/site/products/all/details/cloud-manager/downloads-tab" target="_blank" rel="noopener">"Sitio de soporte de NetApp"</a></p>
 </li>
 <li>
 <p>Copie el instalador en el host Linux.</p>
@@ -1542,16 +1540,22 @@
 <p>Asigne permisos para ejecutar el script.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">chmod +x /path/cloud-manager-connector-offline-v3.9.23</code></pre>
+<pre class="highlight"><code class="language-cli" data-lang="cli">chmod +x /path/Cloud-Manager-Connector-offline-&lt;version&gt;</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Donde &lt;version&gt; es la versión del conector que ha descargado.</p>
 </div>
 </li>
 <li>
 <p>Ejecute el script de instalación:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">sudo /path/cloud-manager-connector-offline-v3.9.23</code></pre>
+<pre class="highlight"><code class="language-cli" data-lang="cli">sudo /path/Cloud-Manager-Connector-offline-&lt;version&gt;</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Donde &lt;version&gt; es la versión del conector que ha descargado.</p>
 </div>
 </li>
 <li>
@@ -1594,8 +1598,11 @@
 <div class="title">Resultado</div>
 <p>El conector ya está instalado y puede empezar a utilizar las funciones de BlueXP que están disponibles en una implementación de sitio oscuro.</p>
 </div>
-<div class="ulist">
+<div class="paragraph">
 <div class="title">El futuro</div>
+<p>En un entorno local:</p>
+</div>
+<div class="ulist">
 <ul>
 <li>
 <p><a href="https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html" target="_blank" rel="noopener">"Detección de clústeres de ONTAP en las instalaciones"</a></p>
@@ -1610,6 +1617,9 @@
 <p><a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-deploy-compliance-dark-site.html" target="_blank" rel="noopener">"Analice datos de volúmenes de ONTAP en las instalaciones mediante Cloud Data Sense"</a></p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>En un entorno de cloud, puede hacerlo <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/index.html" target="_blank" rel="noopener">"Ponga en marcha Cloud Volumes ONTAP"</a></p>
 </div>
 <div class="paragraph">
 <p>Cuando haya nuevas versiones del software del conector disponibles, estas se publicarán en el sitio de soporte de NetApp. <a href="task-managing-connectors.html#upgrade-the-connector-on-prem-without-internet-access">"Aprenda a actualizar el conector"</a>.</p>

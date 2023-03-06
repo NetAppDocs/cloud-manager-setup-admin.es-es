@@ -9,14 +9,14 @@
   <meta property="og:title" content="Lo nuevo | NetApp Documentation" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/es-es/cloud-manager-setup-admin/whats-new.html" />
-	<meta property="og:description" content="Descubra las novedades de las funciones de administración de BlueXP (antes Cloud Manager): Cuentas de NetApp, conectores, credenciales de proveedores de clou..." />
+	<meta property="og:description" content="Descubra las novedades de las funciones de administración de BlueXP: Cuentas de NetApp, conectores, credenciales de proveedores de cloud, etc." />
   <meta property="og:image" content="https://docs.netapp.com/es-es/cloud-manager-setup-admin/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Descubra las novedades de las funciones de administración de BlueXP (antes Cloud Manager): Cuentas de NetApp, conectores, credenciales de proveedores de clou...">
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Descubra las novedades de las funciones de administración de BlueXP: Cuentas de NetApp, conectores, credenciales de proveedores de cloud, etc.">
   <meta name="keywords" content=" what"s new, features, new, release notes, enhancements, fixes"><!-- Icons -->
   <link rel="icon" href="/es-es/cloud-manager-setup-admin/images/favicon.ico" type="image/x-icon">
 
@@ -1059,11 +1059,11 @@
         Instale en su propio host con Internet
       </a></li><li 
       data-pdf-exists="true" 
-      data-pdf-filename="Instale en el entorno local sin Internet"
+      data-pdf-filename="Instale en su propio host sin Internet"
       data-li-level="4#" 
       class=" "
     ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html">
-        Instale en el entorno local sin Internet
+        Instale en su propio host sin Internet
       </a></li></ul></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Busque el ID del sistema de un conector"
@@ -1403,7 +1403,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-02-20 16:42:56 +0000">02/20/2023</time>
+    <time datetime="2023-03-06 17:19:24 +0000">03/06/2023</time>
     
   
 
@@ -1418,7 +1418,68 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Descubra las novedades de las funciones de administración de BlueXP (antes Cloud Manager): Cuentas de NetApp, conectores, credenciales de proveedores de cloud, etc.</p>
+<p>Descubra las novedades de las funciones de administración de BlueXP: Cuentas de NetApp, conectores, credenciales de proveedores de cloud, etc.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="5-de-marzo-de-2023">5 de marzo de 2023</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="conector-3-9-27">Conector 3.9.27</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>La búsqueda ya está disponible en la consola BlueXP. En este momento, puede utilizar la búsqueda para buscar servicios y características de BlueXP.</p>
+<div class="paragraph">
+<p><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/cloud-manager-setup-admin/main/media/screenshot-search.png" alt="Una captura de pantalla de la búsqueda BlueXP que está disponible en la parte superior de la consola."></span></p>
+</div>
+</li>
+<li>
+<p>Puede ver y gestionar los casos de soporte activos y resueltos directamente desde BlueXP. Es posible gestionar los casos asociados con su cuenta de NSS y con su empresa.</p>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-get-help.html#manage-your-support-cases">"Aprenda a gestionar sus casos de soporte"</a>.</p>
+</div>
+</li>
+<li>
+<p>El conector ahora es compatible con un host que ejecuta Red Hat Enterprise Linux 8.7.</p>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html">"Ver los requisitos del sistema para el conector"</a>.</p>
+</div>
+</li>
+<li>
+<p>El conector ahora es compatible con cualquier entorno de nube que tenga un aislamiento completo de Internet. A continuación, puede usar la consola BlueXP que se ejecuta en el conector para implementar Cloud Volumes ONTAP en la misma ubicación y detectar clústeres de ONTAP en las instalaciones (si tiene una conexión desde su entorno de cloud a un entorno local). Ningún otro servicio BlueXP es compatible con este tipo de despliegue, excepto con la cartera digital.</p>
+<div class="paragraph">
+<p>La región del cloud puede ser una región en la que haya agencias estadounidenses seguras como AWS C2S/SC2S, Azure IL6 o cualquier región comercial.</p>
+</div>
+<div class="paragraph">
+<p>Para empezar, instale manualmente el software conector, inicie sesión en la consola BlueXP que se ejecuta en el conector, agregue su licencia BYOL a la cartera digital y, a continuación, implemente Cloud Volumes ONTAP.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html" target="_blank" rel="noopener">"Instale el conector en una ubicación sin acceso a Internet"</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#access-the-local-ui" target="_blank" rel="noopener">"Acceda a la consola BlueXP del conector"</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-node-licenses.html#manage-byol-licenses" target="_blank" rel="noopener">"Añada una licencia sin asignar"</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-overview-cvo.html" target="_blank" rel="noopener">"Empiece a usar Cloud Volumes ONTAP"</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Esta versión del conector incluye mejoras de Cloud Volumes ONTAP.</p>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html#5-march-2023" target="_blank" rel="noopener">"Obtenga información acerca de las mejoras de Cloud Volumes ONTAP"</a></p>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>

@@ -1059,11 +1059,11 @@
         Instale en su propio host con Internet
       </a></li><li 
       data-pdf-exists="true" 
-      data-pdf-filename="Instale en el entorno local sin Internet"
+      data-pdf-filename="Instale en su propio host sin Internet"
       data-li-level="4#" 
       class=" "
     ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html">
-        Instale en el entorno local sin Internet
+        Instale en su propio host sin Internet
       </a></li></ul></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Busque el ID del sistema de un conector"
@@ -1403,7 +1403,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-02-20 16:42:56 +0000">02/20/2023</time>
+    <time datetime="2023-03-06 17:19:24 +0000">03/06/2023</time>
     
   
 
@@ -1538,13 +1538,32 @@
 <div class="ulist">
 <ul>
 <li>
-<p>La cuenta debe ser una cuenta de nivel de cliente (no una cuenta de invitado o temporal).</p>
+<p>La cuenta NSS debe ser una cuenta de nivel de cliente (no una cuenta de invitado o temporal). Puede tener varias cuentas de NSS en el nivel del cliente.</p>
 </li>
 <li>
-<p>Después de iniciar sesión correctamente, NetApp almacenará el nombre de usuario de NSS. Se trata de un ID generado por el sistema que se asigna a su correo electrónico. En la página <strong>NSS Management</strong>, puede mostrar su correo electrónico desde <span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/cloud-manager-family/main/media/icon-nss-menu.png" alt="Icono de tres puntos horizontales"></span> de windows</p>
+<p>Sólo puede haber una cuenta NSS si esa cuenta es una cuenta de nivel de partner. Si intenta agregar cuentas de NSS de nivel de cliente y existe una cuenta de nivel de partner, obtendrá el siguiente mensaje de error:</p>
+<div class="paragraph">
+<p>"El tipo de cliente NSS no está permitido para esta cuenta, ya que ya hay usuarios NSS de tipo diferente."</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Lo mismo sucede si tiene cuentas de NSS de nivel de cliente preexistentes e intenta añadir una cuenta de nivel de partner.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Después de iniciar sesión correctamente, NetApp almacenará el nombre de usuario de NSS.</p>
+<div class="paragraph">
+<p>Se trata de un ID generado por el sistema que se asigna a su correo electrónico. En la página <strong>NSS Management</strong>, puede mostrar su correo electrónico desde <span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/cloud-manager-family/main/media/icon-nss-menu.png" alt="Icono de tres puntos horizontales"></span> de windows</p>
+</div>
 </li>
 <li>
-<p>Si alguna vez necesita actualizar sus tokens de credenciales de inicio de sesión, también hay una opción <strong>Actualizar credenciales</strong> en la <span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/cloud-manager-family/main/media/icon-nss-menu.png" alt="Icono de tres puntos horizontales"></span> de windows Con esta opción se le solicita que vuelva a iniciar sesión.</p>
+<p>Si alguna vez necesita actualizar sus tokens de credenciales de inicio de sesión, también hay una opción <strong>Actualizar credenciales</strong> en la <span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/cloud-manager-family/main/media/icon-nss-menu.png" alt="Icono de tres puntos horizontales"></span> de windows</p>
+<div class="paragraph">
+<p>Con esta opción se le solicita que vuelva a iniciar sesión. Tenga en cuenta que el token de estas cuentas caduca después de 90 días. Se enviará una notificación para avisarle de ello.</p>
+</div>
 </li>
 </ul>
 </div>

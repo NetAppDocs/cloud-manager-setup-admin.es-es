@@ -1059,11 +1059,11 @@
         Instale en su propio host con Internet
       </a></li><li 
       data-pdf-exists="true" 
-      data-pdf-filename="Instale en el entorno local sin Internet"
+      data-pdf-filename="Instale en su propio host sin Internet"
       data-li-level="4#" 
       class=" "
     ><a class="na-navbar-padding" href="/es-es/cloud-manager-setup-admin/task-install-connector-onprem-no-internet.html">
-        Instale en el entorno local sin Internet
+        Instale en su propio host sin Internet
       </a></li></ul></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Busque el ID del sistema de un conector"
@@ -1403,7 +1403,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-02-20 16:42:56 +0000">02/20/2023</time>
+    <time datetime="2023-03-06 17:19:24 +0000">03/06/2023</time>
     
   
 
@@ -1674,10 +1674,10 @@ service netapp-service-manager start</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="actualice-el-conector-en-el-entorno-local-sin-acceso-a-internet">Actualice el conector en el entorno local sin acceso a Internet</h2>
+<h2 id="actualice-el-conector-en-una-ubicación-sin-acceso-a-internet">Actualice el conector en una ubicación sin acceso a Internet</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Si usted <a href="task-install-connector-onprem-no-internet.html">"Se instaló el conector en un host local que no tiene acceso a Internet"</a>, Puede actualizar el conector cuando haya una versión más reciente disponible en el sitio de soporte de NetApp.</p>
+<p>Si usted <a href="task-install-connector-onprem-no-internet.html">"Se instaló el conector en una ubicación en la que no hay acceso a Internet"</a>, Puede actualizar el conector cuando haya una versión más reciente disponible en el sitio de soporte de NetApp.</p>
 </div>
 <div class="paragraph">
 <p>El conector debe reiniciarse durante el proceso de actualización para que la interfaz de usuario no esté disponible durante la actualización.</p>
@@ -1695,16 +1695,22 @@ service netapp-service-manager start</code></pre>
 <p>Asigne permisos para ejecutar el script.</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">chmod +x /path/cloud-manager-connector-offline-v3.9.14</code></pre>
+<pre class="highlight"><code class="language-cli" data-lang="cli">chmod +x /path/cloud-manager-connector-offline-&lt;version&gt;</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Donde &lt;version&gt; es la versión del conector que ha descargado.</p>
 </div>
 </li>
 <li>
 <p>Ejecute el script de instalación:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-cli" data-lang="cli">sudo /path/cloud-manager-connector-offline-v3.9.14</code></pre>
+<pre class="highlight"><code class="language-cli" data-lang="cli">sudo /path/cloud-manager-connector-offline-&lt;version&gt;</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Donde &lt;version&gt; es la versión del conector que ha descargado.</p>
 </div>
 </li>
 <li>
