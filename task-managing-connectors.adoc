@@ -185,9 +185,9 @@ https://docs.netapp.com/us-en/cloud-manager-automation/cm/api_ref_resources.html
 
 
 
-== Actualice el conector en el entorno local sin acceso a Internet
+== Actualice el conector en una ubicación sin acceso a Internet
 
-Si usted link:task-install-connector-onprem-no-internet.html["Se instaló el conector en un host local que no tiene acceso a Internet"], Puede actualizar el conector cuando haya una versión más reciente disponible en el sitio de soporte de NetApp.
+Si usted link:task-install-connector-onprem-no-internet.html["Se instaló el conector en una ubicación en la que no hay acceso a Internet"], Puede actualizar el conector cuando haya una versión más reciente disponible en el sitio de soporte de NetApp.
 
 El conector debe reiniciarse durante el proceso de actualización para que la interfaz de usuario no esté disponible durante la actualización.
 
@@ -198,14 +198,20 @@ El conector debe reiniciarse durante el proceso de actualización para que la in
 +
 [source, cli]
 ----
-chmod +x /path/cloud-manager-connector-offline-v3.9.14
+chmod +x /path/cloud-manager-connector-offline-<version>
 ----
++
+Donde <version> es la versión del conector que ha descargado.
+
 . Ejecute el script de instalación:
 +
 [source, cli]
 ----
-sudo /path/cloud-manager-connector-offline-v3.9.14
+sudo /path/cloud-manager-connector-offline-<version>
 ----
++
+Donde <version> es la versión del conector que ha descargado.
+
 . Una vez finalizada la actualización, puede verificar la versión del conector en *Ayuda > Soporte > conector*.
 
 

@@ -72,15 +72,6 @@
   <block id="984ca77a9a51746d3dd5a855a71d3493" category="inline-link">Características de VM blindadas</block>
   <block id="5e59673ea4dc0650f587413c4848c02c" category="paragraph">El conector es compatible con Google Cloud en una instancia de máquina virtual con un sistema operativo compatible<block ref="bd10301ee2e8f0cb38112a71d2b6920c" category="inline-link-rx"></block></block>
   <block id="bbf3330385f894cd7bd34b34e4c36d6c" category="list-text">Sistemas operativos compatibles</block>
-  <block id="17095cfe60ed8524003ea5bde611c4ea" category="list-text">CentOS 7.6</block>
-  <block id="b0a4a3d9e04daf57d04de7ad03004279" category="list-text">CentOS 7.7</block>
-  <block id="1f880a0709e66557fee307fd4eccd811" category="list-text">CentOS 7.8</block>
-  <block id="2d4e0d903d85884dcb41f49d855fce57" category="list-text">CentOS 7.9</block>
-  <block id="bc2d60e50368b206380016cb6576edda" category="list-text">Red Hat Enterprise Linux 7.6</block>
-  <block id="935b9daeec310c8e2291d043d3e14f44" category="list-text">Red Hat Enterprise Linux 7.7</block>
-  <block id="359770104fc0e772f479949c0511abfa" category="list-text">Red Hat Enterprise Linux 7.8</block>
-  <block id="efdefb5589146725b584d2c0c715c9b3" category="list-text">Red Hat Enterprise Linux 7.9</block>
-  <block id="80829c0bc33e1821173e296173ba0a8d" category="list-text">Red Hat Enterprise Linux 8.6</block>
   <block id="db0e685f184a31c6a4657a29d4d74973" category="paragraph">El sistema Red Hat Enterprise Linux debe estar registrado con Red Hat Subscription Management. Si no está registrado, el sistema no puede acceder a los repositorios para actualizar el software necesario de terceros durante la instalación del conector.</block>
   <block id="1aa77ca522dde8d598ae9c2372a7494b" category="paragraph">El conector es compatible con las versiones en inglés de estos sistemas operativos.</block>
   <block id="1b21b0d71706897b69f108572c444d40" category="list-text">Hipervisor</block>
@@ -240,9 +231,6 @@
   <block id="876f62e75a1f45f9bc7d03ac9a0db173" category="paragraph">Tenga en cuenta que 32 es un valor de ejemplo. El valor que debe utilizar depende de la configuración de NAT y del número de sesiones que puede tener simultáneamente.</block>
   <block id="4ae719205766e20198cc595136cbf10c" category="inline-link">Obtenga más información acerca de la llamada a la API /occm/config</block>
   <block id="a1e38cfa12dff31d370faa5e9e31c16d" category="paragraph"><block ref="4c1ec6626d4216a927415f20603af4bb" category="inline-link-rx"></block>.</block>
-  <block id="2772d58af2fcb3e8fca3edab506433e9" category="section-title">Actualice el conector en el entorno local sin acceso a Internet</block>
-  <block id="76c2612a71749b97c90759d496bc4eba" category="inline-link-macro">Se instaló el conector en un host local que no tiene acceso a Internet</block>
-  <block id="a0a7d617caaec7a4009bf929e1c9de72" category="paragraph">Si usted <block ref="3724bc4909d5db79bc2030cfc2db7249" category="inline-link-macro-rx"></block>, Puede actualizar el conector cuando haya una versión más reciente disponible en el sitio de soporte de NetApp.</block>
   <block id="7dad5aa897582994eeb9cb487acf31ea" category="paragraph">El conector debe reiniciarse durante el proceso de actualización para que la interfaz de usuario no esté disponible durante la actualización.</block>
   <block id="d651da37c0942c2e8d61b167e835ec80" category="list-text">Descargue el software del conector de<block ref="99637e01fa8caa34a544049093cac68c" category="inline-link-rx"></block>.</block>
   <block id="0d5d3e78379f182967772aab096aa6ac" category="list-text">Copie el instalador en el host Linux.</block>
@@ -526,15 +514,12 @@
   <block id="412b379b83628f21da708ff096d131e5" category="list-text"><block ref="412b379b83628f21da708ff096d131e5" category="inline-link-rx"></block></block>
   <block id="7fcb7f97cbc710b693fef37b5e86770f" category="inline-link">Sistemas StorageGRID</block>
   <block id="a565303474e8a5c2bfe13bce52714f80" category="list-text"><block ref="a565303474e8a5c2bfe13bce52714f80" category="inline-link-rx"></block></block>
-  <block id="bea9d9e1b3f9260b5dafbfee794aead7" category="summary">Puede instalar el conector en un host Linux local que no tenga acceso a Internet. A continuación, puede detectar clústeres de ONTAP en las instalaciones, replicar datos entre ellos, realizar backups de volúmenes mediante Cloud Backup y analizarlos con Cloud Data Sense.</block>
-  <block id="424a4bbc5d90882baf6dfd31a70caf62" category="doc">Instale el conector en el entorno local sin acceso a Internet</block>
   <block id="92241232df0720bddf843b8b16c8be1a" category="paragraph">Estas instrucciones de instalación son específicas para el caso de uso descrito anteriormente. <block ref="f56df5f8b4fd558a7482d6115403eadd" category="inline-link-macro-rx"></block>.</block>
   <block id="3d0bf05155f3dfd0eeccf9e953d46156" category="list-text">Tipo de disco</block>
   <block id="c51a904de7f2c01a69a504d625a71354" category="list-text">Se requiere un SSD</block>
   <block id="4e7880d4f8d9cf685f649e74e34a3de7" category="list-text">Se requiere Docker Engine versión 19 o posterior en el host antes de instalar el conector.<block ref="bbcf0e5e8b0c8687d84c2c22a5ad2ecf" category="inline-link-rx"></block></block>
   <block id="ffe7522d9ea3d134eb0a945275d454d7" category="paragraph-title">Privilegios requeridos</block>
   <block id="7bc3966adb932d8b546fbfa4ef7113d7" category="paragraph">Se requieren privilegios de usuario raíz para instalar el conector.</block>
-  <block id="2ba7eb945a77498b8342e4be53a3761e" category="list-text">Descargue el software del conector de<block ref="99637e01fa8caa34a544049093cac68c" category="inline-link-rx"></block></block>
   <block id="a4a102a53f92d88c7ff8bca53cc859e3" category="list-text">Abra un explorador web e introduzca<block ref="e3a51e84cbbae6e45a585984f3be3fd0" category="inline-link-rx"></block> Donde _ipaddress_ es la dirección IP del host Linux.</block>
   <block id="31f7ed39632ba5f8fbafe2e78de61213" category="paragraph">Debe ver la siguiente pantalla.</block>
   <block id="87c4a866519ae557380141f0da21e74f" category="inline-image-macro">Una captura de pantalla de la página de bienvenida que aparece después de introducir la dirección IP del conector en el explorador Web.</block>
@@ -654,44 +639,25 @@
   <block id="938f1047c15f00fdd0cbfc8e4cfa15e1" category="paragraph">*ejemplo*</block>
   <block id="2529cf627b3e8b4f850e5b8e7998dea3" category="inline-image-macro">Una captura de pantalla que muestra el ID de sistema para BlueXP que aparece en el panel de soporte técnico.</block>
   <block id="dd452be96917f1c62ed3d40b11c4ebf2" category="paragraph"><block ref="dd452be96917f1c62ed3d40b11c4ebf2" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="5cc47ef6d684116dbea75fa5016faf05" category="summary">Proporcione las credenciales de sus cuentas del sitio de soporte de NetApp (NSS) para habilitar flujos de trabajo clave para Cloud Volumes ONTAP y permitir los análisis predictivos y el soporte proactivo mediante Active IQ.</block>
-  <block id="3b2c928529c58de342d4ce57a573030b" category="doc">Añadir y gestionar cuentas del sitio de soporte de NetApp en BlueXP</block>
   <block id="333c244077c4c3df40d39cbb97f94995" category="paragraph">Proporcione las credenciales para que sus cuentas del sitio de soporte de NetApp (NSS) se registren para admitir, habilitar flujos de trabajo clave para Cloud Volumes ONTAP, etc.</block>
-  <block id="60ca5d243604b7893152fa6c4e082601" category="paragraph">Es necesario añadir una cuenta del sitio de soporte de NetApp a BlueXP para realizar las siguientes tareas:</block>
-  <block id="b1be5f2baf7b68dcca8fa31518602a38" category="list-text">Para registrarse y recibir soporte</block>
-  <block id="3cd40b4bad86322191adf034be9f7873" category="list-text">Para poner en marcha Cloud Volumes ONTAP cuando traiga su propia licencia (BYOL)</block>
   <block id="2ebfeabed40c2270d9fa8325080a4b3e" category="paragraph">Es necesario proporcionar su cuenta NSS para que BlueXP pueda cargar su clave de licencia y activar la suscripción para el plazo que adquirió. Esto incluye actualizaciones automáticas para renovaciones de términos.</block>
-  <block id="641d05ccafb217ba1d71672a604e42a8" category="list-text">Para registrar sistemas Cloud Volumes ONTAP de pago por uso</block>
   <block id="321aadf78ef73521712291b7aba6411f" category="paragraph">Se requiere que proporcione su cuenta de NSS para activar el soporte de su sistema y obtener acceso a los recursos de soporte técnico de NetApp.</block>
-  <block id="1d82e88d22e4fb3ffa42a186537412b7" category="list-text">Para actualizar el software Cloud Volumes ONTAP a la versión más reciente</block>
-  <block id="8b45fdd7e598db2464922c534af8581b" category="paragraph">También tendrá que introducir sus credenciales de NSS para utilizar el asesor digital (anteriormente Active IQ) desde BlueXP. Estas credenciales se asocian directamente con su cuenta de usuario y se utilizan únicamente con el asesor digital. Revise más detalles en la siguiente sección.</block>
-  <block id="e45884eb97ffee5d4246b789a0b594f3" category="section-title">Gestione una cuenta de NSS asociada con Digital Advisor</block>
   <block id="b34d01d56d89281c69c44eaef7460a79" category="paragraph">Al acceder a Digital Advisor en BlueXP, se le pedirá que inicie sesión en Digital Advisor introduciendo sus credenciales de NSS. Después de introducir sus credenciales de NSS, verá esta cuenta de NSS que aparece en la parte superior de la página NSS Management. A continuación, puede gestionar esas credenciales según sea necesario.</block>
   <block id="60f184ee8b252ec5284ca4bfc102c193" category="paragraph">Tenga en cuenta lo siguiente acerca de esta cuenta de NSS:</block>
   <block id="37cb0cdf24a1597d838bc5f1699b9e5a" category="list-text">La cuenta se gestiona en el nivel de usuario, lo que significa que otros usuarios que inician sesión no la pueden ver.</block>
-  <block id="e2a854ed97334bfe190a5004c6992a10" category="list-text">La cuenta no se puede utilizar con ninguna otra función de BlueXP: No con la creación, licencia o soporte de Cloud Volumes ONTAP.</block>
-  <block id="7cdc37cd26e80c9dee2fb7d28a83f9ee" category="list-text">Sólo puede haber una cuenta NSS asociada con Digital Advisor, por usuario.</block>
   <block id="868d9aa88f16ea923af1d15eac5d2647" category="paragraph"><block ref="868d9aa88f16ea923af1d15eac5d2647" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4afa9a0da7cac7698a1cff8ff0c528e0" category="list-text">Haga clic en *NSS Management*.</block>
   <block id="3793cae33028a6b75ab0ca8130ca6a9d" category="list-text">En *sus credenciales de NSS*, haga clic en *Acción* y elija cualquiera de las siguientes opciones:</block>
-  <block id="1f7880842a7d0a07086c42d41eae4faa" category="list-text">*Usuario de NSS asociado*: Añada credenciales para una cuenta del sitio de soporte de NetApp de manera que pueda acceder a Digital Advisor en BlueXP.</block>
   <block id="fe11914cdc8e174bef64d941a9b88b00" category="list-text">*Actualizar las credenciales existentes*: Actualizar las credenciales de su cuenta del sitio de soporte de NetApp.</block>
-  <block id="633c5baa1b3f4fa5a0ca89d3296fc26d" category="list-text">*Eliminar*: Elimina la cuenta asociada con Digital Advisor.</block>
-  <block id="3f54153a94aa4008ec37f11d357a708b" category="paragraph">BlueXP actualiza la cuenta NSS asociada con Digital Advisor.</block>
   <block id="aeaeee19a7c393222e407a525cf01991" category="section-title">Añada una cuenta de NSS</block>
-  <block id="7a68553535df91a6e97b134352b077bf" category="paragraph">La consola de soporte le permite agregar y gestionar sus cuentas de la página de soporte de NetApp para utilizarlas con BlueXP en el nivel de cuenta de NetApp.</block>
   <block id="328a2c1e7778e9edaf79d90c51409ac4" category="list-text">Si tiene una cuenta de nivel de cliente, puede añadir una o varias cuentas de NSS.</block>
-  <block id="4fde72c535fd0cd463dbeb49347cdfae" category="list-text">Si tiene una cuenta de socio o distribuidor, puede agregar una o más cuentas de NSS, pero no se pueden agregar junto con cuentas de nivel de cliente.</block>
   <block id="d17d6b5dafebab6b7659da8850737e70" category="list-text">Haga clic en *Administración de NSS &gt; Agregar cuenta de NSS*.</block>
   <block id="8aaf101e623c543c7eef3c65f6233366" category="list-text">Cuando se le pregunte, haga clic en *continuar* para que se le redirija a una página de inicio de sesión de Microsoft.</block>
   <block id="19d089db572ee6a1e154a0c9c9e57bfd" category="paragraph">NetApp utiliza Microsoft Azure Active Directory como proveedor de identidades para servicios de autenticación específicos para soporte y licencias.</block>
   <block id="465ec6d5eafa3524c948c99d8bfcd306" category="list-text">En la página de inicio de sesión, proporcione su dirección de correo electrónico registrada en el sitio de soporte de NetApp y contraseña para realizar el proceso de autenticación.</block>
   <block id="cbc6cc3bb022583403171b447b2a962c" category="paragraph">Estas acciones permiten a BlueXP utilizar su cuenta NSS para cosas como descargas de licencias, verificación de actualizaciones de software y futuros registros de soporte.</block>
   <block id="cf3a2d2c139bf5c9cc87fe714bfff3b1" category="paragraph">Tenga en cuenta lo siguiente:</block>
-  <block id="0f0a0d646a020cf3a65ce82ada4cfb01" category="list-text">La cuenta debe ser una cuenta de nivel de cliente (no una cuenta de invitado o temporal).</block>
   <block id="1dcb63fd55c4d22e87cb32275b8cc808" category="inline-image-macro">Icono de tres puntos horizontales</block>
-  <block id="ff67299785d475e87002751aa6ab5eb8" category="list-text">Después de iniciar sesión correctamente, NetApp almacenará el nombre de usuario de NSS. Se trata de un ID generado por el sistema que se asigna a su correo electrónico. En la página *NSS Management*, puede mostrar su correo electrónico desde <block ref="0d0843f26c0819e5369f690fefbf68b7" category="inline-image-macro-rx" type="image"></block> de windows</block>
-  <block id="505da61efe6bebebbaf092da18f64613" category="list-text">Si alguna vez necesita actualizar sus tokens de credenciales de inicio de sesión, también hay una opción *Actualizar credenciales* en la <block ref="0d0843f26c0819e5369f690fefbf68b7" category="inline-image-macro-rx" type="image"></block> de windows Con esta opción se le solicita que vuelva a iniciar sesión.</block>
   <block id="5d7e9ca2f0be827f29d91dca2f767f7f" category="paragraph">Los usuarios ahora pueden seleccionar la cuenta al crear nuevos sistemas de Cloud Volumes ONTAP, al registrar los sistemas de Cloud Volumes ONTAP existentes y al registrarse para obtener soporte.</block>
   <block id="6602afb860a6cca23c3b75bf601365eb" category="inline-link">Inicio de Cloud Volumes ONTAP en AWS</block>
   <block id="3e33b81f05bb640dee79c5aa4e351c91" category="list-text"><block ref="3e33b81f05bb640dee79c5aa4e351c91" category="inline-link-rx"></block></block>
@@ -1924,7 +1890,6 @@
   <block id="43da6e9199aecb615e775a9a6d77b458" category="paragraph">La instancia debe estar lista en unos 7 minutos. Debe permanecer en la página hasta que el proceso se complete.</block>
   <block id="1cc2f617f426fbf9060a71767fca6e4d" category="summary">Comience a utilizar BlueXP (anteriormente Cloud Manager) para que pueda empezar a utilizar los servicios cloud de NetApp para gestionar sus datos en un multicloud híbrido. Una vez finalizada la configuración, puede administrar sus cuentas de NetApp, conectores, cuentas de proveedores de cloud, etc.</block>
   <block id="f12aeeed0f164c86af69a57fddb01689" category="doc">Configurar y administrar BlueXP</block>
-  <block id="d89c4f7e7a6faeeab29240ba995258b3" category="summary">Descubra las novedades de las funciones de administración de BlueXP (antes Cloud Manager): Cuentas de NetApp, conectores, credenciales de proveedores de cloud, etc.</block>
   <block id="490414e0366b091220802d406e52c076" category="doc">Lo nuevo</block>
   <block id="e1bc7b26155063f1ce71b76f655669ef" category="section-title">5 de febrero de 2023</block>
   <block id="d2ab99e3c8406089dca863337debb121" category="section-title">Conector 3.9.26</block>
@@ -2197,8 +2162,6 @@
   <block id="5e004583c62c40cba943716ab5c82a0d" category="list-text">Mediante la instalación manual del software en su propio host Linux</block>
   <block id="eb2793ba4e7b262ec587a9f189d21e72" category="inline-link-macro">En un host que tiene acceso a Internet</block>
   <block id="756d0d2041b19ecadfb8aad8627bf747" category="list-text"><block ref="756d0d2041b19ecadfb8aad8627bf747" category="inline-link-macro-rx"></block></block>
-  <block id="cbbe966aefd5924ef451af7da66257ee" category="inline-link-macro">En un host local que no tiene acceso a Internet</block>
-  <block id="e3cbbeded92eab3ebcd3efafd65ce209" category="list-text"><block ref="e3cbbeded92eab3ebcd3efafd65ce209" category="inline-link-macro-rx"></block></block>
   <block id="91ec75afa8db310b2f8dd16755657857" category="list-text">Desde el mercado de su proveedor de cloud</block>
   <block id="ed949d24ab11f0d2a40c0b8161ab4cf3" category="list-text"><block ref="ed949d24ab11f0d2a40c0b8161ab4cf3" category="inline-link-macro-rx"></block></block>
   <block id="42416828ae8ae7a901a48c71094e7a44" category="list-text"><block ref="42416828ae8ae7a901a48c71094e7a44" category="inline-link-macro-rx"></block></block>
@@ -2879,7 +2842,6 @@
   <block id="59a9ba18ee55c4e977e8be81c488ec04" category="sidebar">Cree desde el AWS Marketplace</block>
   <block id="b6ffdcd8501e6eb2e45e1715d00da4f5" category="sidebar">Cree desde Azure Marketplace</block>
   <block id="e48c1f5d2aaae000a24e0a16d0a46a0f" category="sidebar">Instale en su propio host con Internet</block>
-  <block id="eee9d9f3c554fc2dd0a524cf80ec3396" category="sidebar">Instale en el entorno local sin Internet</block>
   <block id="4d23d12ce4b0de2019310ec73c45d09b" category="sidebar">Busque el ID del sistema de un conector</block>
   <block id="dd6f576fe34949ea5c3d4b196b2c626d" category="sidebar">Administrar conectores existentes</block>
   <block id="ca82fdd9a480fcc34a6b470f5ec8e908" category="sidebar">Configure los ajustes de proxy</block>
@@ -2917,4 +2879,112 @@
   <block id="0773be92494e9aa5f52a2d6834a7c90f" category="cell">Sentido de los datos</block>
   <block id="f1ec925a41746bf6e895d454b6a6eddb" category="cell">Sondee la instancia de detección de datos durante la implementación</block>
   <block id="3cae1bb62504fde722824fee95046472" category="doc">Gestione credenciales y suscripciones de Azure para BlueXP</block>
+  <block id="ee7f5aec4e9ac5fecb93d224c17fcd43" category="list-text">CentOS 7.6, 7.7, 7.8 y 7.9</block>
+  <block id="fe342f4d7fb16d9eddf02f4c613dfb19" category="list-text">Red Hat Enterprise Linux 7.6, 7.7, 7.8, 7.9, 8.6 y 8.7</block>
+  <block id="3e2babff5cfde6df6f00667d0ab74b31" category="section-title">Actualice el conector en una ubicación sin acceso a Internet</block>
+  <block id="0046538fde0515ac69a012bb8ac238c9" category="inline-link-macro">Se instaló el conector en una ubicación en la que no hay acceso a Internet</block>
+  <block id="80511fe8771333d5c71a1f6f33b080fe" category="paragraph">Si usted <block ref="149181f7ecd7c61bf65dc751cb02e94c" category="inline-link-macro-rx"></block>, Puede actualizar el conector cuando haya una versión más reciente disponible en el sitio de soporte de NetApp.</block>
+  <block id="643a877b7c306b1bcece42c8f03bebfb" category="paragraph">Donde &lt;version&gt; es la versión del conector que ha descargado.</block>
+  <block id="b66b5e3c69923d75bab00ad211ae0876" category="summary">Puede instalar el conector en una ubicación que tenga un aislamiento completo de Internet, ya sea en las instalaciones o en una región de la nube. A continuación, puede utilizar los servicios BlueXP que son compatibles con ese entorno.</block>
+  <block id="538df6b7aa2304c978bd22cbc188715d" category="doc">Instale el conector en una ubicación sin acceso a Internet</block>
+  <block id="2140919b7a4acf643c668582587a3fc3" category="paragraph">Puede instalar el conector en una ubicación que tenga un aislamiento completo de Internet, ya sea en las instalaciones o en una región de la nube. A continuación, puede utilizar los servicios BlueXP que son compatibles con ese entorno.</block>
+  <block id="dd8d2e5dd396a762bed92b10f72f5d67" category="section-title">Información general en las instalaciones</block>
+  <block id="4b85a689d4bf46a14216c1f7043d61d9" category="paragraph">En un entorno local sin Internet, puede utilizar BlueXP para detectar clústeres de ONTAP en las instalaciones, replicar datos entre ellos, realizar backups de volúmenes con Cloud Backup y analizarlos con Cloud Data Sense. Ningún otro servicio BlueXP es compatible con este tipo de despliegue, excepto con la cartera digital.</block>
+  <block id="817fffd09424883c473079707bd42227" category="section-title">Información general sobre el cloud</block>
+  <block id="6a2d5b4c5ec168a0a42fd35e394d5e59" category="paragraph">En una región de cloud sin Internet, puede usar BlueXP para poner en marcha sistemas Cloud Volumes ONTAP y detectar clústeres de ONTAP en las instalaciones (si hay una conexión de su entorno cloud a su entorno local). Ningún otro servicio BlueXP es compatible con este tipo de despliegue, excepto con la cartera digital.</block>
+  <block id="4965002502fb4ea58d2f984e3fe0a110" category="paragraph">La región del cloud puede ser una región en la que haya agencias estadounidenses seguras como AWS C2S/SC2S, Azure IL6 o cualquier región comercial.</block>
+  <block id="42e8616c7f9505f6747fcbb59c7b5a93" category="list-text">Descargue el instalador del conector para redes restringidas sin acceso a Internet desde el<block ref="99637e01fa8caa34a544049093cac68c" category="inline-link-rx"></block></block>
+  <block id="559e00158f66ad338da1ff42475d15d4" category="paragraph">En un entorno local:</block>
+  <block id="ddc27aae141cdde9ebf1781f29405e62" category="inline-link">Ponga en marcha Cloud Volumes ONTAP</block>
+  <block id="d4e942d34e603f30d4aa65123ee69ac5" category="paragraph">En un entorno de cloud, puede hacerlo<block ref="00153078c5cb58fb46fb6b9817a49af6" category="inline-link-rx"></block></block>
+  <block id="3c64f2e1d3b86927fc25494420d8e69e" category="doc">Gestione cuentas del sitio de soporte de NetApp en BlueXP</block>
+  <block id="8b12e6f38f8b47f363480ac1d3b8327f" category="paragraph">BlueXP admite la asociación de una cuenta NSS a cada usuario de BlueXP y la asociación de una o más cuentas de NSS a su cuenta de BlueXP.</block>
+  <block id="e6cee5a5293cdefddf2eea3f6f8e63a0" category="section-title">Credenciales de NSS por usuario de BlueXP</block>
+  <block id="9f16a5e3343035191419f8ff9c2e5969" category="paragraph">Se requieren sus credenciales de NSS individuales para acceder a su cuenta de Digital Advisor y gestionar los casos de soporte a través de BlueXP. Estas credenciales sólo son visibles para la persona que inicia sesión en BlueXP. Las credenciales se pueden eliminar y actualizar según sea necesario.</block>
+  <block id="d0c8c4e397d970dc8543d75be500735a" category="inline-xref">Aprenda a administrar credenciales de NSS por usuario de BlueXP</block>
+  <block id="67d6e3f20ef7fa11673f57da719e30a4" category="paragraph"><block ref="7ba791bb5a4402182b386f894b67a43b" category="inline-xref-macro-rx"></block>.</block>
+  <block id="86b693fcb28e522569eb6bcbe22e1048" category="section-title">Credenciales de NSS para su cuenta de BlueXP</block>
+  <block id="4a2f661974665defd7d188133a1ab48b" category="paragraph">Se requiere la asociación de las credenciales del sitio de soporte de NetApp con el ID de cuenta de BlueXP específico para habilitar las siguientes tareas en BlueXP:</block>
+  <block id="15c2fed71e5ff16c335e2d40bc485e1e" category="list-text">Registro para recibir soporte</block>
+  <block id="1ca6b2b8383e207951356457a77708e7" category="list-text">Creación de casos de soporte</block>
+  <block id="d51b2b497db445a16b1c9583c1abbb59" category="list-text">Puesta en marcha de Cloud Volumes ONTAP cuando usted traiga su propia licencia (BYOL)</block>
+  <block id="a3b3ed2f72536d95b268a4a67722c55d" category="list-text">Registro de sistemas Cloud Volumes ONTAP de pago por uso</block>
+  <block id="f5135b68b75a8404803a1eb438e40c5e" category="list-text">Actualizar el software Cloud Volumes ONTAP a la versión más reciente</block>
+  <block id="a86ad85ddb4228477c624e47ab659180" category="paragraph">Estas credenciales están asociadas a su ID de cuenta de BlueXP específico. Los usuarios que pertenecen a la cuenta BlueXP pueden acceder a estas credenciales desde *Soporte &gt; Gestión NSS*.</block>
+  <block id="0080504e9313f9b154660cf9d3a82d90" category="inline-xref">Aprenda a administrar credenciales de NSS para su cuenta de BlueXP</block>
+  <block id="c8ab27a714bbad7b5a28e63b8123aae5" category="paragraph"><block ref="04ed260555c7204bedee595d1a22139b" category="inline-xref-macro-rx"></block>.</block>
+  <block id="d9307c659c4370870dcc89d984d908e2" category="section-title">Administre las credenciales de NSS para su inicio de sesión de BlueXP</block>
+  <block id="5a201f4198ac7b46778a727f32bd6203" category="paragraph">Las credenciales de NSS asociadas con el inicio de sesión de BlueXP permiten acceder a Digital Advisor y capacidades de gestión de casos.</block>
+  <block id="79dce1fafa49d0b2bbe06423f13f9d58" category="list-text">Al acceder a *Soporte &gt; Administración de casos*, se le pedirá que introduzca sus credenciales de NSS, si aún no lo ha hecho. En esta página se muestran los casos de soporte asociados con su cuenta de NSS y con su empresa.</block>
+  <block id="d4b8ea0f438d980b900fa0c72d88710f" category="list-text">La cuenta no se puede utilizar con ninguna otra función de BlueXP: No con la creación de Cloud Volumes ONTAP, la licencia ni la creación de casos de soporte.</block>
+  <block id="37ab7585b9575599c51022bd3b09813a" category="list-text">Sólo puede haber una cuenta NSS asociada con Digital Advisor y gestión de casos, por usuario.</block>
+  <block id="78eefce62993605d332b1408d42256d7" category="list-text">*Usuario de NSS asociado*: Añadir credenciales para una cuenta del sitio de soporte de NetApp.</block>
+  <block id="bb003c773133044d9d8666f477a36cfe" category="list-text">*Eliminar*: Elimina la cuenta asociada a tu cuenta de usuario de BlueXP.</block>
+  <block id="65fb057ff5fa0f79f9e974fbbf20b1b4" category="paragraph">BlueXP actualiza sus credenciales de NSS. Los cambios se reflejarán al acceder a Digital Advisor o a la página Administración de casos.</block>
+  <block id="ce3a367043c4a6897ab7ccbfa40ad329" category="section-title">Administre las credenciales de NSS para su cuenta de BlueXP</block>
+  <block id="2a99a7f02260cc6c2b4aa3815cee53ec" category="paragraph">Gestione las credenciales de NSS asociadas con su cuenta de BlueXP para que pueda registrarse en la asistencia técnica, crear casos de soporte y habilitar flujos de trabajo clave para Cloud Volumes ONTAP.</block>
+  <block id="9a030ad8abbc9b1e402feade38bdec50" category="paragraph">La consola de soporte le permite añadir y gestionar sus cuentas de la página de soporte de NetApp para utilizarlas con BlueXP a nivel de cuenta de BlueXP.</block>
+  <block id="ec084bb25ed5b934c09b361069c246b2" category="list-text">La cuenta NSS debe ser una cuenta de nivel de cliente (no una cuenta de invitado o temporal). Puede tener varias cuentas de NSS en el nivel del cliente.</block>
+  <block id="27387009488fe78dcc7cb7e3e432792f" category="list-text">Sólo puede haber una cuenta NSS si esa cuenta es una cuenta de nivel de partner. Si intenta agregar cuentas de NSS de nivel de cliente y existe una cuenta de nivel de partner, obtendrá el siguiente mensaje de error:</block>
+  <block id="d926847e4634e19a1aa7358becc0fa27" category="paragraph">"El tipo de cliente NSS no está permitido para esta cuenta, ya que ya hay usuarios NSS de tipo diferente."</block>
+  <block id="a04a3a5322782e8c18d0d64be7e1ccbc" category="paragraph">Lo mismo sucede si tiene cuentas de NSS de nivel de cliente preexistentes e intenta añadir una cuenta de nivel de partner.</block>
+  <block id="1afe8a81cfddc9fa9559e272bb6b9496" category="list-text">Después de iniciar sesión correctamente, NetApp almacenará el nombre de usuario de NSS.</block>
+  <block id="452cd4df7b0d5eb1156519a2f3b0206b" category="paragraph">Se trata de un ID generado por el sistema que se asigna a su correo electrónico. En la página *NSS Management*, puede mostrar su correo electrónico desde <block ref="0d0843f26c0819e5369f690fefbf68b7" category="inline-image-macro-rx" type="image"></block> de windows</block>
+  <block id="fd02e84624a2fdfd58787131aa2820b5" category="list-text">Si alguna vez necesita actualizar sus tokens de credenciales de inicio de sesión, también hay una opción *Actualizar credenciales* en la <block ref="0d0843f26c0819e5369f690fefbf68b7" category="inline-image-macro-rx" type="image"></block> de windows</block>
+  <block id="b14d512a3c64fb5df16f6721b0603c63" category="paragraph">Con esta opción se le solicita que vuelva a iniciar sesión. Tenga en cuenta que el token de estas cuentas caduca después de 90 días. Se enviará una notificación para avisarle de ello.</block>
+  <block id="898e35e1a4bf4b025c3edec879439b08" category="section-title">Gestione sus casos de soporte (vista previa)</block>
+  <block id="8b74b053fbeeff5c3b6f4991cb1d028d" category="paragraph">Puede ver y gestionar los casos de soporte activos y resueltos directamente desde BlueXP. Es posible gestionar los casos asociados con su cuenta de NSS y con su empresa.</block>
+  <block id="394ef093ad3259b9ff0fe7406f015b83" category="paragraph">La gestión de casos está disponible como vista previa. Tenemos pensado perfeccionar esta experiencia y añadir mejoras en próximos lanzamientos. Envíenos sus comentarios mediante el chat en el producto.</block>
+  <block id="5e4e7672ec2ba2b8a763da7f6714e212" category="list-text">La consola de gestión de casos en la parte superior de la página ofrece dos vistas:</block>
+  <block id="01c3ffea552d74a5ae390b10e71a1f26" category="list-text">La vista de la izquierda muestra el total de casos abiertos en los últimos 3 meses por la cuenta de usuario NSS que ha proporcionado.</block>
+  <block id="e3b6c09a5686233f72ce1ea60a1eb088" category="list-text">La vista de la derecha muestra el total de casos abiertos en los últimos 3 meses a nivel de su compañía en función de su cuenta NSS de usuario.</block>
+  <block id="b19b168cc8a2b8c984465e140256b3a2" category="paragraph">Los resultados de la tabla reflejan los casos relacionados con la vista seleccionada.</block>
+  <block id="56dcadeee6b0e5c47a52673f9b5a0bb3" category="list-text">Puede agregar o quitar columnas de interés y filtrar el contenido de columnas como prioridad y estado. Otras columnas proporcionan funciones de clasificación.</block>
+  <block id="6f936762e1223311f031685422fcd3a4" category="paragraph">Consulte los pasos a continuación para obtener más información.</block>
+  <block id="b14929795a61440e9b4ec9f8a4885ae3" category="list-text">En el nivel por caso, ofrecemos la posibilidad de actualizar las notas de un caso o cerrar un caso que no esté ya en estado cerrado o pendiente de cierre.</block>
+  <block id="34b1296d31cefa72dae9b3a364b1f444" category="list-text">Haga clic en *Administración de casos* y si se le solicita, agregue su cuenta NSS a BlueXP.</block>
+  <block id="d8ce1865cf1fe3cffd60300b4b86ad63" category="paragraph">La página *Administración de casos* muestra casos abiertos relacionados con la cuenta NSS asociada con su cuenta de usuario de BlueXP. Esta es la misma cuenta NSS que aparece en la parte superior de la página *NSS Management*.</block>
+  <block id="2ae5ae78bdb2d222f15fd8e89248709c" category="list-text">Si lo desea, puede modificar la información que se muestra en la tabla:</block>
+  <block id="27635a52fe4c34c39ffc6430f4244ec6" category="list-text">En *casos de la organización*, haga clic en *Ver* para ver todos los casos asociados con su empresa.</block>
+  <block id="059e856250b59be3069246887b74a23c" category="list-text">Modifique el rango de fechas eligiendo un rango de fechas exacto o eligiendo un marco de tiempo diferente.</block>
+  <block id="dfb3764bce2548df4e06357403f9c7d0" category="inline-image-macro">Captura de pantalla de la opción situada encima de la tabla en la página de gestión de casos que permite elegir un intervalo de fechas exacto o los últimos 7 días, 30 días o 3 meses.</block>
+  <block id="7fcba8aeefa9960d3fc3fa08b360ba2e" category="paragraph"><block ref="7fcba8aeefa9960d3fc3fa08b360ba2e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a1bb576be9e5a356290f231efb51b3f5" category="list-text">Filtre el contenido de las columnas.</block>
+  <block id="3753f10a59e21f58b30e3e67d416453e" category="inline-image-macro">Captura de pantalla de la opción de filtro de la columna Estado que permite filtrar casos que coinciden con un estado específico, como activo o cerrado.</block>
+  <block id="37709be3a43df07d5975287545d0ba12" category="paragraph"><block ref="37709be3a43df07d5975287545d0ba12" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1c6ea5ef583389e18e7d7bda70beaa71" category="inline-image-macro">El icono más que se muestra en la tabla</block>
+  <block id="1614dc8e47c0492434152c990d6c1040" category="list-text">Cambie las columnas que aparecen en la tabla haciendo clic en <block ref="effeab06130cddc8360822b2b706805b" category="inline-image-macro-rx" type="image"></block> y, a continuación, seleccione las columnas que desea mostrar.</block>
+  <block id="370b44009f1b82d0b6b178bb80cc62fa" category="inline-image-macro">Captura de pantalla que muestra las columnas que puede mostrar en la tabla.</block>
+  <block id="5de408d7cbad49634fb25f9047498132" category="paragraph"><block ref="5de408d7cbad49634fb25f9047498132" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ad0ae9ea1f2e8d973a9a0f6bb169f494" category="inline-image-macro">Icono con tres puntos que aparece en la última columna de la tabla</block>
+  <block id="98efef1c8a47ed5791b41944e8ff4ec2" category="list-text">Gestione un caso existente haciendo clic en <block ref="a0b152b50a56901a75affebabc26ed61" category="inline-image-macro-rx" type="image"></block> y seleccione una de las opciones disponibles:</block>
+  <block id="6d9dd74e7709ef802d299966f7898f6b" category="list-text">*Ver caso*: Ver todos los detalles sobre un caso específico.</block>
+  <block id="482429810c2b00a4fa04f9900c560232" category="list-text">*Actualizar notas de caso*: Proporcione detalles adicionales sobre su problema.</block>
+  <block id="f791bc685c526af8296381acff10f6a0" category="list-text">*Cerrar caso*: Proporcione detalles sobre por qué cierra el caso y haga clic en *Cerrar caso*.</block>
+  <block id="e93217b2f709a398ce3c0fb753beb05f" category="inline-image-macro">Captura de pantalla que muestra las acciones que puede realizar después de seleccionar el menú de la última columna de la tabla.</block>
+  <block id="e9a5c374fb47ed2ae5cc6108fb36d829" category="paragraph"><block ref="e9a5c374fb47ed2ae5cc6108fb36d829" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1da23045b320eae048772af1011d22a1" category="summary">Descubra las novedades de las funciones de administración de BlueXP: Cuentas de NetApp, conectores, credenciales de proveedores de cloud, etc.</block>
+  <block id="d0693e7bf28b7bbc94287cee0e4b0768" category="section-title">5 de marzo de 2023</block>
+  <block id="ba5bb99eb6a04798c8ccd3f156db75a5" category="section-title">Conector 3.9.27</block>
+  <block id="ce47c670900f3fe8347a2fc95ff710d8" category="list-text">La búsqueda ya está disponible en la consola BlueXP. En este momento, puede utilizar la búsqueda para buscar servicios y características de BlueXP.</block>
+  <block id="73984711a5ba4c8d6f613d3ef2426680" category="inline-image-macro">Una captura de pantalla de la búsqueda BlueXP que está disponible en la parte superior de la consola.</block>
+  <block id="4be68bdee3a27bc0218c6188d192fc95" category="paragraph"><block ref="4be68bdee3a27bc0218c6188d192fc95" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a48a6aaa99b4cf4a4e641c293de897fa" category="inline-link">Aprenda a gestionar sus casos de soporte</block>
+  <block id="796ced97a72330e5ce3c0935b7b09f45" category="paragraph"><block ref="622b6e7f4143df2aca06b538ee1d864e" category="inline-link-rx"></block>.</block>
+  <block id="dd9b32305d0c33f8845bee1cdfcfc85a" category="list-text">El conector ahora es compatible con un host que ejecuta Red Hat Enterprise Linux 8.7.</block>
+  <block id="9954c00cefacf69f28fa1994e949ff83" category="paragraph"><block ref="1c471069dafa2d25f3a632cea0250222" category="inline-link-rx"></block>.</block>
+  <block id="9597dfcf8249ec8766cfb35fd11357f3" category="list-text">El conector ahora es compatible con cualquier entorno de nube que tenga un aislamiento completo de Internet. A continuación, puede usar la consola BlueXP que se ejecuta en el conector para implementar Cloud Volumes ONTAP en la misma ubicación y detectar clústeres de ONTAP en las instalaciones (si tiene una conexión desde su entorno de cloud a un entorno local). Ningún otro servicio BlueXP es compatible con este tipo de despliegue, excepto con la cartera digital.</block>
+  <block id="33b6f29ed1acfc0fbed883a6e1f44ef2" category="paragraph">Para empezar, instale manualmente el software conector, inicie sesión en la consola BlueXP que se ejecuta en el conector, agregue su licencia BYOL a la cartera digital y, a continuación, implemente Cloud Volumes ONTAP.</block>
+  <block id="376a158ceb7d344fa563cce2aa16018f" category="inline-link">Instale el conector en una ubicación sin acceso a Internet</block>
+  <block id="6bfdfb1d6b845d41edac4f1eb0065216" category="list-text"><block ref="6bfdfb1d6b845d41edac4f1eb0065216" category="inline-link-rx"></block></block>
+  <block id="cbea6f8d2cd687c094438e0a7a38fedf" category="inline-link">Acceda a la consola BlueXP del conector</block>
+  <block id="b620510a7b9198825896459898b7bc08" category="list-text"><block ref="b620510a7b9198825896459898b7bc08" category="inline-link-rx"></block></block>
+  <block id="c09d91817b6017a3572898b867b22e36" category="inline-link">Añada una licencia sin asignar</block>
+  <block id="587a8286d2e3b61d9f250d807b34983c" category="list-text"><block ref="587a8286d2e3b61d9f250d807b34983c" category="inline-link-rx"></block></block>
+  <block id="a8ed015209d62d3ffd9042f8a01b9725" category="inline-link">Empiece a usar Cloud Volumes ONTAP</block>
+  <block id="d66686137674e9cdef6070dbe4ce01c6" category="list-text"><block ref="d66686137674e9cdef6070dbe4ce01c6" category="inline-link-rx"></block></block>
+  <block id="37e16775c1bede9551f227ccaca87974" category="paragraph"><block ref="37e16775c1bede9551f227ccaca87974" category="inline-link-rx"></block></block>
+  <block id="16ad465f333a3d9520fe4f57691eb5be" category="inline-link-macro">En un host en una ubicación que no tiene acceso a Internet</block>
+  <block id="273c438fb142c078d2637f09a68a894b" category="list-text"><block ref="273c438fb142c078d2637f09a68a894b" category="inline-link-macro-rx"></block></block>
+  <block id="6b8dbc1426241e742cda28e32722d238" category="sidebar">Instale en su propio host sin Internet</block>
 </blocks>
