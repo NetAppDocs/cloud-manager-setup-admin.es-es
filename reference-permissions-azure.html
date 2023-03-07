@@ -1403,7 +1403,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-02-20 16:42:56 +0000">02/20/2023</time>
+    <time datetime="2023-03-07 21:29:19 +0000">03/07/2023</time>
     
   
 
@@ -2097,7 +2097,7 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" rowspan="12"><p class="tableblock">Cree las máquinas virtuales, pare, inicie, elimine y obtenga el estado del sistema</p></td>
+<td class="tableblock halign-left valign-top" rowspan="14"><p class="tableblock">Permite crear y gestionar máquinas virtuales</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Compute/locations/operations/read</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
@@ -2170,6 +2170,18 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Compute/virtualMachines/delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Resources/despliegues/DELETE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Habilite la puesta en marcha desde un disco duro virtual</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Compute/images/read</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
@@ -2177,7 +2189,7 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Cree y gestione interfaces de red en la subred de destino</p></td>
+<td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Cree y gestione interfaces de red en la subred de destino</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Network/networkInterfaces/read</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
@@ -2196,7 +2208,13 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top" rowspan="3"><p class="tableblock">Crear grupos de seguridad de red predefinidos</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Network/networkInterfaces/delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="4"><p class="tableblock">Crear y administrar grupos de seguridad de red</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Network/networkSecurityGroups/read</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
@@ -2213,6 +2231,12 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Network/networkSecurityGroups/delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" rowspan="8"><p class="tableblock">Obtenga información de la red acerca de las regiones, la red virtual de destino y la subred, y agregue las máquinas virtuales a los VNets</p></td>
@@ -2484,7 +2508,7 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Network/loadBalancers/backendAddressPools/read</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 </tr>
 <tr>
@@ -2580,7 +2604,7 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lo requiere Azure para algunas puestas en marcha de máquinas virtuales, en función del hardware físico subyacente</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Necesario para algunas implementaciones de máquinas virtuales, en función del hardware físico subyacente</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Resources/despliegues/operationStatuses/read</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
@@ -2635,7 +2659,7 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Network/applicationSecurityGroups/read</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action</p></td>
@@ -2653,7 +2677,7 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Network/applicationSecurityGroups/delete</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sí</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Microsoft.Network/networkSecurityGroups/securityRules/delete</p></td>
