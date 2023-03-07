@@ -432,7 +432,7 @@ El conector realiza las siguientes solicitudes de API para implementar y gestion
 | Específico | Acción | ¿Se utiliza para la puesta en marcha? | ¿Se utiliza para operaciones diarias? | ¿Se utiliza para su eliminación? 
 
 
-.12+| Cree las máquinas virtuales, pare, inicie, elimine y obtenga el estado del sistema | Microsoft.Compute/locations/operations/read | Sí | Sí | No 
+.14+| Permite crear y gestionar máquinas virtuales | Microsoft.Compute/locations/operations/read | Sí | Sí | No 
 
 
 | Microsoft.Compute/locations/vmSizes/read | Sí | Sí | No 
@@ -468,10 +468,16 @@ El conector realiza las siguientes solicitudes de API para implementar y gestion
 | Microsoft.Compute/virtualMachines/write | Sí | Sí | No 
 
 
+| Microsoft.Compute/virtualMachines/delete | Sí | Sí | Sí 
+
+
+| Microsoft.Resources/despliegues/DELETE | Sí | No | No 
+
+
 | Habilite la puesta en marcha desde un disco duro virtual | Microsoft.Compute/images/read | Sí | No | No 
 
 
-.3+| Cree y gestione interfaces de red en la subred de destino | Microsoft.Network/networkInterfaces/read | Sí | Sí | No 
+.4+| Cree y gestione interfaces de red en la subred de destino | Microsoft.Network/networkInterfaces/read | Sí | Sí | No 
 
 
 | Microsoft.Network/networkInterfaces/write | Sí | Sí | No 
@@ -480,13 +486,19 @@ El conector realiza las siguientes solicitudes de API para implementar y gestion
 | Microsoft.Network/networkInterfaces/join/action | Sí | Sí | No 
 
 
-.3+| Crear grupos de seguridad de red predefinidos | Microsoft.Network/networkSecurityGroups/read | Sí | Sí | No 
+| Microsoft.Network/networkInterfaces/delete | Sí | Sí | No 
+
+
+.4+| Crear y administrar grupos de seguridad de red | Microsoft.Network/networkSecurityGroups/read | Sí | Sí | No 
 
 
 | Microsoft.Network/networkSecurityGroups/write | Sí | Sí | No 
 
 
 | Microsoft.Network/networkSecurityGroups/join/action | Sí | No | No 
+
+
+| Microsoft.Network/networkSecurityGroups/delete | No | Sí | Sí 
 
 
 .8+| Obtenga información de la red acerca de las regiones, la red virtual de destino y la subred, y agregue las máquinas virtuales a los VNets | Microsoft.Network/locations/operationResults/read | Sí | Sí | No 
@@ -618,7 +630,7 @@ El conector realiza las siguientes solicitudes de API para implementar y gestion
 | Microsoft.Network/loadBalancers/delete | No | Sí | Sí 
 
 
-| Microsoft.Network/loadBalancers/backendAddressPools/read | Sí | Sí | No 
+| Microsoft.Network/loadBalancers/backendAddressPools/read | Sí | No | No 
 
 
 | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Sí | No | No 
@@ -666,7 +678,7 @@ El conector realiza las siguientes solicitudes de API para implementar y gestion
 | Microsoft.Network/privateDnsZones/virtualNetworkLinks/read | Sí | Sí | No 
 
 
-| Lo requiere Azure para algunas puestas en marcha de máquinas virtuales, en función del hardware físico subyacente | Microsoft.Resources/despliegues/operationStatuses/read | Sí | Sí | No 
+| Necesario para algunas implementaciones de máquinas virtuales, en función del hardware físico subyacente | Microsoft.Resources/despliegues/operationStatuses/read | Sí | Sí | No 
 
 
 .2+| Quite recursos de un grupo de recursos en caso de un error de implementación o de su eliminación | Microsoft.Network/privateEndpoints/delete | Sí | Sí | No 
@@ -690,7 +702,7 @@ El conector realiza las siguientes solicitudes de API para implementar y gestion
 .6+| Configurar un grupo de seguridad de aplicaciones para un par de alta disponibilidad para aislar las NIC de interconexión de alta disponibilidad y de red de clúster | Microsoft.Network/applicationSecurityGroups/write | No | Sí | No 
 
 
-| Microsoft.Network/applicationSecurityGroups/read | No | Sí | Sí 
+| Microsoft.Network/applicationSecurityGroups/read | No | Sí | No 
 
 
 | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action | No | Sí | No 
@@ -699,7 +711,7 @@ El conector realiza las siguientes solicitudes de API para implementar y gestion
 | Microsoft.Network/networkSecurityGroups/securityRules/write | Sí | Sí | No 
 
 
-| Microsoft.Network/applicationSecurityGroups/delete | No | Sí | No 
+| Microsoft.Network/applicationSecurityGroups/delete | No | Sí | Sí 
 
 
 | Microsoft.Network/networkSecurityGroups/securityRules/delete | No | Sí | Sí 

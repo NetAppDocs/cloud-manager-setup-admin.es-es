@@ -1630,7 +1630,6 @@
   <block id="0538fa74f685054f07476ce4440d3ce4" category="cell">Su explorador web se pone en contacto con esta URL cuando utiliza la interfaz de usuario de SaaS.</block>
   <block id="b3f4a5004c2a10094d2af8bd28589cbf" category="paragraph">Servicios de AWS (amazonaws.com):</block>
   <block id="58e3bfbabf904de43a6a22aca509b0d8" category="list-text">Formación CloudFormation</block>
-  <block id="df8a1f2103a58209a3008c02a93162b5" category="list-text">Cognito</block>
   <block id="9d4942b614d2d8583bdf09c75ba94f3d" category="list-text">Cloud computing elástico (EC2)</block>
   <block id="b7f432287355914a89f542bcac4bbdb0" category="list-text">Servicio de gestión de claves (KMS)</block>
   <block id="5ea79461f4d299dc0735dc824ffeb854" category="list-text">Servicio de token de seguridad (STS)</block>
@@ -1656,15 +1655,9 @@
   <block id="ea7babb79350418e9437972e245c5e46" category="list-text">Después de iniciar sesión en BlueXP, un administrador de cuentas de BlueXP necesitará implementar un _Connector_ en un proveedor de nube o en su red local. Connector permite que BlueXP gestione recursos y procesos dentro de su entorno de cloud público. Tenga en cuenta que se necesita un conector para la mayoría, pero no todos los servicios y funciones de BlueXP. <block ref="fc0525c57d574c03610221b6665bff18" category="inline-link-macro-rx"></block>.</block>
   <block id="9827c1dc4f901b9ac9340f0034c5a996" category="list-text">La ubicación de red en la que implemente el conector debe tener una conexión a Internet saliente.</block>
   <block id="ffcad347e7fbe5448bc3fabe48be2db8" category="paragraph">El conector requiere acceso saliente a Internet para ponerse en contacto con los siguientes extremos con el fin de gestionar recursos y procesos dentro de su entorno de nube pública.</block>
-  <block id="701741ae6d160ecd5058c2eefa334a6c" category="cell">\https://&lt;region&gt;.amazonaws.com</block>
-  <block id="2452d1aef80214dacfb33f192b762434" category="cell">Para gestionar recursos en AWS.</block>
-  <block id="cc328ccddf672987f092ca6f44c9f9cf" category="cell">\https://management.azure.com \https://login.microsoftonline.com</block>
   <block id="068395f3cd26ca40ad905de3790c9435" category="cell">Para gestionar recursos en regiones públicas de Azure.</block>
-  <block id="6696e65cc873b2af9823ebafd2e332a8" category="cell">\https://management.usgovcloudapi.net \https://login.microsoftonline.us</block>
   <block id="61b99e46ccbb3b872a32fbf2f064b87b" category="cell">Para gestionar recursos en regiones gubernamentales de Azure.</block>
-  <block id="2ef9710cab4f48c3bcc58dac5ab20752" category="cell">\https://management.azure.microsoft.scloud \https://login.microsoftonline.microsoft.scloud</block>
   <block id="8ec83edee8d0c8a3dd001c3d7e558479" category="cell">Para administrar recursos en la región de Azure IL6.</block>
-  <block id="c9499afcd46d4343e88fb1acd8c931d8" category="cell">\https://management.chinacloudapi.cn \https://login.chinacloudapi.cn</block>
   <block id="232055d452a21264f8d549e50d695b18" category="cell">Para gestionar recursos en regiones de Azure China.</block>
   <block id="3933fdb8f34cb01278a72748377338a5" category="cell">\https://www.googleapis.com/compute/v1/ \https://cloudresourcemanager.googleapis.com/v1/projects \https://www.googleapis.com/compute/beta \https://storage.googleapis.com/storage/v1 \https://www.googleapis.com/storage/v1 \https://iam.googleapis.com/v1 \https://cloudkms.googleapis.com/v1 \https://www.googleapis.com/deploymentmanager/v2/projects</block>
   <block id="d377a02fb22cec7bf850087d3c9a31fa" category="cell">Para gestionar recursos en Google Cloud.</block>
@@ -1724,7 +1717,6 @@
   <block id="2f03f8dd45cb031f8f3cce95fd4acefc" category="paragraph">Un conector requiere una conexión de red al tipo de entorno de trabajo que está creando y a los servicios que tiene previsto habilitar.</block>
   <block id="3f92e0c134aea90b900c9d9fb8728adc" category="paragraph">Por ejemplo, si instala un conector en su red corporativa, debe configurar una conexión VPN a la red virtual en la que inicie Cloud Volumes ONTAP.</block>
   <block id="c0dfa216f26874dae52a89e0090a3358" category="paragraph">El conector requiere acceso saliente a Internet para gestionar recursos y procesos dentro de su entorno de nube pública.</block>
-  <block id="3705a469472bf9882aff3f58dc3f4c5b" category="cell">\shttps://management.azure.microsoft.scloud \https://login.microsoftonline.microsoft.scloud</block>
   <block id="824f455afa0ae197e5e7156988b6dc50" category="section-title">Servidor proxy</block>
   <block id="dae5521ccadea1321150f5f74aad0a58" category="paragraph">Si su organización requiere la implementación de un servidor proxy para todo el tráfico saliente de Internet, obtenga la siguiente información acerca del proxy HTTP o HTTPS:</block>
   <block id="75ba8d70e3692ba200f0e0df37b4d2ae" category="list-text">Dirección IP</block>
@@ -2725,10 +2717,8 @@
   <block id="47ddffc293a6a5748897c2f965fa7212" category="list-text">Microsoft.Storage/storageAccounts/managementPolicies/Read</block>
   <block id="a2fd314f394dbb1eeb56c09e3cd9770f" category="list-text">Microsoft.Storage/storageAccounts/managementPolicies/Write</block>
   <block id="5ecf1d4c60139fd535d59e1ca3b91b76" category="paragraph">El conector realiza las siguientes solicitudes de API para implementar y gestionar Cloud Volumes ONTAP en Azure.</block>
-  <block id="3842dbaca77b11d0e50ab804ff806c4d" category="cell">Cree las máquinas virtuales, pare, inicie, elimine y obtenga el estado del sistema</block>
   <block id="4d6646e62e7704a2019810651f83d886" category="cell">Habilite la puesta en marcha desde un disco duro virtual</block>
   <block id="e8257e96577d74304108aac52739f494" category="cell">Cree y gestione interfaces de red en la subred de destino</block>
-  <block id="69e92fda2ae4363c883f5d9f62c3ee56" category="cell">Crear grupos de seguridad de red predefinidos</block>
   <block id="7a29e42d7b44e6dd5272e36cbcf9490f" category="cell">Microsoft.Network/networkSecurityGroups/join/action</block>
   <block id="89974c87cccaf6e615e089269c5cafd3" category="cell">Obtenga información de la red acerca de las regiones, la red virtual de destino y la subred, y agregue las máquinas virtuales a los VNets</block>
   <block id="0bfcdd1da192a52455067c787c3beb96" category="cell">Cree y gestione grupos de recursos</block>
@@ -2761,7 +2751,6 @@
   <block id="cc7e29f147aa045ddf8822304dc0e1f4" category="cell">Microsoft.Storage/storageAccounts/PrivateEndpointConnectionsApproval/action</block>
   <block id="6ea85effe392556eeffa2a55685797ca" category="cell">Microsoft.Storage/storageAccounts/privateEndpointConnections/read</block>
   <block id="78c2f93b5769de1a564bb26013df62b4" category="cell">Microsoft.Network/privateDnsZones/write</block>
-  <block id="a4e92c2c648e0e630287027027ef39c8" category="cell">Lo requiere Azure para algunas puestas en marcha de máquinas virtuales, en función del hardware físico subyacente</block>
   <block id="d2708b4bfe876dff0475a9deac154f4d" category="cell">Microsoft.Resources/despliegues/operationStatuses/read</block>
   <block id="0842d212d91b90d567d1e486c5416e29" category="cell">Quite recursos de un grupo de recursos en caso de un error de implementación o de su eliminación</block>
   <block id="dbd22581be4b124883e09a2e00810e57" category="cell">Microsoft.Network/privateEndpoints/delete</block>
@@ -2987,4 +2976,14 @@
   <block id="16ad465f333a3d9520fe4f57691eb5be" category="inline-link-macro">En un host en una ubicación que no tiene acceso a Internet</block>
   <block id="273c438fb142c078d2637f09a68a894b" category="list-text"><block ref="273c438fb142c078d2637f09a68a894b" category="inline-link-macro-rx"></block></block>
   <block id="6b8dbc1426241e742cda28e32722d238" category="sidebar">Instale en su propio host sin Internet</block>
+  <block id="aec651d37f6f533a4066a1ac8774d6b0" category="inline-link">Consulte la documentación de AWS para obtener más detalles</block>
+  <block id="c908f2a3ba166fdf32de7eba53bd7156" category="cell">Para gestionar recursos en AWS. El extremo exacto depende de la región en la que se despliega el conector.<block ref="04572646466baf6f86d09965eb5c3c86" category="inline-link-rx"></block></block>
+  <block id="7dfb843f052469a3cc66d13554feb0f4" category="cell">\https://management.azure.com \https://login.microsoftonline.com \https://blob.core.windows.net \https://core.windows.net</block>
+  <block id="6e3cecb8c14fa9293d2b497e9f907cbd" category="cell">\https://management.usgovcloudapi.net \https://login.microsoftonline.us \https://blob.core.usgovcloudapi.net \https://core.usgovcloudapi.net</block>
+  <block id="b2723147717f1c60a42e0b1cbdb0ad6c" category="cell">\https://management.azure.microsoft.scloud \https://login.microsoftonline.microsoft.scloud \https://blob.core.microsoft.scloud \https://core.microsoft.scloud</block>
+  <block id="6d03c18e4e6ecfac89f686c621314d96" category="cell">\https://management.chinacloudapi.cn \https://login.chinacloudapi.cn \https://blob.core.chinacloudapi.cn \https://core.chinacloudapi.cn</block>
+  <block id="bfeeb7b05d1d40308b6f007fd5acc191" category="cell">\shttps://management.azure.microsoft.scloud \https://login.microsoftonline.microsoft.scloud \https://blob.core.microsoft.scloud \https://core.microsoft.scloud</block>
+  <block id="864338d2d7dc3c2738f45a0a8851b0cf" category="cell">Permite crear y gestionar máquinas virtuales</block>
+  <block id="fe4ddc4ad605bbd0c66fc946f65fb17c" category="cell">Crear y administrar grupos de seguridad de red</block>
+  <block id="7b82c8bb5f712b74fd5cab9947ae81fb" category="cell">Necesario para algunas implementaciones de máquinas virtuales, en función del hardware físico subyacente</block>
 </blocks>

@@ -73,16 +73,16 @@ El conector requiere acceso saliente a Internet para gestionar recursos y proces
 | Puntos finales | Específico 
 
 
-| \https://management.azure.com \https://login.microsoftonline.com | Para gestionar recursos en regiones públicas de Azure. 
+| \https://management.azure.com \https://login.microsoftonline.com \https://blob.core.windows.net \https://core.windows.net | Para gestionar recursos en regiones públicas de Azure. 
 
 
-| \https://management.usgovcloudapi.net \https://login.microsoftonline.us | Para gestionar recursos en regiones gubernamentales de Azure. 
+| \https://management.usgovcloudapi.net \https://login.microsoftonline.us \https://blob.core.usgovcloudapi.net \https://core.usgovcloudapi.net | Para gestionar recursos en regiones gubernamentales de Azure. 
 
 
-| \https://management.azure.microsoft.scloud \https://login.microsoftonline.microsoft.scloud | Para administrar recursos en la región de Azure IL6. 
+| \https://management.azure.microsoft.scloud \https://login.microsoftonline.microsoft.scloud \https://blob.core.microsoft.scloud \https://core.microsoft.scloud | Para administrar recursos en la región de Azure IL6. 
 
 
-| \https://management.chinacloudapi.cn \https://login.chinacloudapi.cn | Para gestionar recursos en regiones de Azure China. 
+| \https://management.chinacloudapi.cn \https://login.chinacloudapi.cn \https://blob.core.chinacloudapi.cn \https://core.chinacloudapi.cn | Para gestionar recursos en regiones de Azure China. 
 
 
 | \https://support.netapp.com | Para obtener información sobre licencias y enviar mensajes de AutoSupport al soporte de NetApp. 

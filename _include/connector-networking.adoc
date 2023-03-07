@@ -45,19 +45,28 @@ NOTE: El conector se está comunicando actualmente con "cloudmanager.cloud.netap
 | \https://cloudmanagerinfraprod.azurecr.io \https://*.blob.core.windows.net | Para actualizar el conector y sus componentes de Docker. 
 
 
-| \https://<region>.amazonaws.com | Para gestionar recursos en AWS. 
+ a| 
+Servicios de AWS (amazonaws.com):
+
+* Formación CloudFormation
+* Cloud computing elástico (EC2)
+* Servicio de gestión de claves (KMS)
+* Servicio de token de seguridad (STS)
+* Simple Storage Service (S3)
+
+| Para gestionar recursos en AWS. El extremo exacto depende de la región en la que se despliega el conector. https://docs.aws.amazon.com/general/latest/gr/rande.html["Consulte la documentación de AWS para obtener más detalles"^] 
 
 
-| \https://management.azure.com \https://login.microsoftonline.com | Para gestionar recursos en regiones públicas de Azure. 
+| \https://management.azure.com \https://login.microsoftonline.com \https://blob.core.windows.net \https://core.windows.net | Para gestionar recursos en regiones públicas de Azure. 
 
 
-| \https://management.usgovcloudapi.net \https://login.microsoftonline.us | Para gestionar recursos en regiones gubernamentales de Azure. 
+| \https://management.usgovcloudapi.net \https://login.microsoftonline.us \https://blob.core.usgovcloudapi.net \https://core.usgovcloudapi.net | Para gestionar recursos en regiones gubernamentales de Azure. 
 
 
-| \shttps://management.azure.microsoft.scloud \https://login.microsoftonline.microsoft.scloud | Para administrar recursos en la región de Azure IL6. 
+| \shttps://management.azure.microsoft.scloud \https://login.microsoftonline.microsoft.scloud \https://blob.core.microsoft.scloud \https://core.microsoft.scloud | Para administrar recursos en la región de Azure IL6. 
 
 
-| \https://management.chinacloudapi.cn \https://login.chinacloudapi.cn | Para gestionar recursos en regiones de Azure China. 
+| \https://management.chinacloudapi.cn \https://login.chinacloudapi.cn \https://blob.core.chinacloudapi.cn \https://core.chinacloudapi.cn | Para gestionar recursos en regiones de Azure China. 
 
 
 | \https://www.googleapis.com/compute/v1/ \https://cloudresourcemanager.googleapis.com/v1/projects \https://www.googleapis.com/compute/beta \https://storage.googleapis.com/storage/v1 \https://www.googleapis.com/storage/v1 \https://iam.googleapis.com/v1 \https://cloudkms.googleapis.com/v1 \https://www.googleapis.com/deploymentmanager/v2/projects | Para gestionar recursos en Google Cloud. 

@@ -219,7 +219,16 @@ El conector requiere acceso saliente a Internet para gestionar recursos y proces
 | Puntos finales | Específico 
 
 
-| \https://<region>.amazonaws.com | Para gestionar recursos en AWS. 
+ a| 
+Servicios de AWS (amazonaws.com):
+
+* Formación CloudFormation
+* Cloud computing elástico (EC2)
+* Servicio de gestión de claves (KMS)
+* Servicio de token de seguridad (STS)
+* Simple Storage Service (S3)
+
+| Para gestionar recursos en AWS. El extremo exacto depende de la región en la que se despliega el conector. https://docs.aws.amazon.com/general/latest/gr/rande.html["Consulte la documentación de AWS para obtener más detalles"^] 
 
 
 | \https://support.netapp.com | Para obtener información sobre licencias y enviar mensajes de AutoSupport al soporte de NetApp. 
