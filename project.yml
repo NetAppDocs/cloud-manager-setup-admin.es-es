@@ -85,7 +85,7 @@ sidebar:
       url: "/task-manage-subscriptions.html"
     - title: Almacenamiento en cloud detectado
       entries:
-      - title: Consulte sus bloques de Amazon S3
+      - title: Gestione sus bloques de Amazon S3
         url: "/task-viewing-amazon-s3.html"
       - title: Consulte sus cuentas de Azure Blob
         url: "/task-viewing-azure-blob.html"

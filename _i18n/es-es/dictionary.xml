@@ -779,21 +779,7 @@
   <block id="5fc25795a93f92bfee952eef3220d9e5" category="paragraph">El único requisito es asegurarse de que el grupo de seguridad del conector permita conexiones _entrante_ a través del puerto 3128. Tendrá que abrir este puerto después de desplegar el conector.</block>
   <block id="489db3f339b691ea4dea5f4572483024" category="paragraph">Si utiliza el grupo de seguridad predeterminado para Cloud Volumes ONTAP, no es necesario realizar cambios en su grupo de seguridad. Pero si tiene pensado definir reglas de salida estrictas para Cloud Volumes ONTAP, también tendrá que asegurarse de que el grupo de seguridad Cloud Volumes ONTAP permita conexiones _saliente_ a través del puerto 3128.</block>
   <block id="efd9710de9c698fbbeb7b7b11597f70b" category="summary">Después de instalar un conector en AWS, BlueXP puede descubrir automáticamente información sobre los cubos de Amazon S3 que residen en la cuenta de AWS donde está instalado el conector. Se añade un entorno de trabajo de Amazon S3 al lienzo para poder ver esta información.</block>
-  <block id="f7099ec977551c0bfc4264472c0bf927" category="doc">Ver los bloques de Amazon S3</block>
-  <block id="bf9799ea7692475c7cf9755a148ec201" category="paragraph">Puede ver detalles sobre sus bloques de S3, incluida la región, la política de acceso, la cuenta, la capacidad total y utilizada, etc. Estos bloques se pueden usar como destinos para las operaciones Cloud Backup, Cloud Tiering o Cloud Sync. Además, puede usar Cloud Data Sense para analizar estos bloques.</block>
-  <block id="0d6fec8d76a7754ac76ae4d48310ed99" category="list-text"><block ref="d950cee94b130c47fc349a9ce27609ba" category="inline-link-macro-rx"></block> En la cuenta de AWS, donde desea ver sus bloques de Amazon S3.</block>
-  <block id="52b8ffdf03daa97daa3970bb3a4247ff" category="paragraph">Verá automáticamente un entorno de trabajo de Amazon S3 poco después.</block>
   <block id="620734ddcf438083fa8f2f7a7550fbbf" category="inline-image-macro">Captura de pantalla de un entorno de trabajo Amazon S3.</block>
-  <block id="7458becc274c80c36e850edbc1f6337e" category="paragraph"><block ref="7458becc274c80c36e850edbc1f6337e" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="3664079914496ab0ee90209b4ace936f" category="inline-image-macro">Captura de pantalla que muestra el panel acciones después de seleccionar un entorno de trabajo de Amazon S3. El panel muestra información sobre S3: El número de bloques y los servicios disponibles.</block>
-  <block id="b9b2b40a667ab16249d63fc7e435d7f8" category="paragraph"><block ref="b9b2b40a667ab16249d63fc7e435d7f8" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="02bc515db3673d54b5989cdf43534729" category="list-text">Haga clic en *Sincronizar datos* para sincronizar datos con o desde bloques S3.</block>
-  <block id="a4fefa0676fbe2ed6dbd32159183f6d1" category="list-text">Haga clic en *Activar* si desea que Cloud Data Sense analice los cubos de S3 en busca de datos personales y confidenciales.</block>
-  <block id="c1c42f8ba1dae80cacf28e68dae0ee46" category="inline-link">Introducción a Cloud Data Sense para Amazon S3</block>
-  <block id="dea958812841439df90399efabd7d9ca" category="paragraph">Para obtener información detallada, consulte<block ref="8bc61ddf61abb52b2869fa75574cd87f" category="inline-link-rx"></block>.</block>
-  <block id="51ae836da5531e750c5dcf0f62f2dd18" category="list-text">Haga clic en *Entrar en entorno de trabajo* para ver detalles sobre los bloques S3 de su cuenta de AWS.</block>
-  <block id="9e2485669a43b6702c2aedabfee812a6" category="inline-image-macro">Una captura de pantalla que muestra los detalles de un entorno de trabajo de Amazon S3: El número total de bloques y el número total de regiones; a continuación, una tabla que muestra los detalles de cada bloque de S3.</block>
-  <block id="d6e5e99b5ad8371c45f8879b9381a020" category="paragraph"><block ref="d6e5e99b5ad8371c45f8879b9381a020" category="inline-image-macro-rx" type="image"></block></block>
   <block id="fa63e1e893cffd937dfc1bfa0546daf3" category="summary">Puede supervisar el estado de las operaciones que está realizando BlueXP para ver si hay algún problema que necesite solucionar. Puede ver el estado en el Centro de notificaciones, en la línea de tiempo o enviar notificaciones al correo electrónico.</block>
   <block id="1c7784f7c916758812d6f71e8b886a5e" category="doc">Supervisar operaciones en su cuenta</block>
   <block id="0c6abed7ba16b0c5ed00cc5dc01fbcd5" category="paragraph">Esta tabla proporciona una comparación entre el Centro de notificación y la línea de tiempo para que pueda entender lo que cada uno puede ofrecer.</block>
@@ -2837,7 +2823,6 @@
   <block id="7c584a16cbf4210dc0a344179e274e09" category="sidebar">Configuración predeterminada</block>
   <block id="4ca2c509994c2776d0880357b4e8e5be" category="sidebar">Suscripciones</block>
   <block id="fbfa85280a8f29e21ca92f023121f1b2" category="sidebar">Almacenamiento en cloud detectado</block>
-  <block id="e11597621f115e17031710501eefedbc" category="sidebar">Consulte sus bloques de Amazon S3</block>
   <block id="bce447551b8153911559a7a705721ffe" category="sidebar">Consulte sus cuentas de Azure Blob</block>
   <block id="82f74539a8232efa9fe9d44fbb820377" category="sidebar">Consulte sus cubos de Google Cloud Storage</block>
   <block id="2c4eed705dd3e0adf6e7194858d8dff7" category="sidebar">Credenciales de AWS</block>
@@ -2986,4 +2971,14 @@
   <block id="864338d2d7dc3c2738f45a0a8851b0cf" category="cell">Permite crear y gestionar máquinas virtuales</block>
   <block id="fe4ddc4ad605bbd0c66fc946f65fb17c" category="cell">Crear y administrar grupos de seguridad de red</block>
   <block id="7b82c8bb5f712b74fd5cab9947ae81fb" category="cell">Necesario para algunas implementaciones de máquinas virtuales, en función del hardware físico subyacente</block>
+  <block id="1c1b21ef0ec839f8c7f0c98a086d2319" category="doc">Gestión de bloques de Amazon S3</block>
+  <block id="93850b8e1d97181700833dcae4c7e219" category="paragraph"><block ref="93850b8e1d97181700833dcae4c7e219" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ea59f5a18533f0723be7342656f4c831" category="paragraph">Puede ver detalles sobre sus bloques de S3, incluida la región, la política de acceso, la cuenta, la capacidad total y utilizada, etc. Estos bloques se pueden usar como destinos para las operaciones Cloud Backup, Cloud Tiering o Cloud Sync. Además, puede usar Cloud Data Sense para analizar estos bloques.</block>
+  <block id="55b5b30feffe912b6e65f29c34807a28" category="inline-link">Vaya aquí para ver cómo puede ver, crear y gestionar sus buckets de S3 con BlueXP.</block>
+  <block id="bd94fd8efc4371afd7a3af9e7a08b50e" category="paragraph">Una función recién añadida ahora permite crear y editar bloques S3.<block ref="c9e42eab5c6f6e6e35f844a7123dd423" category="inline-link-rx"></block></block>
+  <block id="10a7432528d1253e1f27cd183ae759a7" category="paragraph">Si tiene cubos Amazon S3 en la misma cuenta AWS en la que creó el conector, verá que aparecerá un entorno de trabajo Amazon S3 en el lienzo automáticamente.<block ref="eb59da80ee57b828e1255dafd1c2c796" category="inline-link-rx"></block>.</block>
+  <block id="d564f41f7e0ffa3f9e8bc7a809230f94" category="list-text">El conector ahora le permite agregar y gestionar cubos de Amazon S3 desde BlueXP.</block>
+  <block id="f19dd7eba16fe45d9a801001a9371842" category="inline-link">Vea cómo añadir nuevos bloques de Amazon S3 en su cuenta de AWS desde BlueXP</block>
+  <block id="3fdb23ee61e644ed849519b472ba51ae" category="paragraph"><block ref="35aa20e861d3bf81209592fa160bd4e4" category="inline-link-rx"></block>.</block>
+  <block id="a4f513306c1a0ead14679ffb7c282460" category="sidebar">Gestione sus bloques de Amazon S3</block>
 </blocks>

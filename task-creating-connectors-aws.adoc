@@ -324,7 +324,7 @@ La instancia debe estar lista en unos 7 minutos. Debe permanecer en la página h
 
 
 .Después de terminar
-Si tiene cubos Amazon S3 en la misma cuenta AWS en la que creó el conector, verá que aparecerá un entorno de trabajo Amazon S3 en el lienzo automáticamente. link:task-viewing-amazon-s3.html["Obtenga más información sobre lo que puede hacer con este entorno de trabajo"].
+Si tiene cubos Amazon S3 en la misma cuenta AWS en la que creó el conector, verá que aparecerá un entorno de trabajo Amazon S3 en el lienzo automáticamente. https://docs.netapp.com/us-en/bluexp-s3-storage/index.html["Obtenga más información sobre lo que puede hacer con este entorno de trabajo"].
 
 
 
