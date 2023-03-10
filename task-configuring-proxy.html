@@ -1403,7 +1403,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-02-20 16:42:56 +0000">02/20/2023</time>
+    <time datetime="2023-03-10 14:26:04 +0000">03/10/2023</time>
     
   
 
@@ -1504,7 +1504,13 @@ BlueXP no admite contraseñas que incluyan el carácter @.
 <h2 id="habilite-el-tráfico-de-api-directo">Habilite el tráfico de API directo</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Si ha configurado un servidor proxy, puede enviar llamadas API directamente a BlueXP sin pasar por el proxy. Esta opción es compatible con conectores que se ejecutan en AWS, en Azure o en Google Cloud.</p>
+<p>Si ha configurado un conector para utilizar un servidor proxy, puede habilitar el tráfico API directo en el conector para enviar llamadas API directamente a servicios de proveedores de cloud sin pasar por el proxy. Esta opción es compatible con conectores que se ejecutan en AWS, en Azure o en Google Cloud.</p>
+</div>
+<div class="paragraph">
+<p>Si deshabilitó el uso de vínculos privados de Azure con Cloud Volumes ONTAP y utiliza extremos de servicio, debe habilitar el tráfico de API directo. De lo contrario, el tráfico no se enrutará correctamente.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-enabling-private-link.html">"Obtenga más información sobre el uso de un enlace privado de Azure o extremos de servicio con Cloud Volumes ONTAP"</a></p>
 </div>
 <div class="olist arabic">
 <div class="title">Pasos</div>
