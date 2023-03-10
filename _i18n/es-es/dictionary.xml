@@ -984,7 +984,6 @@
   <block id="3d069ceba6ecf8b2c1c3def00d512e45" category="list-text">Especifique un nombre de usuario y una contraseña si se requiere autenticación básica para el servidor</block>
   <block id="099fd4b1efe59a1ac46efb50c44be6fd" category="admonition">BlueXP no admite contraseñas que incluyan el carácter @.</block>
   <block id="54734e5bba3b83b2757e43d1ff24b2c4" category="section-title">Habilite el tráfico de API directo</block>
-  <block id="0e2ec8861e0eca9eed397572feaa87da" category="paragraph">Si ha configurado un servidor proxy, puede enviar llamadas API directamente a BlueXP sin pasar por el proxy. Esta opción es compatible con conectores que se ejecutan en AWS, en Azure o en Google Cloud.</block>
   <block id="a10c3460c01965af15b02ac3cd407880" category="list-text">En *General*, haga clic en *Support Direct API Traffic*.</block>
   <block id="46a12b9bf87a6fc814d2fc24ac4a41f4" category="list-text">Haga clic en la casilla de verificación para activar la opción y, a continuación, haga clic en *Guardar*.</block>
   <block id="2fc22405cb36e8596d9bdb7b52cbf10c" category="summary">Es posible que desee obtener más información sobre el conector antes de implementarlo o si necesita solucionar cualquier problema.</block>
@@ -1596,14 +1595,6 @@
   <block id="e288a6b2e6cc2fbb00bd407bda387c90" category="section-title">Permitir servicios de terceros</block>
   <block id="0d36dab0ce71c33a40b8ea4c8c773291" category="paragraph">Permita que los servicios de terceros de su cuenta tengan acceso a servicios de terceros disponibles en BlueXP. Los servicios de terceros son servicios de cloud similares a los que ofrece NetApp, pero son gestionados y respaldados por empresas terceros.</block>
   <block id="90837faa596ab1d28c90a381b6997722" category="list-text">En la ficha *Descripción general*, active la opción *permitir servicios de terceros*.</block>
-  <block id="4b52ca01dd550f3fab5c378895fbfd60" category="section-title">Desactivación de la plataforma SaaS</block>
-  <block id="fa7043a1853c2b6854490998db361dca" category="paragraph">No recomendamos desactivar la plataforma SaaS a menos que necesite para cumplir con las políticas de seguridad de su empresa. Al deshabilitar la plataforma SaaS, se limita su capacidad para usar los servicios de cloud integrados de NetApp.</block>
-  <block id="41f2e26a5f1f980cf07709ccd461458a" category="paragraph">Los siguientes servicios no están disponibles en BlueXP si deshabilita la plataforma SaaS:</block>
-  <block id="adff0cc7ebdc35c0671c2e9adb29cd98" category="paragraph">Cloud Backup es compatible en regiones gubernamentales cuando la plataforma SaaS está deshabilitada, pero no en regiones comerciales cuando la plataforma SaaS está deshabilitada</block>
-  <block id="8ea5339a59d1a6a15d2ad2629fa9dd33" category="inline-link-macro">La interfaz de usuario local que está disponible en un conector</block>
-  <block id="736683b36559de9a86788ab6e33c00d8" category="paragraph">Si deshabilita la plataforma SaaS, deberá realizar todas las tareas desde <block ref="d248ae1d8e530aaf57663e2d920abe18" category="inline-link-macro-rx"></block>.</block>
-  <block id="1ce82671debd0854eab737731870ba89" category="admonition">Esta es una acción irreversible que le impedirá utilizar la plataforma SaaS BlueXP. Deberá realizar acciones desde el conector local. No tendrá la capacidad de usar muchos de los servicios de cloud integrados de NetApp; para volver a habilitar la plataforma SaaS será necesario contar con la ayuda de soporte de NetApp.</block>
-  <block id="bd24a7e9d8368897df823b65a8960e61" category="list-text">En la ficha Descripción general, active la opción para desactivar el uso de la plataforma SaaS.</block>
   <block id="98f73dbfe3a96f8444f7cdc9589aff85" category="summary">Utilice esta lista de comprobación para comprender lo que se necesita para empezar a trabajar con BlueXP en una implementación típica en la que el conector tenga acceso saliente a Internet.</block>
   <block id="5b13c2584f8e7be6ddae81fa76b103bc" category="doc">Lista de comprobación de introducción</block>
   <block id="8d43ec09ebc46a0893f9b615666b5e58" category="list-text">Un inicio de sesión</block>
@@ -2981,4 +2972,8 @@
   <block id="f19dd7eba16fe45d9a801001a9371842" category="inline-link">Vea cómo añadir nuevos bloques de Amazon S3 en su cuenta de AWS desde BlueXP</block>
   <block id="3fdb23ee61e644ed849519b472ba51ae" category="paragraph"><block ref="35aa20e861d3bf81209592fa160bd4e4" category="inline-link-rx"></block>.</block>
   <block id="a4f513306c1a0ead14679ffb7c282460" category="sidebar">Gestione sus bloques de Amazon S3</block>
+  <block id="6282017b43dee5b3762b81c0124c425c" category="paragraph">Si ha configurado un conector para utilizar un servidor proxy, puede habilitar el tráfico API directo en el conector para enviar llamadas API directamente a servicios de proveedores de cloud sin pasar por el proxy. Esta opción es compatible con conectores que se ejecutan en AWS, en Azure o en Google Cloud.</block>
+  <block id="37bccc08c3c6cebbbf500cfe54775991" category="paragraph">Si deshabilitó el uso de vínculos privados de Azure con Cloud Volumes ONTAP y utiliza extremos de servicio, debe habilitar el tráfico de API directo. De lo contrario, el tráfico no se enrutará correctamente.</block>
+  <block id="ac10c9401f16ed5ff0a029bce2712adc" category="inline-link">Obtenga más información sobre el uso de un enlace privado de Azure o extremos de servicio con Cloud Volumes ONTAP</block>
+  <block id="bfa340d153d70df3ad6af8db39b45e8e" category="paragraph"><block ref="bfa340d153d70df3ad6af8db39b45e8e" category="inline-link-rx"></block></block>
 </blocks>
