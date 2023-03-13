@@ -67,6 +67,23 @@ https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.
 
 
 
+== Los conectores deben estar operativos en todo momento
+
+Los conectores son una parte fundamental de la arquitectura de servicios de BlueXP de NetApp. Es su responsabilidad asegurarse de que los conectores relevantes estén activos, operativos y accesibles en todo momento. Mientras que el servicio está diseñado para superar breves interrupciones de la disponibilidad del conector, debe tomar medidas inmediatas cuando sea necesario para solucionar fallos en la infraestructura.
+
+Esta documentación se rige por el EULA. Si el producto no se utiliza de acuerdo con la documentación, la funcionalidad y el funcionamiento del producto, así como los derechos del usuario final, pueden verse afectados negativamente.
+
+
+
+=== Cómo afecta la disponibilidad del conector a Cloud Volumes ONTAP
+
+Un conector es un componente clave en el estado y funcionamiento de Cloud Volumes ONTAP. Si el conector está apagado, los sistemas PAYGO de Cloud Volumes ONTAP y los sistemas BYOL basados en capacidad se apagan después de perder la comunicación con un conector durante más de 14 días. Esto sucede porque el conector actualiza las licencias del sistema cada día.
+
+
+NOTE: Si su sistema Cloud Volumes ONTAP tiene una licencia BYOL basada en nodos, el sistema seguirá ejecutándose transcurridos 14 días porque la licencia se instala en el sistema Cloud Volumes ONTAP.
+
+
+
 == Ubicaciones admitidas
 
 Se admite un conector en las siguientes ubicaciones:
@@ -89,19 +106,6 @@ Si pone en marcha el conector en Azure, debe ponerse en marcha en la misma regi�
 === Nota sobre implementaciones de Google Cloud
 
 Si desea crear un sistema Cloud Volumes ONTAP en Google Cloud, debe tener un conector que también funcione en Google Cloud. No puede utilizar un conector que se ejecute en AWS, Azure o en las instalaciones.
-
-
-
-== Los conectores deben permanecer en funcionamiento
-
-Un conector debe permanecer en funcionamiento en todo momento. Es importante para la salud y el funcionamiento continuos de los servicios que usted habilita.
-
-Por ejemplo, un conector es un componente clave en el estado y la operación de Cloud Volumes ONTAP. Si el conector está apagado, los sistemas PAYGO de Cloud Volumes ONTAP y los sistemas BYOL basados en capacidad se apagan después de perder la comunicación con un conector durante más de 14 días. Esto sucede porque el conector actualiza las licencias del sistema cada día.
-
-
-NOTE: Si su sistema Cloud Volumes ONTAP tiene una licencia BYOL basada en nodos, el sistema seguirá ejecutándose transcurridos 14 días porque la licencia se instala en el sistema Cloud Volumes ONTAP.
-
-BlueXP le notificará si su conector ha sido apagado durante 14 días o más. https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-monitor-cm-operations.html["Más información sobre las notificaciones de BlueXP"].
 
 
 
