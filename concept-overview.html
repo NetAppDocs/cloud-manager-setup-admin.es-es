@@ -1403,7 +1403,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-02-20 16:42:56 +0000">02/20/2023</time>
+    <time datetime="2023-03-13 17:55:18 +0000">03/13/2023</time>
     
   
 
@@ -1559,10 +1559,34 @@ Si trabaja en un entorno en el que no hay acceso saliente a Internet, puede inst
 <div class="sect2">
 <h3 id="conectores">Conectores</h3>
 <div class="paragraph">
-<p>En la mayoría de los casos, un administrador de cuentas de BlueXP necesitará poner en marcha un <em>Connector</em> en su red local o en la nube. Connector permite que BlueXP gestione recursos y procesos dentro de su entorno de cloud público.</p>
+<p>En la mayoría de los casos, un administrador de cuentas de BlueXP necesitará poner en marcha un <em>Connector</em> en su red local o en la nube. Connector permite que BlueXP gestione recursos y procesos dentro de su entorno de cloud público. <a href="concept-connectors.html">"Obtenga más información sobre cuándo se necesitan los conectores y cómo trabajo"</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="los-conectores-deben-estar-operativos-en-todo-momento">Los conectores deben estar operativos en todo momento</h4>
+<div class="paragraph">
+<p>Los conectores son una parte fundamental de la arquitectura de servicios de BlueXP de NetApp. Es su responsabilidad asegurarse de que los conectores relevantes estén activos, operativos y accesibles en todo momento. Mientras que el servicio está diseñado para superar breves interrupciones de la disponibilidad del conector, debe tomar medidas inmediatas cuando sea necesario para solucionar fallos en la infraestructura.</p>
 </div>
 <div class="paragraph">
-<p><a href="concept-connectors.html">"Obtenga más información sobre cuándo se necesitan los conectores y cómo trabajo"</a>.</p>
+<p>Esta documentación se rige por el EULA. Si el producto no se utiliza de acuerdo con la documentación, la funcionalidad y el funcionamiento del producto, así como los derechos del usuario final, pueden verse afectados negativamente.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cómo-afecta-la-disponibilidad-del-conector-a-cloud-volumes-ontap">Cómo afecta la disponibilidad del conector a Cloud Volumes ONTAP</h4>
+<div class="paragraph">
+<p>Un conector es un componente clave en el estado y funcionamiento de Cloud Volumes ONTAP. Si el conector está apagado, los sistemas PAYGO de Cloud Volumes ONTAP y los sistemas BYOL basados en capacidad se apagan después de perder la comunicación con un conector durante más de 14 días. Esto sucede porque el conector actualiza las licencias del sistema cada día.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/cloud-manager-setup-admin/images/note.svg" alt="Nota">
+</td>
+<td class="content">
+Si su sistema Cloud Volumes ONTAP tiene una licencia BYOL basada en nodos, el sistema seguirá ejecutándose transcurridos 14 días porque la licencia se instala en el sistema Cloud Volumes ONTAP.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
